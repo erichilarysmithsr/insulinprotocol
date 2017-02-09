@@ -1,0 +1,31 @@
+<md-toolbar color="primary" >
+	<span>Glucose control advisor</span>
+	<span class="filler"></span>
+	<i class="material-icons fright">assignment</i>
+	<i class="material-icons fright">account_circle</i>
+</md-toolbar>
+<md-input-container style="width:100%;">
+	<input md-input #searchBox type="search" (keyup)="$event.keyCode==13 && onSearch(searchBox.value)" name="search" placeholder="Search by UHID">
+</md-input-container>
+<md-card *ngFor="let patient of patients">
+	<md-menu #formList="mdMenu">
+	  <button md-menu-item (click)="showForm(patient.id,'infusion')">Insulin infusion</button>
+	  <button md-menu-item (click)="showForm(patient.id,'subcutaneous')">Subcutaneous insulin</button>
+	</md-menu>
+	<md-card-title style="cursor:pointer;">
+		<span [mdMenuTriggerFor]="formList">{{patient.name}}</span>
+		<i (click)="editPatient(patient.id)" class="material-icons fright">edit_mode</i>
+	</md-card-title>
+	<div>
+		<div class="fright halfwidth"><label>Bed Number: </label>{{patient.bednum}}</div>
+		<div class="halfwidth"><label>UHID: </label> {{patient.uhid}}</div>		
+	</div>
+</md-card>
+<div *ngIf="!patients.length" style="text-align:center;">
+	<div style="margin:2em auto;">
+		No patient found<br><br>Add a new patient to proceed	
+	</div>	
+	<div style="margin:1em auto;">
+		<button md-raised-button (click)="editPatient()">Add a patient</button>	
+	</div>	
+</div>
