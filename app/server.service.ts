@@ -11,8 +11,8 @@ import { Form } from './form';
 
 
 @Injectable() export class Server{
-	private temppatients: Patient[] = [{id:1,name:'Pravin',uhid:'MM00449713',dob:'19/09/1986',bednum:'0909'},{id:2,name:'Ashwin',uhid:'MM00449713',dob:'19/09/1986',bednum:'0909'}]
-	private withProfile: Patient = {id:3,name:'Pravin Profile',uhid:'MM00449713',dob:'19/09/1986',bednum:'0909',profile:{weight:100,preexistingDiabetes:'Yes'}};
+	private temppatients: Patient[] = [{id:1,name:'Patient 1',uhid:'MM00449710',dob:'19/09/1986',bednum:'0909'},{id:2,name:'Patient 2',uhid:'MM00449712',dob:'19/09/1986',bednum:'0909'}]
+	private withProfile: Patient = {id:3,name:'Patient 3',uhid:'MM00449713',dob:'19/09/1986',bednum:'0909',profile:{weight:100,diabetes:'Yes'}};
 	private formsStore: Form[] = []
 	getPatients(uhid? :string): Observable<Patient[]>{
 		return Observable.from(uhid?[[]]:[this.temppatients]);
