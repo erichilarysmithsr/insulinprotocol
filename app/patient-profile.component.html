@@ -1,29 +1,29 @@
-<div>
+<div style="padding:5px;">
 	<form (ngSubmit)="saveProfile()" #profileForm="ngForm" >
 		<md-input-container>
-			<input md-input type="text" name="uhid" placeholder="UHID" required [(ngModel)]="pp.patient.uhid">		
+			<input md-input type="text" name="uhid" class="medium" placeholder="UHID" required [(ngModel)]="pp.patient.uhid">		
 		</md-input-container>
 		<md-input-container>
-			<input md-input type="text" name="name" placeholder="Name" required [(ngModel)]="pp.patient.name">
+			<input md-input type="text" name="name" class="big" placeholder="Name" required [(ngModel)]="pp.patient.name">
 		</md-input-container>
 		<md-input-container>
-			<input md-input type="date" name="dob" placeholder="Date of birth" required [(ngModel)]="pp.patient.dob">
+			<input md-input type="date" name="dob" class="small" placeholder="Date of birth" required [(ngModel)]="pp.patient.dob">
 		</md-input-container>
 		<md-input-container>
-			<input md-input type="text" name="bednum" placeholder="Bed Number" required [(ngModel)]="pp.patient.bednum">
+			<input md-input type="text" name="bednum" class="small" placeholder="Bed Number" required [(ngModel)]="pp.patient.bednum">
 		</md-input-container>
 		<md-input-container>
-			<input md-input type="number" name="weight" placeholder="Weight (Kgs)" required [(ngModel)]="pp.patient.profile.weight">
-		</md-input-container>
-		<md-input-container style="width:50%;">
-			<input md-input type="number" name="preTransplantDose" placeholder="Pre-Transplant Insulin Dose (units/day)" required [(ngModel)]="pp.patient.profile.preTransplantDose">
-		</md-input-container>						
-		<md-select placeholder="Diabetes Type" name="diabetes" required [(ngModel)]="pp.patient.profile.diabetes" >
+			<input md-input type="number" name="weight" class="small" placeholder="Weight (Kgs)" required [(ngModel)]="pp.patient.profile.weight">
+		</md-input-container>								
+		<md-select placeholder="Diabetes Type" name="diabetes" class="big" required [(ngModel)]="pp.patient.profile.diabetes" >
 			<md-option value="Known Case" >Known Case</md-option>
 			<md-option value="New Onset">New Onset</md-option>
 		</md-select>
+		<md-input-container class="big">
+			<input md-input type="number" name="preTransplantDose" placeholder="Pre-Transplant Insulin Dose (units/day)" required [(ngModel)]="pp.patient.profile.preTransplantDose">
+		</md-input-container>
 		
-		<div style="text-align:center;">
+		<div style="text-align:center;margin-top:10px;">
 			<button md-raised-button type="submit" [disabled]="!profileForm.form.valid">Save</button>
 			<a md-button (click)="goBack()">Cancel</a>
 		</div>

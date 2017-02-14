@@ -11,24 +11,36 @@ import { Form } from './form';
 
 
 @Injectable() export class Server{
-	private temppatients: Patient[] = [{id:1,name:'Patient 1',uhid:'MM00449710',dob:'19/09/1986',bednum:'0909'},{id:2,name:'Patient 2',uhid:'MM00449712',dob:'19/09/1986',bednum:'0909'}]
-	private withProfile: Patient = {id:3,name:'Patient 3',uhid:'MM00449713',dob:'19/09/1986',bednum:'0909',profile:{weight:100,diabetes:'Yes'}};
-	private formsStore: Form[] = []
+	private temppatients: Patient[] = []
+	private withProfile: Patient = {id:0,name:'Patient',uhid:'MM00449713',dob:'19/09/1986',bednum:'0909',profile:{weight:100,diabetes:'Yes'}};
+	private formsStore: Form[] = [{patientId:3,type:'infusion',dt:new Date(),savedBy:{id:1,name:'Pravin'},values:{currentRate:4,modifiedRate:5,plasmaGlucose:180}}]
+	constructor(){
+		for(var i=0;i<20;i++){let n=new Patient();n.id=(i+3);n.uhid='MM004497'+(i+6);n.name='Patient '+(i+3);this.temppatients.push(n);}
+	}
 	getPatients(uhid? :string): Observable<Patient[]>{
-		return Observable.from(uhid?[[]]:[this.temppatients]);
+		if(uhid){
+			var p=this.temppatients.find(pat=>pat.uhid.toString().toLowerCase()==uhid.toString().toLowerCase());
+			return Observable.from(p?[[p]]:[[]]);
+		}else return Observable.from([this.temppatients]);
 	}
 	getProfile(id :number): Observable<Patient>{
-		this.withProfile.id=id;
-		return Observable.from([this.withProfile]);
+		let p=this.temppatients.find(p=>p.id==id)||new Patient();
+		return Observable.from([p]);
 	}
 	savePatient(patient: Patient): Observable<Patient>{
-		if(!patient.id)patient.id=Math.round(Math.random()*100);
-		this.temppatients.push(patient);
+		if(!patient.id){
+			patient.id=Math.round(Math.random()*100);
+			this.temppatients.push(patient);
+		}
 		return Observable.from([patient]);
 	}
 	saveForm(form: Form): Observable<string>{
+		form.dt=new Date();
 		this.formsStore.push(form);
 		return Observable.of('success');
+	}
+	getForms(id: number): Observable<Form[]>{
+		return Observable.from([this.formsStore.filter(form=>form.patientId==id)]);
 	}
 	private handleError (error: Response | any) {
 		// In a real world app, we might use a remote logging infrastructure

@@ -1,3 +1,4 @@
+//This service is a caching method to allow multiple components to use the same patient without requesting each time
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 

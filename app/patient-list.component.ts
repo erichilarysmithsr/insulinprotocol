@@ -19,11 +19,17 @@ import { Server } from './server.service';
 	onSearch(search: string): void{
 		this.server.getPatients(search).subscribe(patients=>this.patients=patients,error=>this.error=error);
 	}
-	editPatient(id?: number): void{
-		this.router.navigate(['patient',id||0,'profile']);
+	editPatient(id: number): void{
+		this.router.navigate(['patient',id,'profile']);
+	}
+	newPatient(uhid: string): void{
+		this.router.navigate(['patient',0,'profile'],{queryParams:{"uhid":uhid}});
 	}
 	showForm(id: number,type: string): void{
 		if(!id)return;
 		this.router.navigate(['patient',id,'form',type]);
+	}
+	formsList(id: number): void{
+		this.router.navigate(['patient',id,'forms-list']);
 	}
 }

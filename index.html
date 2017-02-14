@@ -15,12 +15,17 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
 
     <script src="systemjs.config.js"></script>
+    <script>window.module = 'aot';</script>
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
   </head>
 
   <body>
-    <my-app>Please wait while the app is loading</my-app>
+    <my-app>
+      <div class="loading">
+        Please wait while the app is being downloaded
+      </div>
+    </my-app>
   </body>
 </html>

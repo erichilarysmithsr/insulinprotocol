@@ -1,18 +1,26 @@
-body{
-  font-family:Helvetica,Arial,Sans-Serif;
-}
+html{margin:0;height:100%;width:100%;}
+body{font-family:Helvetica,Arial,Sans-Serif;margin:0;height:100%;width:100%;color:#222;}
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
 
-.mainwindow{max-width:800px;margin:0 auto;}
+.loading{font-size:20px;color:#CCC;margin-top:50px;text-align: center;}
+.nodata{color:#CCC;margin-top:5px;text-align:center;}
+.mainwindow{max-width:800px;margin:0 auto;position:relative;overflow:hidden;height:100%;}
+.topfixed{position:absolute;top:0;left:0;width:100%;z-index:10;background-color: #FFF;}
+.padded{padding:5px;}
+
 .fright{float:right;} .filler{flex:1 1 auto;}
 .full{width:100%;}
-.big{width:300px;}
-.medium{width:200px;}
-.small{width:100px;}
+.big{width:300px;margin-top:5px;}
+.medium{width:200px;margin-top:5px;}
+.small{width:100px;margin-top:5px;}
+
+.table{border-collapse: collapse;width:100%;}
+.table td,th{border:1px solid #AAA;text-align:center;}
+.table td{font-size:12px;}
 
 @font-face {
   font-family: 'Material Icons';
@@ -31,15 +39,13 @@ h1 {
   font-weight: normal;
   font-style: normal;
   font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  width : 32px;
+  padding:4px;
   line-height: 1;
   text-transform: none;
   letter-spacing: normal;
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
   /* Support for Safari and Chrome. */
