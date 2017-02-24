@@ -1,0 +1,39 @@
+<div class="padded">
+	<h3>Insulin Infusion</h3>
+	<div *ngIf="!forms.infusion?.length" class="nodata">
+		No data entered yet
+	</div>
+	<table *ngIf="forms.infusion?.length" class="table">
+		<thead>
+			<th>Date</th>
+			<th>Old Rate</th>
+			<th>New Rate</th>
+			<th>Glucose</th>
+		</thead>
+		<tr *ngFor="let form of forms.infusion">
+			<td>{{form.dt | date:'d/M HH:mm'}}</td>
+			<td>{{form.values?.currentRate}}</td>
+			<td>{{form.values?.modifiedRate}}</td>
+			<td>{{form.values?.plasmaGlucose}}</td>
+		</tr>			
+	</table>
+	
+	<h3>Subcutaneous Insulin</h3>
+	<div *ngIf="!forms.subcutaneous?.length" class="nodata">
+		No data entered yet
+	</div>
+	<table *ngIf="forms.subcutaneous?.length" class="table">
+		<thead>
+			<th>Date</th>
+			<th>Dosage Type</th>
+			<th>Glucose</th>
+		</thead>
+		<tr *ngFor="let form of forms.subcutaneous">
+			<td>{{form.dt | date:'d/M HH:mm'}}</td>
+			<td>{{form.values?.dosageType}}</td>
+			<td>{{form.values?.plasmaGlucose}}</td>			
+		</tr>			
+	</table>
+
+	<h2 style="text-align:center;">Recommendation</h2>
+</div>

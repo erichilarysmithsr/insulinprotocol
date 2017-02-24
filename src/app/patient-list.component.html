@@ -1,0 +1,40 @@
+<div class="topfixed">
+	<md-toolbar color="primary" >
+		<span>Glucose control advisor</span>
+		<span class="filler"></span>
+		<i class="material-icons">assignment</i>
+		<i class="material-icons">account_circle</i>
+	</md-toolbar>
+	<div style="padding:5px;">
+		<md-input-container style="width:100%;">
+			<input mdInput #searchBox type="search" (keyup)="$event.keyCode==13 && onSearch(searchBox.value)" name="search" placeholder="Search by UHID">
+		</md-input-container>
+	</div>
+</div>
+<div style="padding:120px 5px 0 5px;box-sizing:border-box;overflow:scroll;height:100%;">	
+	<md-card *ngFor="let patient of patients">
+		<md-menu #formList="mdMenu">
+		  <button md-menu-item (click)="showForm(patient.id,'infusion')">Insulin infusion</button>
+		  <button md-menu-item (click)="showForm(patient.id,'subcutaneous')">Subcutaneous insulin</button>
+		</md-menu>
+		<md-card-title style="cursor:pointer;">
+			<span [mdMenuTriggerFor]="formList">{{patient.name}}</span>
+			<i (click)="formsList(patient.id)" class="material-icons fright">list</i>
+			<i (click)="editPatient(patient.id)" class="material-icons fright">mode_edit</i>
+		</md-card-title>
+		
+		<div>
+			<div class="fright halfwidth"><label>Bed Number: </label>{{patient.bednum}}</div>
+			<div class="halfwidth"><label>UHID: </label> {{patient.uhid}}</div>		
+		</div>
+	</md-card>
+	<div *ngIf="!patients.length" style="text-align:center;">
+		<div style="margin:2em auto;">
+			No patient found<br><br>Add a new patient to proceed	
+		</div>	
+		<div style="margin:1em auto;">
+			<button md-raised-button (click)="newPatient(searchBox.value)">Add a patient</button>	
+		</div>	
+	</div>
+	
+</div>
