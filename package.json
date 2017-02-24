@@ -20,11 +20,15 @@
     "pretest:once": "npm run build",
     "test:once": "karma start karma.conf.js --single-run",
     "lint": "tslint ./src/**/*.ts -t verbose"
-  },
-  "keywords": [],
-  "author": "Pravin Carvalho",
-  "license": "MIT",
-  "dependencies": {
+},
+"engines": {
+    "node": "6.9.4",
+    "npm": "4.3.0"
+},
+"keywords": [],
+"author": "Pravin Carvalho",
+"license": "MIT",
+"dependencies": {
     "@angular/common": "~2.4.0",
     "@angular/compiler": "~2.4.0",
     "@angular/compiler-cli": "^2.4.7",
@@ -47,8 +51,8 @@
     "serve-favicon": "~2.3.2",
     "systemjs": "0.19.40",
     "zone.js": "^0.7.4"
-  },
-  "devDependencies": {
+},
+"devDependencies": {
     "@types/jasmine": "2.5.36",
     "@types/node": "^6.0.46",
     "canonical-path": "0.0.2",
@@ -69,6 +73,6 @@
     "rollup-plugin-uglify": "^1.0.1",
     "tslint": "^3.15.1",
     "typescript": "~2.0.10"
-  },
-  "repository": {}
+},
+"repository": {}
 }
