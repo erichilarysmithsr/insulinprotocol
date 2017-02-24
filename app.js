@@ -13,12 +13,13 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '/')));
+app.use('/node_modules',express.static(path.join(__dirname,'/node_modules/')));
+app.use(express.static(path.join(__dirname, '/src/')));
 
 app.use('/', require('./routes/index'));
 
 app.get('*',function(req, res){
-    res.sendFile(path.join(__dirname, '/index.html'));
+    res.sendFile(path.join(__dirname, '/src/index.html'));
 });
 
 // catch 404 and forward to error handler
