@@ -4,60 +4,59 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var import0 = require('../../../src/app/form.component');
-var import1 = require('@angular/core/src/linker/view');
-var import3 = require('@angular/core/src/linker/view_utils');
-var import4 = require('@angular/core/src/metadata/view');
-var import5 = require('@angular/core/src/linker/view_type');
-var import6 = require('@angular/core/src/change_detection/constants');
-var import7 = require('@angular/core/src/linker/component_factory');
-var import8 = require('../../../src/app/patient-provider.service');
-var import9 = require('@angular/router/src/router');
-var import10 = require('@angular/router/src/router_state');
-var import11 = require('@angular/common/src/location/location');
-var import12 = require('../../../src/app/server.service');
-var import13 = require('@angular/material/dialog/dialog');
-var import14 = require('../../node_modules/@angular/forms/src/directives/ng_form.ngfactory');
-var import15 = require('../../node_modules/@angular/forms/src/directives/ng_control_status.ngfactory');
-var import16 = require('@angular/material/input/input-container');
-var import17 = require('../../node_modules/@angular/material/input/input-container.ngfactory');
-var import18 = require('@angular/core/src/linker/query_list');
-var import19 = require('../../node_modules/@angular/forms/src/directives/default_value_accessor.ngfactory');
-var import20 = require('../../node_modules/@angular/forms/src/directives/number_value_accessor.ngfactory');
-var import21 = require('../../node_modules/@angular/forms/src/directives/validators.ngfactory');
-var import22 = require('../../node_modules/@angular/forms/src/directives/ng_model.ngfactory');
-var import23 = require('@angular/material/button/button');
-var import24 = require('../../node_modules/@angular/material/core/compatibility/compatibility.ngfactory');
-var import25 = require('../../node_modules/@angular/material/button/button.ngfactory');
-var import26 = require('@angular/core/src/linker/view_container');
-var import27 = require('@angular/core/src/linker/element_ref');
-var import28 = require('@angular/material/core/compatibility/compatibility');
-var import29 = require('@angular/forms/src/directives/default_value_accessor');
-var import30 = require('@angular/forms/src/directives/number_value_accessor');
-var import31 = require('@angular/forms/src/directives/validators');
-var import32 = require('@angular/forms/src/validators');
-var import33 = require('@angular/forms/src/directives/control_value_accessor');
-var import34 = require('@angular/forms/src/directives/ng_model');
-var import35 = require('@angular/forms/src/directives/ng_control');
-var import36 = require('@angular/forms/src/directives/ng_control_status');
-var import37 = require('@angular/forms/src/directives/ng_form');
-var import38 = require('@angular/forms/src/directives/control_container');
-var import39 = require('@angular/material/select/select');
-var import40 = require('../../node_modules/@angular/material/select/select.ngfactory');
-var import41 = require('@angular/material/core/option/option');
-var import42 = require('../../node_modules/@angular/material/core/option/option.ngfactory');
-var import43 = require('@angular/material/core/overlay/position/viewport-ruler');
-var import44 = require('@angular/material/core/rtl/dir');
-var import45 = require('../../node_modules/@angular/common/src/directives/ng_if.ngfactory');
-var import46 = require('@angular/core/src/linker/template_ref');
-var import47 = require('@angular/common/src/directives/ng_if');
-var Wrapper_FormComponent = (function () {
+import * as import0 from '../../../src/app/form.component';
+import * as import1 from '@angular/core/src/linker/view';
+import * as import3 from '@angular/core/src/linker/view_utils';
+import * as import4 from '@angular/core/src/metadata/view';
+import * as import5 from '@angular/core/src/linker/view_type';
+import * as import6 from '@angular/core/src/change_detection/constants';
+import * as import7 from '@angular/core/src/linker/component_factory';
+import * as import8 from '../../../src/app/patient-provider.service';
+import * as import9 from '@angular/router/src/router';
+import * as import10 from '@angular/router/src/router_state';
+import * as import11 from '@angular/common/src/location/location';
+import * as import12 from '../../../src/app/server.service';
+import * as import13 from '@angular/material/dialog/dialog';
+import * as import14 from '../../node_modules/@angular/forms/src/directives/ng_form.ngfactory';
+import * as import15 from '../../node_modules/@angular/forms/src/directives/ng_control_status.ngfactory';
+import * as import16 from '@angular/material/input/input-container';
+import * as import17 from '../../node_modules/@angular/material/input/input-container.ngfactory';
+import * as import18 from '@angular/core/src/linker/query_list';
+import * as import19 from '../../node_modules/@angular/forms/src/directives/default_value_accessor.ngfactory';
+import * as import20 from '../../node_modules/@angular/forms/src/directives/number_value_accessor.ngfactory';
+import * as import21 from '../../node_modules/@angular/forms/src/directives/validators.ngfactory';
+import * as import22 from '../../node_modules/@angular/forms/src/directives/ng_model.ngfactory';
+import * as import23 from '@angular/material/button/button';
+import * as import24 from '../../node_modules/@angular/material/core/compatibility/compatibility.ngfactory';
+import * as import25 from '../../node_modules/@angular/material/button/button.ngfactory';
+import * as import26 from '@angular/core/src/linker/view_container';
+import * as import27 from '@angular/core/src/linker/element_ref';
+import * as import28 from '@angular/material/core/compatibility/compatibility';
+import * as import29 from '@angular/forms/src/directives/default_value_accessor';
+import * as import30 from '@angular/forms/src/directives/number_value_accessor';
+import * as import31 from '@angular/forms/src/directives/validators';
+import * as import32 from '@angular/forms/src/validators';
+import * as import33 from '@angular/forms/src/directives/control_value_accessor';
+import * as import34 from '@angular/forms/src/directives/ng_model';
+import * as import35 from '@angular/forms/src/directives/ng_control';
+import * as import36 from '@angular/forms/src/directives/ng_control_status';
+import * as import37 from '@angular/forms/src/directives/ng_form';
+import * as import38 from '@angular/forms/src/directives/control_container';
+import * as import39 from '@angular/material/select/select';
+import * as import40 from '../../node_modules/@angular/material/select/select.ngfactory';
+import * as import41 from '@angular/material/core/option/option';
+import * as import42 from '../../node_modules/@angular/material/core/option/option.ngfactory';
+import * as import43 from '@angular/material/core/overlay/position/viewport-ruler';
+import * as import44 from '@angular/material/core/rtl/dir';
+import * as import45 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
+import * as import46 from '@angular/core/src/linker/template_ref';
+import * as import47 from '@angular/common/src/directives/ng_if';
+export var Wrapper_FormComponent = (function () {
     function Wrapper_FormComponent(p0, p1, p2, p3, p4, p5) {
         this._changed = false;
         this.context = new import0.FormComponent(p0, p1, p2, p3, p4, p5);
@@ -87,7 +86,6 @@ var Wrapper_FormComponent = (function () {
     };
     return Wrapper_FormComponent;
 }());
-exports.Wrapper_FormComponent = Wrapper_FormComponent;
 var renderType_FormComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_FormComponent_Host0 = (function (_super) {
     __extends(View_FormComponent_Host0, _super);
@@ -120,7 +118,7 @@ var View_FormComponent_Host0 = (function (_super) {
     };
     return View_FormComponent_Host0;
 }(import1.AppView));
-exports.FormComponentNgFactory = new import7.ComponentFactory('ng-component', View_FormComponent_Host0, import0.FormComponent);
+export var FormComponentNgFactory = new import7.ComponentFactory('ng-component', View_FormComponent_Host0, import0.FormComponent);
 var styles_FormComponent = [];
 var View_FormComponent1 = (function (_super) {
     __extends(View_FormComponent1, _super);
@@ -1275,7 +1273,7 @@ var View_FormComponent2 = (function (_super) {
     return View_FormComponent2;
 }(import1.AppView));
 var renderType_FormComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_FormComponent, {});
-var View_FormComponent0 = (function (_super) {
+export var View_FormComponent0 = (function (_super) {
     __extends(View_FormComponent0, _super);
     function View_FormComponent0(viewUtils, parentView, parentIndex, parentElement) {
         _super.call(this, View_FormComponent0, renderType_FormComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
@@ -1346,5 +1344,4 @@ var View_FormComponent0 = (function (_super) {
     };
     return View_FormComponent0;
 }(import1.AppView));
-exports.View_FormComponent0 = View_FormComponent0;
 //# sourceMappingURL=form.component.ngfactory.js.map

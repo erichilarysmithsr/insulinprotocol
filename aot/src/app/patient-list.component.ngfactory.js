@@ -4,52 +4,51 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var import0 = require('../../../src/app/patient-list.component');
-var import1 = require('@angular/core/src/linker/view');
-var import3 = require('@angular/core/src/linker/view_utils');
-var import4 = require('@angular/core/src/metadata/view');
-var import5 = require('@angular/core/src/linker/view_type');
-var import6 = require('@angular/core/src/change_detection/constants');
-var import7 = require('@angular/core/src/linker/component_factory');
-var import8 = require('../../../src/app/server.service');
-var import9 = require('@angular/router/src/router');
-var import10 = require('./patient-list.component.css.shim.ngstyle');
-var import11 = require('@angular/material/card/card');
-var import12 = require('../../node_modules/@angular/material/core/compatibility/compatibility.ngfactory');
-var import13 = require('../../node_modules/@angular/material/card/card.ngfactory');
-var import14 = require('@angular/material/menu/menu-directive');
-var import15 = require('../../node_modules/@angular/material/menu/menu-directive.ngfactory');
-var import16 = require('@angular/core/src/linker/query_list');
-var import17 = require('@angular/material/menu/menu-item');
-var import18 = require('../../node_modules/@angular/material/menu/menu-item.ngfactory');
-var import19 = require('@angular/core/src/linker/view_container');
-var import20 = require('../../node_modules/@angular/material/menu/menu-trigger.ngfactory');
-var import21 = require('@angular/core/src/change_detection/change_detection_util');
-var import22 = require('@angular/material/core/compatibility/compatibility');
-var import23 = require('@angular/core/src/linker/element_ref');
-var import24 = require('@angular/material/core/overlay/overlay');
-var import25 = require('@angular/material/core/rtl/dir');
-var import26 = require('@angular/material/menu/menu-trigger');
-var import27 = require('@angular/material/button/button');
-var import28 = require('../../node_modules/@angular/material/button/button.ngfactory');
-var import29 = require('@angular/material/toolbar/toolbar');
-var import30 = require('../../node_modules/@angular/material/toolbar/toolbar.ngfactory');
-var import31 = require('@angular/material/input/input-container');
-var import32 = require('../../node_modules/@angular/material/input/input-container.ngfactory');
-var import33 = require('../../node_modules/@angular/common/src/directives/ng_for.ngfactory');
-var import34 = require('../../node_modules/@angular/common/src/directives/ng_if.ngfactory');
-var import35 = require('@angular/forms/src/directives/ng_control');
-var import36 = require('@angular/core/src/linker/template_ref');
-var import37 = require('@angular/core/src/change_detection/differs/iterable_differs');
-var import38 = require('@angular/common/src/directives/ng_for');
-var import39 = require('@angular/common/src/directives/ng_if');
-var Wrapper_PatientListComponent = (function () {
+import * as import0 from '../../../src/app/patient-list.component';
+import * as import1 from '@angular/core/src/linker/view';
+import * as import3 from '@angular/core/src/linker/view_utils';
+import * as import4 from '@angular/core/src/metadata/view';
+import * as import5 from '@angular/core/src/linker/view_type';
+import * as import6 from '@angular/core/src/change_detection/constants';
+import * as import7 from '@angular/core/src/linker/component_factory';
+import * as import8 from '../../../src/app/server.service';
+import * as import9 from '@angular/router/src/router';
+import * as import10 from './patient-list.component.css.shim.ngstyle';
+import * as import11 from '@angular/material/card/card';
+import * as import12 from '../../node_modules/@angular/material/core/compatibility/compatibility.ngfactory';
+import * as import13 from '../../node_modules/@angular/material/card/card.ngfactory';
+import * as import14 from '@angular/material/menu/menu-directive';
+import * as import15 from '../../node_modules/@angular/material/menu/menu-directive.ngfactory';
+import * as import16 from '@angular/core/src/linker/query_list';
+import * as import17 from '@angular/material/menu/menu-item';
+import * as import18 from '../../node_modules/@angular/material/menu/menu-item.ngfactory';
+import * as import19 from '@angular/core/src/linker/view_container';
+import * as import20 from '../../node_modules/@angular/material/menu/menu-trigger.ngfactory';
+import * as import21 from '@angular/core/src/change_detection/change_detection_util';
+import * as import22 from '@angular/material/core/compatibility/compatibility';
+import * as import23 from '@angular/core/src/linker/element_ref';
+import * as import24 from '@angular/material/core/overlay/overlay';
+import * as import25 from '@angular/material/core/rtl/dir';
+import * as import26 from '@angular/material/menu/menu-trigger';
+import * as import27 from '@angular/material/button/button';
+import * as import28 from '../../node_modules/@angular/material/button/button.ngfactory';
+import * as import29 from '@angular/material/toolbar/toolbar';
+import * as import30 from '../../node_modules/@angular/material/toolbar/toolbar.ngfactory';
+import * as import31 from '@angular/material/input/input-container';
+import * as import32 from '../../node_modules/@angular/material/input/input-container.ngfactory';
+import * as import33 from '../../node_modules/@angular/common/src/directives/ng_for.ngfactory';
+import * as import34 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
+import * as import35 from '@angular/forms/src/directives/ng_control';
+import * as import36 from '@angular/core/src/linker/template_ref';
+import * as import37 from '@angular/core/src/change_detection/differs/iterable_differs';
+import * as import38 from '@angular/common/src/directives/ng_for';
+import * as import39 from '@angular/common/src/directives/ng_if';
+export var Wrapper_PatientListComponent = (function () {
     function Wrapper_PatientListComponent(p0, p1) {
         this._changed = false;
         this.context = new import0.PatientListComponent(p0, p1);
@@ -79,7 +78,6 @@ var Wrapper_PatientListComponent = (function () {
     };
     return Wrapper_PatientListComponent;
 }());
-exports.Wrapper_PatientListComponent = Wrapper_PatientListComponent;
 var renderType_PatientListComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_PatientListComponent_Host0 = (function (_super) {
     __extends(View_PatientListComponent_Host0, _super);
@@ -112,7 +110,7 @@ var View_PatientListComponent_Host0 = (function (_super) {
     };
     return View_PatientListComponent_Host0;
 }(import1.AppView));
-exports.PatientListComponentNgFactory = new import7.ComponentFactory('patient-list', View_PatientListComponent_Host0, import0.PatientListComponent);
+export var PatientListComponentNgFactory = new import7.ComponentFactory('patient-list', View_PatientListComponent_Host0, import0.PatientListComponent);
 var styles_PatientListComponent = [import10.styles];
 var View_PatientListComponent1 = (function (_super) {
     __extends(View_PatientListComponent1, _super);
@@ -488,7 +486,7 @@ var View_PatientListComponent2 = (function (_super) {
     return View_PatientListComponent2;
 }(import1.AppView));
 var renderType_PatientListComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.Emulated, styles_PatientListComponent, {});
-var View_PatientListComponent0 = (function (_super) {
+export var View_PatientListComponent0 = (function (_super) {
     __extends(View_PatientListComponent0, _super);
     function View_PatientListComponent0(viewUtils, parentView, parentIndex, parentElement) {
         _super.call(this, View_PatientListComponent0, renderType_PatientListComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
@@ -710,5 +708,4 @@ var View_PatientListComponent0 = (function (_super) {
     };
     return View_PatientListComponent0;
 }(import1.AppView));
-exports.View_PatientListComponent0 = View_PatientListComponent0;
 //# sourceMappingURL=patient-list.component.ngfactory.js.map

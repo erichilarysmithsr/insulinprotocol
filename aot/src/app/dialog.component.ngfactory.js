@@ -4,33 +4,32 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var import0 = require('../../../src/app/dialog.component');
-var import1 = require('@angular/core/src/linker/view');
-var import3 = require('@angular/core/src/linker/view_utils');
-var import4 = require('@angular/core/src/metadata/view');
-var import5 = require('@angular/core/src/linker/view_type');
-var import6 = require('@angular/core/src/change_detection/constants');
-var import7 = require('@angular/core/src/linker/component_factory');
-var import8 = require('@angular/material/button/button');
-var import9 = require('../../node_modules/@angular/material/core/compatibility/compatibility.ngfactory');
-var import10 = require('../../node_modules/@angular/material/button/button.ngfactory');
-var import11 = require('../../node_modules/@angular/material/dialog/dialog-content-directives.ngfactory');
-var import12 = require('@angular/core/src/linker/view_container');
-var import13 = require('@angular/core/src/change_detection/change_detection_util');
-var import14 = require('@angular/material/core/compatibility/compatibility');
-var import15 = require('@angular/core/src/linker/element_ref');
-var import16 = require('@angular/material/dialog/dialog-ref');
-var import17 = require('@angular/material/dialog/dialog-content-directives');
-var import18 = require('../../node_modules/@angular/common/src/directives/ng_if.ngfactory');
-var import19 = require('@angular/core/src/linker/template_ref');
-var import20 = require('@angular/common/src/directives/ng_if');
-var Wrapper_DialogDisplay = (function () {
+import * as import0 from '../../../src/app/dialog.component';
+import * as import1 from '@angular/core/src/linker/view';
+import * as import3 from '@angular/core/src/linker/view_utils';
+import * as import4 from '@angular/core/src/metadata/view';
+import * as import5 from '@angular/core/src/linker/view_type';
+import * as import6 from '@angular/core/src/change_detection/constants';
+import * as import7 from '@angular/core/src/linker/component_factory';
+import * as import8 from '@angular/material/button/button';
+import * as import9 from '../../node_modules/@angular/material/core/compatibility/compatibility.ngfactory';
+import * as import10 from '../../node_modules/@angular/material/button/button.ngfactory';
+import * as import11 from '../../node_modules/@angular/material/dialog/dialog-content-directives.ngfactory';
+import * as import12 from '@angular/core/src/linker/view_container';
+import * as import13 from '@angular/core/src/change_detection/change_detection_util';
+import * as import14 from '@angular/material/core/compatibility/compatibility';
+import * as import15 from '@angular/core/src/linker/element_ref';
+import * as import16 from '@angular/material/dialog/dialog-ref';
+import * as import17 from '@angular/material/dialog/dialog-content-directives';
+import * as import18 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
+import * as import19 from '@angular/core/src/linker/template_ref';
+import * as import20 from '@angular/common/src/directives/ng_if';
+export var Wrapper_DialogDisplay = (function () {
     function Wrapper_DialogDisplay() {
         this._changed = false;
         this.context = new import0.DialogDisplay();
@@ -55,7 +54,6 @@ var Wrapper_DialogDisplay = (function () {
     };
     return Wrapper_DialogDisplay;
 }());
-exports.Wrapper_DialogDisplay = Wrapper_DialogDisplay;
 var renderType_DialogDisplay_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_DialogDisplay_Host0 = (function (_super) {
     __extends(View_DialogDisplay_Host0, _super);
@@ -88,7 +86,7 @@ var View_DialogDisplay_Host0 = (function (_super) {
     };
     return View_DialogDisplay_Host0;
 }(import1.AppView));
-exports.DialogDisplayNgFactory = new import7.ComponentFactory('ng-component', View_DialogDisplay_Host0, import0.DialogDisplay);
+export var DialogDisplayNgFactory = new import7.ComponentFactory('ng-component', View_DialogDisplay_Host0, import0.DialogDisplay);
 var styles_DialogDisplay = [];
 var View_DialogDisplay1 = (function (_super) {
     __extends(View_DialogDisplay1, _super);
@@ -165,7 +163,7 @@ var View_DialogDisplay1 = (function (_super) {
     return View_DialogDisplay1;
 }(import1.AppView));
 var renderType_DialogDisplay = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_DialogDisplay, {});
-var View_DialogDisplay0 = (function (_super) {
+export var View_DialogDisplay0 = (function (_super) {
     __extends(View_DialogDisplay0, _super);
     function View_DialogDisplay0(viewUtils, parentView, parentIndex, parentElement) {
         _super.call(this, View_DialogDisplay0, renderType_DialogDisplay, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
@@ -274,5 +272,4 @@ var View_DialogDisplay0 = (function (_super) {
     };
     return View_DialogDisplay0;
 }(import1.AppView));
-exports.View_DialogDisplay0 = View_DialogDisplay0;
 //# sourceMappingURL=dialog.component.ngfactory.js.map

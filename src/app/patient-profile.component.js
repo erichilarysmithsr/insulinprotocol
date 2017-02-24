@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,11 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var common_1 = require('@angular/common');
-var patient_provider_service_1 = require('./patient-provider.service');
-var PatientProfileComponent = (function () {
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { PatientProvider } from './patient-provider.service';
+export var PatientProfileComponent = (function () {
     function PatientProfileComponent(pp, router, route, location) {
         this.pp = pp;
         this.router = router;
@@ -36,13 +35,12 @@ var PatientProfileComponent = (function () {
         this.router.navigate(['patient-list']);
     };
     PatientProfileComponent = __decorate([
-        core_1.Component({
+        Component({
             moduleId: module.id,
             templateUrl: 'patient-profile.component.html'
         }), 
-        __metadata('design:paramtypes', [patient_provider_service_1.PatientProvider, router_1.Router, router_1.ActivatedRoute, common_1.Location])
+        __metadata('design:paramtypes', [PatientProvider, Router, ActivatedRoute, Location])
     ], PatientProfileComponent);
     return PatientProfileComponent;
 }());
-exports.PatientProfileComponent = PatientProfileComponent;
 //# sourceMappingURL=patient-profile.component.js.map

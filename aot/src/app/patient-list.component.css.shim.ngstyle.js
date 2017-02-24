@@ -4,6 +4,5 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-"use strict";
-exports.styles = ['label[_ngcontent-%COMP%]{font-weight:bold;font-size:0.8em;}\n.fright[_ngcontent-%COMP%]{float:right;}\n.halfwidth[_ngcontent-%COMP%]{width:50%;}'];
+export var styles = ['label[_ngcontent-%COMP%]{font-weight:bold;font-size:0.8em;}\n.fright[_ngcontent-%COMP%]{float:right;}\n.halfwidth[_ngcontent-%COMP%]{width:50%;}'];
 //# sourceMappingURL=patient-list.component.css.shim.ngstyle.js.map

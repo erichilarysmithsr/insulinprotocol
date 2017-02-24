@@ -1,9 +1,7 @@
-"use strict";
-var Form = (function () {
+export var Form = (function () {
     function Form() {
         this.values = {};
     }
     return Form;
 }());
-exports.Form = Form;
 //# sourceMappingURL=form.js.map

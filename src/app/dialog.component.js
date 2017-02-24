@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,8 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var DialogComponent = (function () {
+import { Component } from '@angular/core';
+export var DialogComponent = (function () {
     function DialogComponent(dialog) {
         this.dialog = dialog;
     }
@@ -24,12 +23,11 @@ var DialogComponent = (function () {
     };
     return DialogComponent;
 }());
-exports.DialogComponent = DialogComponent;
-var DialogDisplay = (function () {
+export var DialogDisplay = (function () {
     function DialogDisplay() {
     }
     DialogDisplay = __decorate([
-        core_1.Component({
+        Component({
             moduleId: module.id,
             template: "\n\t\t<h2 md-dialog-title >{{title}}</h2>\n\t\t<md-dialog-content>{{text}}</md-dialog-content>\n\t\t<md-dialog-actions style=\"text-align:center;\">\n\t\t\t<button md-button md-dialog-close *ngIf=\"close\">{{close}}</button>\n\t\t</md-dialog-actions>\t\n\t\t"
         }), 
@@ -37,5 +35,4 @@ var DialogDisplay = (function () {
     ], DialogDisplay);
     return DialogDisplay;
 }());
-exports.DialogDisplay = DialogDisplay;
 //# sourceMappingURL=dialog.component.js.map

@@ -4,20 +4,19 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var import0 = require('../../../src/app/page-not-found.component');
-var import1 = require('@angular/core/src/linker/view');
-var import3 = require('@angular/core/src/linker/view_utils');
-var import4 = require('@angular/core/src/metadata/view');
-var import5 = require('@angular/core/src/linker/view_type');
-var import6 = require('@angular/core/src/change_detection/constants');
-var import7 = require('@angular/core/src/linker/component_factory');
-var Wrapper_PageNotFoundComponent = (function () {
+import * as import0 from '../../../src/app/page-not-found.component';
+import * as import1 from '@angular/core/src/linker/view';
+import * as import3 from '@angular/core/src/linker/view_utils';
+import * as import4 from '@angular/core/src/metadata/view';
+import * as import5 from '@angular/core/src/linker/view_type';
+import * as import6 from '@angular/core/src/change_detection/constants';
+import * as import7 from '@angular/core/src/linker/component_factory';
+export var Wrapper_PageNotFoundComponent = (function () {
     function Wrapper_PageNotFoundComponent() {
         this._changed = false;
         this.context = new import0.PageNotFoundComponent();
@@ -42,7 +41,6 @@ var Wrapper_PageNotFoundComponent = (function () {
     };
     return Wrapper_PageNotFoundComponent;
 }());
-exports.Wrapper_PageNotFoundComponent = Wrapper_PageNotFoundComponent;
 var renderType_PageNotFoundComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_PageNotFoundComponent_Host0 = (function (_super) {
     __extends(View_PageNotFoundComponent_Host0, _super);
@@ -75,10 +73,10 @@ var View_PageNotFoundComponent_Host0 = (function (_super) {
     };
     return View_PageNotFoundComponent_Host0;
 }(import1.AppView));
-exports.PageNotFoundComponentNgFactory = new import7.ComponentFactory('ng-component', View_PageNotFoundComponent_Host0, import0.PageNotFoundComponent);
+export var PageNotFoundComponentNgFactory = new import7.ComponentFactory('ng-component', View_PageNotFoundComponent_Host0, import0.PageNotFoundComponent);
 var styles_PageNotFoundComponent = [];
 var renderType_PageNotFoundComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_PageNotFoundComponent, {});
-var View_PageNotFoundComponent0 = (function (_super) {
+export var View_PageNotFoundComponent0 = (function (_super) {
     __extends(View_PageNotFoundComponent0, _super);
     function View_PageNotFoundComponent0(viewUtils, parentView, parentIndex, parentElement) {
         _super.call(this, View_PageNotFoundComponent0, renderType_PageNotFoundComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
@@ -95,5 +93,4 @@ var View_PageNotFoundComponent0 = (function (_super) {
     };
     return View_PageNotFoundComponent0;
 }(import1.AppView));
-exports.View_PageNotFoundComponent0 = View_PageNotFoundComponent0;
 //# sourceMappingURL=page-not-found.component.ngfactory.js.map
