@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var app = express();
-
+console.log('dir',__dirname);
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 // app.use(logger('dev'));
@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, '/src/')));
 app.use('/', require('./routes/index'));
 
 app.get('*',function(req, res){
+    console.log('dir',__dirname);
     res.sendFile(path.join(__dirname, '/src/index.html'));
 });
 
