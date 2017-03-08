@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,57 +8,49 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Injectable } from '@angular/core';
-import { Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/from';
-import { Patient } from './patient';
-export var Server = (function () {
-    function Server() {
-        this.temppatients = [];
-        this.withProfile = { id: 0, name: 'Patient', uhid: 'MM00449713', dob: '19/09/1986', bednum: '0909', profile: { weight: 100, diabetes: 'Yes' } };
-        this.formsStore = [{ patientId: 3, type: 'infusion', dt: new Date(), savedBy: { id: 1, name: 'Pravin' }, values: { currentRate: 4, modifiedRate: 5, plasmaGlucose: 180 } }];
-        for (var i = 0; i < 20; i++) {
-            var n = new Patient();
-            n.id = (i + 3);
-            n.uhid = 'MM004497' + (i + 6);
-            n.name = 'Patient ' + (i + 3);
-            this.temppatients.push(n);
-        }
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
+require("rxjs/add/observable/from");
+var Server = (function () {
+    function Server(http) {
+        var _this = this;
+        this.http = http;
+        this.dataUrl = '/data/';
+        this.parseBody = function (res) {
+            if (res.text() == 'fail')
+                _this.handleError('Server Internal Error');
+            return res.text() == 'success' ? 'success' : (res.json() || {});
+        };
     }
     Server.prototype.getPatients = function (uhid) {
-        if (uhid) {
-            var p = this.temppatients.find(function (pat) { return pat.uhid.toString().toLowerCase() == uhid.toString().toLowerCase(); });
-            return Observable.from(p ? [[p]] : [[]]);
-        }
-        else
-            return Observable.from([this.temppatients]);
+        return this.http.post(this.dataUrl + 'getPatients', uhid).map(this.parseBody).catch(this.handleError);
     };
     Server.prototype.getProfile = function (id) {
-        var p = this.temppatients.find(function (p) { return p.id == id; }) || new Patient();
-        return Observable.from([p]);
+        return this.http.post(this.dataUrl + 'getProfile', id).map(this.parseBody).catch(this.handleError);
     };
     Server.prototype.savePatient = function (patient) {
-        if (!patient.id) {
-            patient.id = Math.round(Math.random() * 100);
-            this.temppatients.push(patient);
-        }
-        return Observable.from([patient]);
+        return this.http.post(this.dataUrl + 'savePatient', patient).map(this.parseBody).catch(this.handleError);
     };
     Server.prototype.saveForm = function (form) {
-        form.dt = new Date();
-        this.formsStore.push(form);
-        return Observable.of('success');
+        return this.http.post(this.dataUrl + 'saveForm', form).map(this.parseBody).catch(this.handleError);
     };
-    Server.prototype.getForms = function (id) {
-        return Observable.from([this.formsStore.filter(function (form) { return form.patientId == id; })]);
+    Server.prototype.getForms = function (patientid) {
+        return this.http.post(this.dataUrl + 'getForms', patientid).map(this.parseBody).catch(this.handleError);
+    };
+    Server.prototype.getProtocol = function (type) {
+        return this.http.post(this.dataUrl + 'getProtocol', type).map(this.parseBody).catch(this.handleError);
+    };
+    Server.prototype.saveProtocol = function (protocol) {
+        return this.http.post(this.dataUrl + 'saveProtocol', protocol).map(this.parseBody).catch(this.handleError);
     };
     Server.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         var errMsg;
-        if (error instanceof Response) {
+        if (error instanceof http_1.Response) {
             var body = error.json() || '';
             var err = body.error || JSON.stringify(body);
             errMsg = error.status + " - " + (error.statusText || '') + " " + err;
@@ -66,12 +59,13 @@ export var Server = (function () {
             errMsg = error.message ? error.message : error.toString();
         }
         console.error(errMsg);
-        return Observable.throw(errMsg);
+        return Observable_1.Observable.throw(errMsg);
     };
-    Server = __decorate([
-        Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], Server);
     return Server;
 }());
+Server = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], Server);
+exports.Server = Server;
 //# sourceMappingURL=server.service.js.map

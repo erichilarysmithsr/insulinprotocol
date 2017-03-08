@@ -28,7 +28,7 @@
 			<div class="halfwidth"><label>UHID: </label> {{patient.uhid}}</div>		
 		</div>
 	</md-card>
-	<div *ngIf="!patients.length" style="text-align:center;">
+	<div *ngIf="!patients || !patients.length" style="text-align:center;">
 		<div style="margin:2em auto;">
 			No patient found<br><br>Add a new patient to proceed	
 		</div>	

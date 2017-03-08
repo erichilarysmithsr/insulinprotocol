@@ -4,11 +4,16 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 import * as import0 from '../../../src/app/form.component';
 import * as import1 from '@angular/core/src/linker/view';
 import * as import3 from '@angular/core/src/linker/view_utils';
@@ -56,7 +61,7 @@ import * as import44 from '@angular/material/core/rtl/dir';
 import * as import45 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
 import * as import46 from '@angular/core/src/linker/template_ref';
 import * as import47 from '@angular/common/src/directives/ng_if';
-export var Wrapper_FormComponent = (function () {
+var Wrapper_FormComponent = (function () {
     function Wrapper_FormComponent(p0, p1, p2, p3, p4, p5) {
         this._changed = false;
         this.context = new import0.FormComponent(p0, p1, p2, p3, p4, p5);
@@ -86,11 +91,12 @@ export var Wrapper_FormComponent = (function () {
     };
     return Wrapper_FormComponent;
 }());
+export { Wrapper_FormComponent };
 var renderType_FormComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_FormComponent_Host0 = (function (_super) {
     __extends(View_FormComponent_Host0, _super);
     function View_FormComponent_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_FormComponent_Host0, renderType_FormComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_FormComponent_Host0, renderType_FormComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_FormComponent_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
@@ -123,7 +129,7 @@ var styles_FormComponent = [];
 var View_FormComponent1 = (function (_super) {
     __extends(View_FormComponent1, _super);
     function View_FormComponent1(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_FormComponent1, renderType_FormComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
+        return _super.call(this, View_FormComponent1, renderType_FormComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
     }
     View_FormComponent1.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'div', import3.EMPTY_INLINE_ARRAY, null);
@@ -429,7 +435,7 @@ var View_FormComponent1 = (function (_super) {
         this._RequiredValidator_6_5.ngDoCheck(this, this._el_6, throwOnChange);
         var currVal_6_3_0 = 'currentRate';
         this._NgModel_6_8.check_name(currVal_6_3_0, throwOnChange, false);
-        var currVal_6_3_1 = this.parentView.context.form.values.currentRate;
+        var currVal_6_3_1 = this.parentView.context.form.data.currentRate;
         this._NgModel_6_8.check_model(currVal_6_3_1, throwOnChange, false);
         this._NgModel_6_8.ngDoCheck(this, this._el_6, throwOnChange);
         this._NgControlStatus_6_10.ngDoCheck(this, this._el_6, throwOnChange);
@@ -448,7 +454,7 @@ var View_FormComponent1 = (function (_super) {
         this._RequiredValidator_13_5.ngDoCheck(this, this._el_13, throwOnChange);
         var currVal_13_3_0 = 'plasmaGlucose';
         this._NgModel_13_8.check_name(currVal_13_3_0, throwOnChange, false);
-        var currVal_13_3_1 = this.parentView.context.form.values.plasmaGlucose;
+        var currVal_13_3_1 = this.parentView.context.form.data.plasmaGlucose;
         this._NgModel_13_8.check_model(currVal_13_3_1, throwOnChange, false);
         this._NgModel_13_8.ngDoCheck(this, this._el_13, throwOnChange);
         this._NgControlStatus_13_10.ngDoCheck(this, this._el_13, throwOnChange);
@@ -467,7 +473,7 @@ var View_FormComponent1 = (function (_super) {
         this._RequiredValidator_20_5.ngDoCheck(this, this._el_20, throwOnChange);
         var currVal_20_3_0 = 'modifiedRate';
         this._NgModel_20_8.check_name(currVal_20_3_0, throwOnChange, false);
-        var currVal_20_3_1 = this.parentView.context.form.values.modifiedRate;
+        var currVal_20_3_1 = this.parentView.context.form.data.modifiedRate;
         this._NgModel_20_8.check_model(currVal_20_3_1, throwOnChange, false);
         this._NgModel_20_8.ngDoCheck(this, this._el_20, throwOnChange);
         this._NgControlStatus_20_10.ngDoCheck(this, this._el_20, throwOnChange);
@@ -612,7 +618,7 @@ var View_FormComponent1 = (function (_super) {
         result = (this._NumberValueAccessor_6_4.handleEvent(eventName, $event) && result);
         result = (this._MdInputDirective_6_11.handleEvent(eventName, $event) && result);
         if ((eventName == 'ngModelChange')) {
-            var pd_sub_0 = ((this.parentView.context.form.values.currentRate = $event) !== false);
+            var pd_sub_0 = ((this.parentView.context.form.data.currentRate = $event) !== false);
             result = (pd_sub_0 && result);
         }
         return result;
@@ -630,7 +636,7 @@ var View_FormComponent1 = (function (_super) {
         result = (this._NumberValueAccessor_13_4.handleEvent(eventName, $event) && result);
         result = (this._MdInputDirective_13_11.handleEvent(eventName, $event) && result);
         if ((eventName == 'ngModelChange')) {
-            var pd_sub_0 = ((this.parentView.context.form.values.plasmaGlucose = $event) !== false);
+            var pd_sub_0 = ((this.parentView.context.form.data.plasmaGlucose = $event) !== false);
             result = (pd_sub_0 && result);
         }
         return result;
@@ -648,7 +654,7 @@ var View_FormComponent1 = (function (_super) {
         result = (this._NumberValueAccessor_20_4.handleEvent(eventName, $event) && result);
         result = (this._MdInputDirective_20_11.handleEvent(eventName, $event) && result);
         if ((eventName == 'ngModelChange')) {
-            var pd_sub_0 = ((this.parentView.context.form.values.modifiedRate = $event) !== false);
+            var pd_sub_0 = ((this.parentView.context.form.data.modifiedRate = $event) !== false);
             result = (pd_sub_0 && result);
         }
         return result;
@@ -674,7 +680,7 @@ var View_FormComponent1 = (function (_super) {
 var View_FormComponent2 = (function (_super) {
     __extends(View_FormComponent2, _super);
     function View_FormComponent2(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_FormComponent2, renderType_FormComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
+        return _super.call(this, View_FormComponent2, renderType_FormComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
     }
     View_FormComponent2.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'div', import3.EMPTY_INLINE_ARRAY, null);
@@ -987,7 +993,7 @@ var View_FormComponent2 = (function (_super) {
         this._RequiredValidator_4_3.ngDoCheck(this, this._el_4, throwOnChange);
         var currVal_4_1_0 = 'diabetes';
         this._NgModel_4_5.check_name(currVal_4_1_0, throwOnChange, false);
-        var currVal_4_1_1 = this.parentView.context.form.values.dosageType;
+        var currVal_4_1_1 = this.parentView.context.form.data.dosageType;
         this._NgModel_4_5.check_model(currVal_4_1_1, throwOnChange, false);
         this._NgModel_4_5.ngDoCheck(this, this._el_4, throwOnChange);
         this._NgControlStatus_4_7.ngDoCheck(this, this._el_4, throwOnChange);
@@ -1029,7 +1035,7 @@ var View_FormComponent2 = (function (_super) {
         this._RequiredValidator_29_5.ngDoCheck(this, this._el_29, throwOnChange);
         var currVal_29_3_0 = 'plasmaGlucose';
         this._NgModel_29_8.check_name(currVal_29_3_0, throwOnChange, false);
-        var currVal_29_3_1 = this.parentView.context.form.values.plasmaGlucose;
+        var currVal_29_3_1 = this.parentView.context.form.data.plasmaGlucose;
         this._NgModel_29_8.check_model(currVal_29_3_1, throwOnChange, false);
         this._NgModel_29_8.ngDoCheck(this, this._el_29, throwOnChange);
         this._NgControlStatus_29_10.ngDoCheck(this, this._el_29, throwOnChange);
@@ -1195,7 +1201,7 @@ var View_FormComponent2 = (function (_super) {
         var result = true;
         result = (this._MdSelect_4_9.handleEvent(eventName, $event) && result);
         if ((eventName == 'ngModelChange')) {
-            var pd_sub_0 = ((this.parentView.context.form.values.dosageType = $event) !== false);
+            var pd_sub_0 = ((this.parentView.context.form.data.dosageType = $event) !== false);
             result = (pd_sub_0 && result);
         }
         return result;
@@ -1249,7 +1255,7 @@ var View_FormComponent2 = (function (_super) {
         result = (this._NumberValueAccessor_29_4.handleEvent(eventName, $event) && result);
         result = (this._MdInputDirective_29_11.handleEvent(eventName, $event) && result);
         if ((eventName == 'ngModelChange')) {
-            var pd_sub_0 = ((this.parentView.context.form.values.plasmaGlucose = $event) !== false);
+            var pd_sub_0 = ((this.parentView.context.form.data.plasmaGlucose = $event) !== false);
             result = (pd_sub_0 && result);
         }
         return result;
@@ -1273,10 +1279,10 @@ var View_FormComponent2 = (function (_super) {
     return View_FormComponent2;
 }(import1.AppView));
 var renderType_FormComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_FormComponent, {});
-export var View_FormComponent0 = (function (_super) {
+var View_FormComponent0 = (function (_super) {
     __extends(View_FormComponent0, _super);
     function View_FormComponent0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_FormComponent0, renderType_FormComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_FormComponent0, renderType_FormComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_FormComponent0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
@@ -1344,4 +1350,5 @@ export var View_FormComponent0 = (function (_super) {
     };
     return View_FormComponent0;
 }(import1.AppView));
+export { View_FormComponent0 };
 //# sourceMappingURL=form.component.ngfactory.js.map

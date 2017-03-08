@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Insulin Procotol - Clinical Decision Support Tool",
   "scripts": {
-    "start": "node bin/www",
-    "build": "tsc -p src/",
-    "build:watch": "tsc -p src/ -w",
+    "start": "node node/www",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json -w",
     "build:e2e": "tsc -p e2e/",
     "build:aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js",
     "prestart_backup": "npm run build",
-    "dev": "concurrently \"npm run build:watch\" \"npm start\"",
-    "dev:aot": "npm run build:aot && NODE_ENV=production node bin/www",
+    "dev": "concurrently \"npm run build:watch\" \"DEBUG=default DATABASE_URL=postgres://dbmanager:secret@localhost:5432/insulindb forever -w --watchDirectory=node node/www\"",
+    "dev:aot": "DATABASE_URL=postgres://dbmanager:secret@localhost:5432/insulindb NODE_ENV=production node node/www",
     "pree2e": "npm run build:e2e",
     "e2e": "concurrently \"npm run serve:e2e\" \"npm run protractor\" --kill-others --success first",
     "preprotractor": "webdriver-manager update",
@@ -25,6 +25,9 @@
   "engines": {
     "node": "6.9.4",
     "npm": "4.3.0"
+  },
+  "jshintConfig": {
+    "esversion": 6
   },
   "keywords": [],
   "author": "Pravin Carvalho",
@@ -45,9 +48,11 @@
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "core-js": "^2.4.1",
+    "date-and-time": "^0.4.0",
     "debug": "^2.6.1",
     "express": "~4.14.1",
     "morgan": "~1.7.0",
+    "pg-promise": "^5.6.2",
     "rxjs": "5.0.1",
     "serve-favicon": "~2.3.2",
     "systemjs": "0.19.40",
@@ -60,6 +65,7 @@
     "canonical-path": "0.0.2",
     "concurrently": "^3.2.0",
     "connect-browser-sync": "^2.1.0",
+    "forever": "^0.15.3",
     "jasmine-core": "~2.4.1",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
@@ -74,7 +80,7 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
     "tslint": "^3.15.1",
-    "typescript": "~2.0.10"
+    "typescript": "^2.1"
   },
   "repository": {}
 }

@@ -1,0 +1,57 @@
+<div class="topfixed">
+	<md-toolbar color="primary" >
+		<span>Manage Protocol</span>
+		<span class="filler"></span>
+		<i class="material-icons">account_circle</i>
+	</md-toolbar>
+	<div style="padding:0 5px;">
+		<div style="width:100%;">
+			<span>Edit Protocol:</span>
+			<md-select name="type" required [(ngModel)]="type" class="big" (change)="getProtocol()">
+				<md-option value="subcutaneous" >Subcutaneous Insulin</md-option>
+				<md-option value="infusion" >Insulin Infusion</md-option>
+			</md-select>
+		</div>		
+	</div>
+</div>
+<div style="padding:100px 5px 0 5px;box-sizing:border-box;overflow:scroll;height:100%;">
+	<md-spinner *ngIf="!protocol" class="spinner"></md-spinner>
+	<form (ngSubmit)="saveProtocol()" #protocolForm="ngForm" >
+		<div *ngIf="protocol">
+			<div *ngIf="type=='subcutaneous'">		
+				<table class="table">
+					<thead>
+						<th *ngFor="let col of config[type]">{{col.t}}</th>
+					</thead>
+					<tr *ngFor="let row of protocol?.data?.chart;let i = index;">
+						<td *ngFor="let col of config[type];let j = index;">
+							<md-input-container *ngIf="col.type">
+								<input mdInput [type]="col.type" [name]="i+j"  required [(ngModel)]="row[col.k]" class="centered">
+							</md-input-container>
+							<span *ngIf="!col.type">{{row[col.k]}}</span>			
+						</td>
+					</tr>
+				</table>		
+			</div>
+			<div *ngIf="type=='infusion'">
+				<table class="table">
+					<thead>
+						<th *ngFor="let col of config[type]">{{col.t}}</th>
+					</thead>
+					<tr *ngFor="let row of protocol?.data?.chart; let i = index; ">
+						<td *ngFor="let col of config[type]; let j = index;">
+							<md-input-container *ngIf="col.type">
+								<input mdInput [type]="col.type" [name]="i+j" required [(ngModel)]="row[col.k]" class="centered">
+							</md-input-container>
+							<span *ngIf="!col.type">{{row[col.k]}}</span>			
+						</td>
+					</tr>
+				</table>		
+			</div>
+			<div style="text-align:center;margin-top:10px;">
+				<button md-raised-button type="submit" [disabled]="!protocolForm.form.valid">Save</button>
+				<a md-button (click)="getProtocol()">Cancel</a>
+			</div>	
+		</div>		
+	</form>
+</div>

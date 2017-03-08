@@ -5,22 +5,19 @@ import { Location } from '@angular/common';
 import { PatientProvider } from './patient-provider.service';
 import { Form } from './form';
 import { Server } from './server.service';
-import { MdDialog, MdDialogRef } from '@angular/material';
-import { DialogComponent } from './dialog.component';
+
+import { DialogService } from './dialog.service';
 
 @Component({
 	moduleId:module.id,
 	templateUrl:'form.component.html'
 })export class FormComponent{
-	private error: any
-	public type: string
+	error: any
 	form = new Form()
-	private values: Object = {}
-	private patientId: number
-	private diag = new DialogComponent(this.dialog);
-	constructor(public pp: PatientProvider, private router: Router,private route: ActivatedRoute,private location: Location,private server: Server,private dialog: MdDialog){
-
-	}
+	data: Object = {}
+	patientId: number
+	public type: string
+	constructor(public pp: PatientProvider, private router: Router,private route: ActivatedRoute,private location: Location,private server: Server,private dialog: DialogService){}
 	ngOnInit(): void{
 		this.patientId=+this.route.snapshot.params['id'];if(!this.patientId)return;
 		this.pp.getPatient(this.patientId).subscribe();
@@ -29,7 +26,7 @@ import { DialogComponent } from './dialog.component';
 	saveForm(): void{
 		this.form.patientId=this.patientId;this.form.type=this.type;
 		this.server.saveForm(this.form).subscribe(()=>{
-			let diag=this.diag.show('Saved','The form submitted has been successfully saved.',[],'Close');
+			let diag=this.dialog.show('Saved','The form submitted has been successfully saved.',[],'Close');
 			diag.afterClosed().subscribe(()=>this.router.navigate(['patient-list']));
 		});		
 	}

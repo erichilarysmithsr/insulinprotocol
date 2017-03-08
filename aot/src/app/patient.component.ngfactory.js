@@ -4,11 +4,16 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 import * as import0 from '../../../src/app/patient.component';
 import * as import1 from '@angular/core/src/linker/view';
 import * as import3 from '@angular/core/src/linker/view_utils';
@@ -30,7 +35,7 @@ import * as import18 from '@angular/core/src/linker/element_ref';
 import * as import19 from '@angular/router/src/router_outlet_map';
 import * as import20 from '@angular/core/src/linker/component_factory_resolver';
 import * as import21 from '@angular/router/src/directives/router_outlet';
-export var Wrapper_PatientComponent = (function () {
+var Wrapper_PatientComponent = (function () {
     function Wrapper_PatientComponent(p0, p1) {
         this._changed = false;
         this.context = new import0.PatientComponent(p0, p1);
@@ -60,11 +65,12 @@ export var Wrapper_PatientComponent = (function () {
     };
     return Wrapper_PatientComponent;
 }());
+export { Wrapper_PatientComponent };
 var renderType_PatientComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_PatientComponent_Host0 = (function (_super) {
     __extends(View_PatientComponent_Host0, _super);
     function View_PatientComponent_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PatientComponent_Host0, renderType_PatientComponent_Host, import6.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import7.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_PatientComponent_Host0, renderType_PatientComponent_Host, import6.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import7.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_PatientComponent_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
@@ -99,11 +105,12 @@ var View_PatientComponent_Host0 = (function (_super) {
 export var PatientComponentNgFactory = new import8.ComponentFactory('ng-component', View_PatientComponent_Host0, import0.PatientComponent);
 var styles_PatientComponent = [];
 var renderType_PatientComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_PatientComponent, {});
-export var View_PatientComponent0 = (function (_super) {
+var View_PatientComponent0 = (function (_super) {
     __extends(View_PatientComponent0, _super);
     function View_PatientComponent0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PatientComponent0, renderType_PatientComponent, import6.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import7.ChangeDetectorStatus.CheckAlways);
-        this._expr_14 = import16.UNINITIALIZED;
+        var _this = _super.call(this, View_PatientComponent0, renderType_PatientComponent, import6.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import7.ChangeDetectorStatus.CheckAlways) || this;
+        _this._expr_14 = import16.UNINITIALIZED;
+        return _this;
     }
     View_PatientComponent0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
@@ -179,4 +186,5 @@ export var View_PatientComponent0 = (function (_super) {
     };
     return View_PatientComponent0;
 }(import1.AppView));
+export { View_PatientComponent0 };
 //# sourceMappingURL=patient.component.ngfactory.js.map

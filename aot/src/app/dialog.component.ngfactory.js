@@ -4,11 +4,16 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 import * as import0 from '../../../src/app/dialog.component';
 import * as import1 from '@angular/core/src/linker/view';
 import * as import3 from '@angular/core/src/linker/view_utils';
@@ -29,7 +34,7 @@ import * as import17 from '@angular/material/dialog/dialog-content-directives';
 import * as import18 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
 import * as import19 from '@angular/core/src/linker/template_ref';
 import * as import20 from '@angular/common/src/directives/ng_if';
-export var Wrapper_DialogDisplay = (function () {
+var Wrapper_DialogDisplay = (function () {
     function Wrapper_DialogDisplay() {
         this._changed = false;
         this.context = new import0.DialogDisplay();
@@ -54,11 +59,12 @@ export var Wrapper_DialogDisplay = (function () {
     };
     return Wrapper_DialogDisplay;
 }());
+export { Wrapper_DialogDisplay };
 var renderType_DialogDisplay_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_DialogDisplay_Host0 = (function (_super) {
     __extends(View_DialogDisplay_Host0, _super);
     function View_DialogDisplay_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_DialogDisplay_Host0, renderType_DialogDisplay_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_DialogDisplay_Host0, renderType_DialogDisplay_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_DialogDisplay_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
@@ -91,8 +97,9 @@ var styles_DialogDisplay = [];
 var View_DialogDisplay1 = (function (_super) {
     __extends(View_DialogDisplay1, _super);
     function View_DialogDisplay1(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_DialogDisplay1, renderType_DialogDisplay, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
-        this._expr_7 = import13.UNINITIALIZED;
+        var _this = _super.call(this, View_DialogDisplay1, renderType_DialogDisplay, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
+        _this._expr_7 = import13.UNINITIALIZED;
+        return _this;
     }
     View_DialogDisplay1.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'button', new import3.InlineArray8(6, 'md-button', '', 'md-dialog-close', '', 'type', 'button'), null);
@@ -163,12 +170,13 @@ var View_DialogDisplay1 = (function (_super) {
     return View_DialogDisplay1;
 }(import1.AppView));
 var renderType_DialogDisplay = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_DialogDisplay, {});
-export var View_DialogDisplay0 = (function (_super) {
+var View_DialogDisplay0 = (function (_super) {
     __extends(View_DialogDisplay0, _super);
     function View_DialogDisplay0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_DialogDisplay0, renderType_DialogDisplay, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
-        this._expr_21 = import13.UNINITIALIZED;
-        this._expr_22 = import13.UNINITIALIZED;
+        var _this = _super.call(this, View_DialogDisplay0, renderType_DialogDisplay, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
+        _this._expr_21 = import13.UNINITIALIZED;
+        _this._expr_22 = import13.UNINITIALIZED;
+        return _this;
     }
     View_DialogDisplay0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
@@ -272,4 +280,5 @@ export var View_DialogDisplay0 = (function (_super) {
     };
     return View_DialogDisplay0;
 }(import1.AppView));
+export { View_DialogDisplay0 };
 //# sourceMappingURL=dialog.component.ngfactory.js.map

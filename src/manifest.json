@@ -1,0 +1,25 @@
+{
+  "short_name": "GlucoseAdvisor",
+  "name": "Glucose Control Advisor for nurses/doctors",
+  "icons": [
+    {
+      "src": "icon/drawable-mdpi/ic_launcher.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "icon/drawable-xhdpi/ic_launcher.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "icon/drawable-xxxhdpi/ic_launcher.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/?launcher=true",
+  "background_color":"#3f51b5",
+  "theme_color":"#3f51b5",
+  "display": "standalone"
+}

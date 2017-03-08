@@ -539,7 +539,7 @@ class AppModuleInjector extends import0.NgModuleInjector<import1.AppModule> {
     return this.__APP_BOOTSTRAP_LISTENER_108;
   }
   get _Server_109():import74.Server {
-    if ((this.__Server_109 == null)) { (this.__Server_109 = new import74.Server()); }
+    if ((this.__Server_109 == null)) { (this.__Server_109 = new import74.Server(this._Http_90)); }
     return this.__Server_109;
   }
   createInternal():import1.AppModule {

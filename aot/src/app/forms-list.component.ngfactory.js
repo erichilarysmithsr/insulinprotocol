@@ -4,11 +4,16 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 import * as import0 from '../../../src/app/forms-list.component';
 import * as import1 from '@angular/core/src/linker/view';
 import * as import3 from '@angular/core/src/linker/view_utils';
@@ -29,7 +34,7 @@ import * as import17 from '../../node_modules/@angular/common/src/directives/ng_
 import * as import18 from '@angular/common/src/pipes/date_pipe';
 import * as import19 from '@angular/core/src/i18n/tokens';
 import * as import20 from '@angular/common/src/directives/ng_if';
-export var Wrapper_FormsListComponent = (function () {
+var Wrapper_FormsListComponent = (function () {
     function Wrapper_FormsListComponent(p0, p1, p2) {
         this._changed = false;
         this.context = new import0.FormsListComponent(p0, p1, p2);
@@ -59,11 +64,12 @@ export var Wrapper_FormsListComponent = (function () {
     };
     return Wrapper_FormsListComponent;
 }());
+export { Wrapper_FormsListComponent };
 var renderType_FormsListComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_FormsListComponent_Host0 = (function (_super) {
     __extends(View_FormsListComponent_Host0, _super);
     function View_FormsListComponent_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_FormsListComponent_Host0, renderType_FormsListComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_FormsListComponent_Host0, renderType_FormsListComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_FormsListComponent_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
@@ -96,7 +102,7 @@ var styles_FormsListComponent = [];
 var View_FormsListComponent1 = (function (_super) {
     __extends(View_FormsListComponent1, _super);
     function View_FormsListComponent1(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_FormsListComponent1, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
+        return _super.call(this, View_FormsListComponent1, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
     }
     View_FormsListComponent1.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'div', new import3.InlineArray2(2, 'class', 'nodata'), null);
@@ -115,11 +121,12 @@ var View_FormsListComponent1 = (function (_super) {
 var View_FormsListComponent3 = (function (_super) {
     __extends(View_FormsListComponent3, _super);
     function View_FormsListComponent3(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_FormsListComponent3, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
-        this._expr_14 = import12.UNINITIALIZED;
-        this._expr_16 = import12.UNINITIALIZED;
-        this._expr_17 = import12.UNINITIALIZED;
-        this._expr_18 = import12.UNINITIALIZED;
+        var _this = _super.call(this, View_FormsListComponent3, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
+        _this._expr_14 = import12.UNINITIALIZED;
+        _this._expr_16 = import12.UNINITIALIZED;
+        _this._expr_17 = import12.UNINITIALIZED;
+        _this._expr_18 = import12.UNINITIALIZED;
+        return _this;
     }
     View_FormsListComponent3.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'tr', import3.EMPTY_INLINE_ARRAY, null);
@@ -163,17 +170,17 @@ var View_FormsListComponent3 = (function (_super) {
             this.renderer.setText(this._text_3, currVal_14);
             this._expr_14 = currVal_14;
         }
-        var currVal_16 = import3.inlineInterpolate(1, '', ((this.context.$implicit.values == null) ? null : this.context.$implicit.values.currentRate), '');
+        var currVal_16 = import3.inlineInterpolate(1, '', ((this.context.$implicit.data == null) ? null : this.context.$implicit.data.currentRate), '');
         if (import3.checkBinding(throwOnChange, this._expr_16, currVal_16)) {
             this.renderer.setText(this._text_6, currVal_16);
             this._expr_16 = currVal_16;
         }
-        var currVal_17 = import3.inlineInterpolate(1, '', ((this.context.$implicit.values == null) ? null : this.context.$implicit.values.modifiedRate), '');
+        var currVal_17 = import3.inlineInterpolate(1, '', ((this.context.$implicit.data == null) ? null : this.context.$implicit.data.modifiedRate), '');
         if (import3.checkBinding(throwOnChange, this._expr_17, currVal_17)) {
             this.renderer.setText(this._text_9, currVal_17);
             this._expr_17 = currVal_17;
         }
-        var currVal_18 = import3.inlineInterpolate(1, '', ((this.context.$implicit.values == null) ? null : this.context.$implicit.values.plasmaGlucose), '');
+        var currVal_18 = import3.inlineInterpolate(1, '', ((this.context.$implicit.data == null) ? null : this.context.$implicit.data.plasmaGlucose), '');
         if (import3.checkBinding(throwOnChange, this._expr_18, currVal_18)) {
             this.renderer.setText(this._text_12, currVal_18);
             this._expr_18 = currVal_18;
@@ -187,7 +194,7 @@ var View_FormsListComponent3 = (function (_super) {
 var View_FormsListComponent2 = (function (_super) {
     __extends(View_FormsListComponent2, _super);
     function View_FormsListComponent2(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_FormsListComponent2, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
+        return _super.call(this, View_FormsListComponent2, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
     }
     View_FormsListComponent2.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'table', new import3.InlineArray2(2, 'class', 'table'), null);
@@ -269,7 +276,7 @@ var View_FormsListComponent2 = (function (_super) {
 var View_FormsListComponent4 = (function (_super) {
     __extends(View_FormsListComponent4, _super);
     function View_FormsListComponent4(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_FormsListComponent4, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
+        return _super.call(this, View_FormsListComponent4, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
     }
     View_FormsListComponent4.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'div', new import3.InlineArray2(2, 'class', 'nodata'), null);
@@ -288,10 +295,11 @@ var View_FormsListComponent4 = (function (_super) {
 var View_FormsListComponent6 = (function (_super) {
     __extends(View_FormsListComponent6, _super);
     function View_FormsListComponent6(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_FormsListComponent6, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
-        this._expr_11 = import12.UNINITIALIZED;
-        this._expr_13 = import12.UNINITIALIZED;
-        this._expr_14 = import12.UNINITIALIZED;
+        var _this = _super.call(this, View_FormsListComponent6, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
+        _this._expr_11 = import12.UNINITIALIZED;
+        _this._expr_13 = import12.UNINITIALIZED;
+        _this._expr_14 = import12.UNINITIALIZED;
+        return _this;
     }
     View_FormsListComponent6.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'tr', import3.EMPTY_INLINE_ARRAY, null);
@@ -329,12 +337,12 @@ var View_FormsListComponent6 = (function (_super) {
             this.renderer.setText(this._text_3, currVal_11);
             this._expr_11 = currVal_11;
         }
-        var currVal_13 = import3.inlineInterpolate(1, '', ((this.context.$implicit.values == null) ? null : this.context.$implicit.values.dosageType), '');
+        var currVal_13 = import3.inlineInterpolate(1, '', ((this.context.$implicit.data == null) ? null : this.context.$implicit.data.dosageType), '');
         if (import3.checkBinding(throwOnChange, this._expr_13, currVal_13)) {
             this.renderer.setText(this._text_6, currVal_13);
             this._expr_13 = currVal_13;
         }
-        var currVal_14 = import3.inlineInterpolate(1, '', ((this.context.$implicit.values == null) ? null : this.context.$implicit.values.plasmaGlucose), '');
+        var currVal_14 = import3.inlineInterpolate(1, '', ((this.context.$implicit.data == null) ? null : this.context.$implicit.data.plasmaGlucose), '');
         if (import3.checkBinding(throwOnChange, this._expr_14, currVal_14)) {
             this.renderer.setText(this._text_9, currVal_14);
             this._expr_14 = currVal_14;
@@ -348,7 +356,7 @@ var View_FormsListComponent6 = (function (_super) {
 var View_FormsListComponent5 = (function (_super) {
     __extends(View_FormsListComponent5, _super);
     function View_FormsListComponent5(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_FormsListComponent5, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
+        return _super.call(this, View_FormsListComponent5, renderType_FormsListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
     }
     View_FormsListComponent5.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'table', new import3.InlineArray2(2, 'class', 'table'), null);
@@ -422,10 +430,10 @@ var View_FormsListComponent5 = (function (_super) {
     return View_FormsListComponent5;
 }(import1.AppView));
 var renderType_FormsListComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_FormsListComponent, {});
-export var View_FormsListComponent0 = (function (_super) {
+var View_FormsListComponent0 = (function (_super) {
     __extends(View_FormsListComponent0, _super);
     function View_FormsListComponent0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_FormsListComponent0, renderType_FormsListComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_FormsListComponent0, renderType_FormsListComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_FormsListComponent0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
@@ -552,4 +560,5 @@ export var View_FormsListComponent0 = (function (_super) {
     };
     return View_FormsListComponent0;
 }(import1.AppView));
+export { View_FormsListComponent0 };
 //# sourceMappingURL=forms-list.component.ngfactory.js.map

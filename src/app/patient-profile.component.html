@@ -7,7 +7,7 @@
 			<input mdInput type="text" name="name" class="big" placeholder="Name" required [(ngModel)]="pp.patient.name">
 		</md-input-container>
 		<md-input-container>
-			<input mdInput type="date" name="dob" class="small" placeholder="Date of birth" required [(ngModel)]="pp.patient.dob">
+			<input mdInput type="date" name="dob" class="small" placeholder="Date of birth" required [ngModel]="pp.patient.dob | date: 'yyyy-MM-dd'" (ngModelChange)="pp.patient.dob=$event" >
 		</md-input-container>
 		<md-input-container>
 			<input mdInput type="text" name="bednum" class="small" placeholder="Bed Number" required [(ngModel)]="pp.patient.bednum">

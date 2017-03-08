@@ -686,7 +686,7 @@ export class View_PatientListComponent0 extends import1.AppView<import0.PatientL
     const currVal_27_0_0:any = this.context.patients;
     this._NgFor_27_6.check_ngForOf(currVal_27_0_0,throwOnChange,false);
     this._NgFor_27_6.ngDoCheck(this,this._anchor_27,throwOnChange);
-    const currVal_29_0_0:boolean = !this.context.patients.length;
+    const currVal_29_0_0:boolean = (!this.context.patients || !this.context.patients.length);
     this._NgIf_29_6.check_ngIf(currVal_29_0_0,throwOnChange,false);
     this._NgIf_29_6.ngDoCheck(this,this._anchor_29,throwOnChange);
     this._vc_27.detectChangesInNestedViews(throwOnChange);

@@ -12,9 +12,9 @@
 		</thead>
 		<tr *ngFor="let form of forms.infusion">
 			<td>{{form.dt | date:'d/M HH:mm'}}</td>
-			<td>{{form.values?.currentRate}}</td>
-			<td>{{form.values?.modifiedRate}}</td>
-			<td>{{form.values?.plasmaGlucose}}</td>
+			<td>{{form.data?.currentRate}}</td>
+			<td>{{form.data?.modifiedRate}}</td>
+			<td>{{form.data?.plasmaGlucose}}</td>
 		</tr>			
 	</table>
 	
@@ -30,8 +30,8 @@
 		</thead>
 		<tr *ngFor="let form of forms.subcutaneous">
 			<td>{{form.dt | date:'d/M HH:mm'}}</td>
-			<td>{{form.values?.dosageType}}</td>
-			<td>{{form.values?.plasmaGlucose}}</td>			
+			<td>{{form.data?.dosageType}}</td>
+			<td>{{form.data?.plasmaGlucose}}</td>			
 		</tr>			
 	</table>
 

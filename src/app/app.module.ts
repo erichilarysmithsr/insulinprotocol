@@ -8,15 +8,19 @@ import { MdDialogModule } from '@angular/material';
 import { AppComponent }  from './app.component';
 import { PatientListComponent } from './patient-list.component';
 import { PatientComponent } from './patient.component';
-import { DialogDisplay } from './dialog.component';
+
 
 import { PatientProfileComponent } from './patient-profile.component';
 import { FormComponent } from './form.component';
 import { FormsListComponent } from './forms-list.component';
+import { ManageProtocolComponent } from './manage-protocol.component';
 
 import { PageNotFoundComponent } from './page-not-found.component';
+import { DialogComponent } from './dialog.component';
 
 import { Server } from './server.service';
+import { DialogService } from './dialog.service';
+
 
 const appRoutes: Routes=[
 	{path:'',pathMatch:'full',redirectTo:'/patient-list'},
@@ -32,14 +36,15 @@ const appRoutes: Routes=[
 			{path:'**',component:PageNotFoundComponent}
 		]
 	},
+	{path:'manage-protocol',component:ManageProtocolComponent},
 	{ path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,RouterModule.forRoot(appRoutes),MaterialModule.forRoot(),MdDialogModule.forRoot()],
-  declarations: [ AppComponent,PatientListComponent,PatientProfileComponent,PageNotFoundComponent,FormComponent,PatientComponent,DialogDisplay,FormsListComponent ],
-  providers: [ Server ],
+  declarations: [ AppComponent,PatientListComponent,PatientProfileComponent,PageNotFoundComponent,FormComponent,PatientComponent,DialogComponent,FormsListComponent,ManageProtocolComponent ],
+  providers: [ Server,DialogService ],
   bootstrap:    [ AppComponent ],
-  entryComponents:[DialogDisplay]
+  entryComponents:[DialogComponent]
 })
 export class AppModule { }

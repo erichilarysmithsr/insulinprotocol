@@ -177,17 +177,17 @@ class View_FormsListComponent3 extends import1.AppView<any> {
       this.renderer.setText(this._text_3,currVal_14);
       this._expr_14 = currVal_14;
     }
-    const currVal_16:any = import3.inlineInterpolate(1,'',((this.context.$implicit.values == null)? (null as any): this.context.$implicit.values.currentRate),'');
+    const currVal_16:any = import3.inlineInterpolate(1,'',((this.context.$implicit.data == null)? (null as any): this.context.$implicit.data.currentRate),'');
     if (import3.checkBinding(throwOnChange,this._expr_16,currVal_16)) {
       this.renderer.setText(this._text_6,currVal_16);
       this._expr_16 = currVal_16;
     }
-    const currVal_17:any = import3.inlineInterpolate(1,'',((this.context.$implicit.values == null)? (null as any): this.context.$implicit.values.modifiedRate),'');
+    const currVal_17:any = import3.inlineInterpolate(1,'',((this.context.$implicit.data == null)? (null as any): this.context.$implicit.data.modifiedRate),'');
     if (import3.checkBinding(throwOnChange,this._expr_17,currVal_17)) {
       this.renderer.setText(this._text_9,currVal_17);
       this._expr_17 = currVal_17;
     }
-    const currVal_18:any = import3.inlineInterpolate(1,'',((this.context.$implicit.values == null)? (null as any): this.context.$implicit.values.plasmaGlucose),'');
+    const currVal_18:any = import3.inlineInterpolate(1,'',((this.context.$implicit.data == null)? (null as any): this.context.$implicit.data.plasmaGlucose),'');
     if (import3.checkBinding(throwOnChange,this._expr_18,currVal_18)) {
       this.renderer.setText(this._text_12,currVal_18);
       this._expr_18 = currVal_18;
@@ -374,12 +374,12 @@ class View_FormsListComponent6 extends import1.AppView<any> {
       this.renderer.setText(this._text_3,currVal_11);
       this._expr_11 = currVal_11;
     }
-    const currVal_13:any = import3.inlineInterpolate(1,'',((this.context.$implicit.values == null)? (null as any): this.context.$implicit.values.dosageType),'');
+    const currVal_13:any = import3.inlineInterpolate(1,'',((this.context.$implicit.data == null)? (null as any): this.context.$implicit.data.dosageType),'');
     if (import3.checkBinding(throwOnChange,this._expr_13,currVal_13)) {
       this.renderer.setText(this._text_6,currVal_13);
       this._expr_13 = currVal_13;
     }
-    const currVal_14:any = import3.inlineInterpolate(1,'',((this.context.$implicit.values == null)? (null as any): this.context.$implicit.values.plasmaGlucose),'');
+    const currVal_14:any = import3.inlineInterpolate(1,'',((this.context.$implicit.data == null)? (null as any): this.context.$implicit.data.plasmaGlucose),'');
     if (import3.checkBinding(throwOnChange,this._expr_14,currVal_14)) {
       this.renderer.setText(this._text_9,currVal_14);
       this._expr_14 = currVal_14;

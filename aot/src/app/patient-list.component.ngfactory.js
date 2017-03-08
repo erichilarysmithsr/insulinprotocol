@@ -4,11 +4,16 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 import * as import0 from '../../../src/app/patient-list.component';
 import * as import1 from '@angular/core/src/linker/view';
 import * as import3 from '@angular/core/src/linker/view_utils';
@@ -48,7 +53,7 @@ import * as import36 from '@angular/core/src/linker/template_ref';
 import * as import37 from '@angular/core/src/change_detection/differs/iterable_differs';
 import * as import38 from '@angular/common/src/directives/ng_for';
 import * as import39 from '@angular/common/src/directives/ng_if';
-export var Wrapper_PatientListComponent = (function () {
+var Wrapper_PatientListComponent = (function () {
     function Wrapper_PatientListComponent(p0, p1) {
         this._changed = false;
         this.context = new import0.PatientListComponent(p0, p1);
@@ -78,11 +83,12 @@ export var Wrapper_PatientListComponent = (function () {
     };
     return Wrapper_PatientListComponent;
 }());
+export { Wrapper_PatientListComponent };
 var renderType_PatientListComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_PatientListComponent_Host0 = (function (_super) {
     __extends(View_PatientListComponent_Host0, _super);
     function View_PatientListComponent_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PatientListComponent_Host0, renderType_PatientListComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_PatientListComponent_Host0, renderType_PatientListComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_PatientListComponent_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'patient-list', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
@@ -115,10 +121,11 @@ var styles_PatientListComponent = [import10.styles];
 var View_PatientListComponent1 = (function (_super) {
     __extends(View_PatientListComponent1, _super);
     function View_PatientListComponent1(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_PatientListComponent1, renderType_PatientListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
-        this._expr_51 = import21.UNINITIALIZED;
-        this._expr_52 = import21.UNINITIALIZED;
-        this._expr_53 = import21.UNINITIALIZED;
+        var _this = _super.call(this, View_PatientListComponent1, renderType_PatientListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
+        _this._expr_51 = import21.UNINITIALIZED;
+        _this._expr_52 = import21.UNINITIALIZED;
+        _this._expr_53 = import21.UNINITIALIZED;
+        return _this;
     }
     View_PatientListComponent1.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'md-card', import3.EMPTY_INLINE_ARRAY, null);
@@ -399,7 +406,7 @@ var View_PatientListComponent1 = (function (_super) {
 var View_PatientListComponent2 = (function (_super) {
     __extends(View_PatientListComponent2, _super);
     function View_PatientListComponent2(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        _super.call(this, View_PatientListComponent2, renderType_PatientListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
+        return _super.call(this, View_PatientListComponent2, renderType_PatientListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
     }
     View_PatientListComponent2.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'div', new import3.InlineArray2(2, 'style', 'text-align:center;'), null);
@@ -486,10 +493,10 @@ var View_PatientListComponent2 = (function (_super) {
     return View_PatientListComponent2;
 }(import1.AppView));
 var renderType_PatientListComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.Emulated, styles_PatientListComponent, {});
-export var View_PatientListComponent0 = (function (_super) {
+var View_PatientListComponent0 = (function (_super) {
     __extends(View_PatientListComponent0, _super);
     function View_PatientListComponent0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PatientListComponent0, renderType_PatientListComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_PatientListComponent0, renderType_PatientListComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_PatientListComponent0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
@@ -630,7 +637,7 @@ export var View_PatientListComponent0 = (function (_super) {
         var currVal_27_0_0 = this.context.patients;
         this._NgFor_27_6.check_ngForOf(currVal_27_0_0, throwOnChange, false);
         this._NgFor_27_6.ngDoCheck(this, this._anchor_27, throwOnChange);
-        var currVal_29_0_0 = !this.context.patients.length;
+        var currVal_29_0_0 = (!this.context.patients || !this.context.patients.length);
         this._NgIf_29_6.check_ngIf(currVal_29_0_0, throwOnChange, false);
         this._NgIf_29_6.ngDoCheck(this, this._anchor_29, throwOnChange);
         this._vc_27.detectChangesInNestedViews(throwOnChange);
@@ -708,4 +715,5 @@ export var View_PatientListComponent0 = (function (_super) {
     };
     return View_PatientListComponent0;
 }(import1.AppView));
+export { View_PatientListComponent0 };
 //# sourceMappingURL=patient-list.component.ngfactory.js.map

@@ -17,11 +17,13 @@ h1 {
 .big{width:300px;margin-top:5px;}
 .medium{width:200px;margin-top:5px;}
 .small{width:100px;margin-top:5px;}
+.centered{text-align:center;}
 
 .table{border-collapse: collapse;width:100%;}
 .table td,th{border:1px solid #AAA;text-align:center;}
 .table td{font-size:12px;}
 
+.spinner{margin:0 auto;}
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;

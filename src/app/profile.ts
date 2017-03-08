@@ -1,5 +1,8 @@
 export class Profile{
-	diabetes?: string;
-	weight?: number;
-	preTransplantDose?: number;
+	diabetes?: string
+	weight?: number
+	preTransplantDose?: number
+	insulinDeliveryType?: string
+	subcutaneousColumn?: number
+	infusionColumn?: number
 }

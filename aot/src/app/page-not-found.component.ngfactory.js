@@ -4,11 +4,16 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 import * as import0 from '../../../src/app/page-not-found.component';
 import * as import1 from '@angular/core/src/linker/view';
 import * as import3 from '@angular/core/src/linker/view_utils';
@@ -16,7 +21,7 @@ import * as import4 from '@angular/core/src/metadata/view';
 import * as import5 from '@angular/core/src/linker/view_type';
 import * as import6 from '@angular/core/src/change_detection/constants';
 import * as import7 from '@angular/core/src/linker/component_factory';
-export var Wrapper_PageNotFoundComponent = (function () {
+var Wrapper_PageNotFoundComponent = (function () {
     function Wrapper_PageNotFoundComponent() {
         this._changed = false;
         this.context = new import0.PageNotFoundComponent();
@@ -41,11 +46,12 @@ export var Wrapper_PageNotFoundComponent = (function () {
     };
     return Wrapper_PageNotFoundComponent;
 }());
+export { Wrapper_PageNotFoundComponent };
 var renderType_PageNotFoundComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_PageNotFoundComponent_Host0 = (function (_super) {
     __extends(View_PageNotFoundComponent_Host0, _super);
     function View_PageNotFoundComponent_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PageNotFoundComponent_Host0, renderType_PageNotFoundComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_PageNotFoundComponent_Host0, renderType_PageNotFoundComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_PageNotFoundComponent_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
@@ -76,10 +82,10 @@ var View_PageNotFoundComponent_Host0 = (function (_super) {
 export var PageNotFoundComponentNgFactory = new import7.ComponentFactory('ng-component', View_PageNotFoundComponent_Host0, import0.PageNotFoundComponent);
 var styles_PageNotFoundComponent = [];
 var renderType_PageNotFoundComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_PageNotFoundComponent, {});
-export var View_PageNotFoundComponent0 = (function (_super) {
+var View_PageNotFoundComponent0 = (function (_super) {
     __extends(View_PageNotFoundComponent0, _super);
     function View_PageNotFoundComponent0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PageNotFoundComponent0, renderType_PageNotFoundComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_PageNotFoundComponent0, renderType_PageNotFoundComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_PageNotFoundComponent0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
@@ -93,4 +99,5 @@ export var View_PageNotFoundComponent0 = (function (_super) {
     };
     return View_PageNotFoundComponent0;
 }(import1.AppView));
+export { View_PageNotFoundComponent0 };
 //# sourceMappingURL=page-not-found.component.ngfactory.js.map

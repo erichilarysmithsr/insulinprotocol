@@ -4,11 +4,16 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 import * as import0 from '@angular/core/src/linker/ng_module_factory';
 import * as import1 from '../../../src/app/app.module';
 import * as import2 from '@angular/common/src/common_module';
@@ -137,7 +142,7 @@ import * as import125 from '@angular/router/src/router_state';
 var AppModuleInjector = (function (_super) {
     __extends(AppModuleInjector, _super);
     function AppModuleInjector(parent) {
-        _super.call(this, parent, [
+        return _super.call(this, parent, [
             import76.MdDialogContainerNgFactory,
             import77.MdSnackBarContainerNgFactory,
             import78.SimpleSnackBarNgFactory,
@@ -150,7 +155,7 @@ var AppModuleInjector = (function (_super) {
             import85.PageNotFoundComponentNgFactory,
             import86.DialogDisplayNgFactory,
             import87.AppComponentNgFactory
-        ], [import87.AppComponentNgFactory]);
+        ], [import87.AppComponentNgFactory]) || this;
     }
     Object.defineProperty(AppModuleInjector.prototype, "_LOCALE_ID_45", {
         get: function () {
@@ -746,7 +751,7 @@ var AppModuleInjector = (function (_super) {
     Object.defineProperty(AppModuleInjector.prototype, "_Server_109", {
         get: function () {
             if ((this.__Server_109 == null)) {
-                (this.__Server_109 = new import74.Server());
+                (this.__Server_109 = new import74.Server(this._Http_90));
             }
             return this.__Server_109;
         },

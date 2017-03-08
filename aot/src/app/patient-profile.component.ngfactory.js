@@ -4,11 +4,16 @@
  * @suppress {suspiciousCode,uselessCode,missingProperties}
  */
 /* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 import * as import0 from '../../../src/app/patient-profile.component';
 import * as import1 from '@angular/core/src/linker/view';
 import * as import3 from '@angular/core/src/linker/view_utils';
@@ -36,21 +41,24 @@ import * as import24 from '@angular/material/core/option/option';
 import * as import25 from '../../node_modules/@angular/material/core/option/option.ngfactory';
 import * as import26 from '@angular/material/button/button';
 import * as import27 from '../../node_modules/@angular/material/button/button.ngfactory';
-import * as import28 from '@angular/core/src/linker/element_ref';
-import * as import29 from '@angular/material/core/compatibility/compatibility';
-import * as import30 from '@angular/material/core/overlay/position/viewport-ruler';
-import * as import31 from '@angular/material/core/rtl/dir';
-import * as import32 from '@angular/forms/src/directives/default_value_accessor';
-import * as import33 from '@angular/forms/src/directives/validators';
-import * as import34 from '@angular/forms/src/validators';
-import * as import35 from '@angular/forms/src/directives/control_value_accessor';
-import * as import36 from '@angular/forms/src/directives/ng_model';
-import * as import37 from '@angular/forms/src/directives/ng_control';
-import * as import38 from '@angular/forms/src/directives/ng_control_status';
-import * as import39 from '@angular/forms/src/directives/number_value_accessor';
-import * as import40 from '@angular/forms/src/directives/ng_form';
-import * as import41 from '@angular/forms/src/directives/control_container';
-export var Wrapper_PatientProfileComponent = (function () {
+import * as import28 from '@angular/common/src/pipes/date_pipe';
+import * as import29 from '@angular/core/src/linker/element_ref';
+import * as import30 from '@angular/material/core/compatibility/compatibility';
+import * as import31 from '@angular/material/core/overlay/position/viewport-ruler';
+import * as import32 from '@angular/material/core/rtl/dir';
+import * as import33 from '@angular/core/src/i18n/tokens';
+import * as import34 from '@angular/forms/src/directives/default_value_accessor';
+import * as import35 from '@angular/forms/src/directives/validators';
+import * as import36 from '@angular/forms/src/validators';
+import * as import37 from '@angular/forms/src/directives/control_value_accessor';
+import * as import38 from '@angular/forms/src/directives/ng_model';
+import * as import39 from '@angular/forms/src/directives/ng_control';
+import * as import40 from '@angular/forms/src/directives/ng_control_status';
+import * as import41 from '@angular/forms/src/directives/number_value_accessor';
+import * as import42 from '@angular/forms/src/directives/ng_form';
+import * as import43 from '@angular/forms/src/directives/control_container';
+import * as import44 from '@angular/core/src/change_detection/change_detection_util';
+var Wrapper_PatientProfileComponent = (function () {
     function Wrapper_PatientProfileComponent(p0, p1, p2, p3) {
         this._changed = false;
         this.context = new import0.PatientProfileComponent(p0, p1, p2, p3);
@@ -80,11 +88,12 @@ export var Wrapper_PatientProfileComponent = (function () {
     };
     return Wrapper_PatientProfileComponent;
 }());
+export { Wrapper_PatientProfileComponent };
 var renderType_PatientProfileComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_PatientProfileComponent_Host0 = (function (_super) {
     __extends(View_PatientProfileComponent_Host0, _super);
     function View_PatientProfileComponent_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PatientProfileComponent_Host0, renderType_PatientProfileComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_PatientProfileComponent_Host0, renderType_PatientProfileComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_PatientProfileComponent_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
@@ -115,10 +124,10 @@ var View_PatientProfileComponent_Host0 = (function (_super) {
 export var PatientProfileComponentNgFactory = new import7.ComponentFactory('ng-component', View_PatientProfileComponent_Host0, import0.PatientProfileComponent);
 var styles_PatientProfileComponent = [];
 var renderType_PatientProfileComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_PatientProfileComponent, {});
-export var View_PatientProfileComponent0 = (function (_super) {
+var View_PatientProfileComponent0 = (function (_super) {
     __extends(View_PatientProfileComponent0, _super);
     function View_PatientProfileComponent0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_PatientProfileComponent0, renderType_PatientProfileComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
+        return _super.call(this, View_PatientProfileComponent0, renderType_PatientProfileComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
     View_PatientProfileComponent0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
@@ -137,14 +146,14 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._query_MdHint_4_2 = new import16.QueryList();
         this._text_5 = this.renderer.createText(null, '\n			', null);
         this._el_6 = import3.createRenderElement(this.renderer, null, 'input', new import3.InlineArray16(12, 'class', 'medium', 'mdInput', '', 'name', 'uhid', 'placeholder', 'UHID', 'required', '', 'type', 'text'), null);
-        this._DefaultValueAccessor_6_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import28.ElementRef(this._el_6));
+        this._DefaultValueAccessor_6_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import29.ElementRef(this._el_6));
         this._RequiredValidator_6_4 = new import18.Wrapper_RequiredValidator();
         this._NG_VALIDATORS_6_5 = [this._RequiredValidator_6_4.context];
         this._NG_VALUE_ACCESSOR_6_6 = [this._DefaultValueAccessor_6_3.context];
         this._NgModel_6_7 = new import19.Wrapper_NgModel(this._ControlContainer_2_4, this._NG_VALIDATORS_6_5, null, this._NG_VALUE_ACCESSOR_6_6);
         this._NgControl_6_8 = this._NgModel_6_7.context;
         this._NgControlStatus_6_9 = new import13.Wrapper_NgControlStatus(this._NgControl_6_8);
-        this._MdInputDirective_6_10 = new import15.Wrapper_MdInputDirective(new import28.ElementRef(this._el_6), this.renderer, this._NgControl_6_8);
+        this._MdInputDirective_6_10 = new import15.Wrapper_MdInputDirective(new import29.ElementRef(this._el_6), this.renderer, this._NgControl_6_8);
         this._text_7 = this.renderer.createText(null, '		\n		', null);
         this.compView_4.create(this._MdInputContainer_4_3.context);
         this._text_8 = this.renderer.createText(this._el_2, '\n		', null);
@@ -156,14 +165,14 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._query_MdHint_9_2 = new import16.QueryList();
         this._text_10 = this.renderer.createText(null, '\n			', null);
         this._el_11 = import3.createRenderElement(this.renderer, null, 'input', new import3.InlineArray16(12, 'class', 'big', 'mdInput', '', 'name', 'name', 'placeholder', 'Name', 'required', '', 'type', 'text'), null);
-        this._DefaultValueAccessor_11_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import28.ElementRef(this._el_11));
+        this._DefaultValueAccessor_11_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import29.ElementRef(this._el_11));
         this._RequiredValidator_11_4 = new import18.Wrapper_RequiredValidator();
         this._NG_VALIDATORS_11_5 = [this._RequiredValidator_11_4.context];
         this._NG_VALUE_ACCESSOR_11_6 = [this._DefaultValueAccessor_11_3.context];
         this._NgModel_11_7 = new import19.Wrapper_NgModel(this._ControlContainer_2_4, this._NG_VALIDATORS_11_5, null, this._NG_VALUE_ACCESSOR_11_6);
         this._NgControl_11_8 = this._NgModel_11_7.context;
         this._NgControlStatus_11_9 = new import13.Wrapper_NgControlStatus(this._NgControl_11_8);
-        this._MdInputDirective_11_10 = new import15.Wrapper_MdInputDirective(new import28.ElementRef(this._el_11), this.renderer, this._NgControl_11_8);
+        this._MdInputDirective_11_10 = new import15.Wrapper_MdInputDirective(new import29.ElementRef(this._el_11), this.renderer, this._NgControl_11_8);
         this._text_12 = this.renderer.createText(null, '\n		', null);
         this.compView_9.create(this._MdInputContainer_9_3.context);
         this._text_13 = this.renderer.createText(this._el_2, '\n		', null);
@@ -175,14 +184,14 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._query_MdHint_14_2 = new import16.QueryList();
         this._text_15 = this.renderer.createText(null, '\n			', null);
         this._el_16 = import3.createRenderElement(this.renderer, null, 'input', new import3.InlineArray16(12, 'class', 'small', 'mdInput', '', 'name', 'dob', 'placeholder', 'Date of birth', 'required', '', 'type', 'date'), null);
-        this._DefaultValueAccessor_16_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import28.ElementRef(this._el_16));
+        this._DefaultValueAccessor_16_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import29.ElementRef(this._el_16));
         this._RequiredValidator_16_4 = new import18.Wrapper_RequiredValidator();
         this._NG_VALIDATORS_16_5 = [this._RequiredValidator_16_4.context];
         this._NG_VALUE_ACCESSOR_16_6 = [this._DefaultValueAccessor_16_3.context];
         this._NgModel_16_7 = new import19.Wrapper_NgModel(this._ControlContainer_2_4, this._NG_VALIDATORS_16_5, null, this._NG_VALUE_ACCESSOR_16_6);
         this._NgControl_16_8 = this._NgModel_16_7.context;
         this._NgControlStatus_16_9 = new import13.Wrapper_NgControlStatus(this._NgControl_16_8);
-        this._MdInputDirective_16_10 = new import15.Wrapper_MdInputDirective(new import28.ElementRef(this._el_16), this.renderer, this._NgControl_16_8);
+        this._MdInputDirective_16_10 = new import15.Wrapper_MdInputDirective(new import29.ElementRef(this._el_16), this.renderer, this._NgControl_16_8);
         this._text_17 = this.renderer.createText(null, '\n		', null);
         this.compView_14.create(this._MdInputContainer_14_3.context);
         this._text_18 = this.renderer.createText(this._el_2, '\n		', null);
@@ -194,14 +203,14 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._query_MdHint_19_2 = new import16.QueryList();
         this._text_20 = this.renderer.createText(null, '\n			', null);
         this._el_21 = import3.createRenderElement(this.renderer, null, 'input', new import3.InlineArray16(12, 'class', 'small', 'mdInput', '', 'name', 'bednum', 'placeholder', 'Bed Number', 'required', '', 'type', 'text'), null);
-        this._DefaultValueAccessor_21_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import28.ElementRef(this._el_21));
+        this._DefaultValueAccessor_21_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import29.ElementRef(this._el_21));
         this._RequiredValidator_21_4 = new import18.Wrapper_RequiredValidator();
         this._NG_VALIDATORS_21_5 = [this._RequiredValidator_21_4.context];
         this._NG_VALUE_ACCESSOR_21_6 = [this._DefaultValueAccessor_21_3.context];
         this._NgModel_21_7 = new import19.Wrapper_NgModel(this._ControlContainer_2_4, this._NG_VALIDATORS_21_5, null, this._NG_VALUE_ACCESSOR_21_6);
         this._NgControl_21_8 = this._NgModel_21_7.context;
         this._NgControlStatus_21_9 = new import13.Wrapper_NgControlStatus(this._NgControl_21_8);
-        this._MdInputDirective_21_10 = new import15.Wrapper_MdInputDirective(new import28.ElementRef(this._el_21), this.renderer, this._NgControl_21_8);
+        this._MdInputDirective_21_10 = new import15.Wrapper_MdInputDirective(new import29.ElementRef(this._el_21), this.renderer, this._NgControl_21_8);
         this._text_22 = this.renderer.createText(null, '\n		', null);
         this.compView_19.create(this._MdInputContainer_19_3.context);
         this._text_23 = this.renderer.createText(this._el_2, '\n		', null);
@@ -213,8 +222,8 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._query_MdHint_24_2 = new import16.QueryList();
         this._text_25 = this.renderer.createText(null, '\n			', null);
         this._el_26 = import3.createRenderElement(this.renderer, null, 'input', new import3.InlineArray16(12, 'class', 'small', 'mdInput', '', 'name', 'weight', 'placeholder', 'Weight (Kgs)', 'required', '', 'type', 'number'), null);
-        this._DefaultValueAccessor_26_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import28.ElementRef(this._el_26));
-        this._NumberValueAccessor_26_4 = new import20.Wrapper_NumberValueAccessor(this.renderer, new import28.ElementRef(this._el_26));
+        this._DefaultValueAccessor_26_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import29.ElementRef(this._el_26));
+        this._NumberValueAccessor_26_4 = new import20.Wrapper_NumberValueAccessor(this.renderer, new import29.ElementRef(this._el_26));
         this._RequiredValidator_26_5 = new import18.Wrapper_RequiredValidator();
         this._NG_VALIDATORS_26_6 = [this._RequiredValidator_26_5.context];
         this._NG_VALUE_ACCESSOR_26_7 = [
@@ -224,7 +233,7 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._NgModel_26_8 = new import19.Wrapper_NgModel(this._ControlContainer_2_4, this._NG_VALIDATORS_26_6, null, this._NG_VALUE_ACCESSOR_26_7);
         this._NgControl_26_9 = this._NgModel_26_8.context;
         this._NgControlStatus_26_10 = new import13.Wrapper_NgControlStatus(this._NgControl_26_9);
-        this._MdInputDirective_26_11 = new import15.Wrapper_MdInputDirective(new import28.ElementRef(this._el_26), this.renderer, this._NgControl_26_9);
+        this._MdInputDirective_26_11 = new import15.Wrapper_MdInputDirective(new import29.ElementRef(this._el_26), this.renderer, this._NgControl_26_9);
         this._text_27 = this.renderer.createText(null, '\n		', null);
         this.compView_24.create(this._MdInputContainer_24_3.context);
         this._text_28 = this.renderer.createText(this._el_2, '								\n		', null);
@@ -235,21 +244,21 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._NgModel_29_5 = new import19.Wrapper_NgModel(this._ControlContainer_2_4, this._NG_VALIDATORS_29_4, null, null);
         this._NgControl_29_6 = this._NgModel_29_5.context;
         this._NgControlStatus_29_7 = new import13.Wrapper_NgControlStatus(this._NgControl_29_6);
-        this._MdPrefixRejector_29_8 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import29.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
-        this._MdSelect_29_9 = new import23.Wrapper_MdSelect(new import28.ElementRef(this._el_29), this.renderer, this.parentView.injectorGet(import30.ViewportRuler, this.parentIndex), this.compView_29.ref, this.parentView.injectorGet(import31.Dir, this.parentIndex, null), this._NgControl_29_6);
+        this._MdPrefixRejector_29_8 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import30.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
+        this._MdSelect_29_9 = new import23.Wrapper_MdSelect(new import29.ElementRef(this._el_29), this.renderer, this.parentView.injectorGet(import31.ViewportRuler, this.parentIndex), this.compView_29.ref, this.parentView.injectorGet(import32.Dir, this.parentIndex, null), this._NgControl_29_6);
         this._query_MdOption_29_0 = new import16.QueryList();
         this._text_30 = this.renderer.createText(null, '\n			', null);
         this._el_31 = import3.createRenderElement(this.renderer, null, 'md-option', new import3.InlineArray4(4, 'role', 'option', 'value', 'Known Case'), null);
         this.compView_31 = new import25.View_MdOption0(this.viewUtils, this, 31, this._el_31);
-        this._MdOption_31_3 = new import25.Wrapper_MdOption(new import28.ElementRef(this._el_31), this.renderer);
-        this._MdPrefixRejector_31_4 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import29.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
+        this._MdOption_31_3 = new import25.Wrapper_MdOption(new import29.ElementRef(this._el_31), this.renderer);
+        this._MdPrefixRejector_31_4 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import30.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
         this._text_32 = this.renderer.createText(null, 'Known Case', null);
         this.compView_31.create(this._MdOption_31_3.context);
         this._text_33 = this.renderer.createText(null, '\n			', null);
         this._el_34 = import3.createRenderElement(this.renderer, null, 'md-option', new import3.InlineArray4(4, 'role', 'option', 'value', 'New Onset'), null);
         this.compView_34 = new import25.View_MdOption0(this.viewUtils, this, 34, this._el_34);
-        this._MdOption_34_3 = new import25.Wrapper_MdOption(new import28.ElementRef(this._el_34), this.renderer);
-        this._MdPrefixRejector_34_4 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import29.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
+        this._MdOption_34_3 = new import25.Wrapper_MdOption(new import29.ElementRef(this._el_34), this.renderer);
+        this._MdPrefixRejector_34_4 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import30.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
         this._text_35 = this.renderer.createText(null, 'New Onset', null);
         this.compView_34.create(this._MdOption_34_3.context);
         this._text_36 = this.renderer.createText(null, '\n		', null);
@@ -263,8 +272,8 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._query_MdHint_38_2 = new import16.QueryList();
         this._text_39 = this.renderer.createText(null, '\n			', null);
         this._el_40 = import3.createRenderElement(this.renderer, null, 'input', new import3.InlineArray16(10, 'mdInput', '', 'name', 'preTransplantDose', 'placeholder', 'Pre-Transplant Insulin Dose (units/day)', 'required', '', 'type', 'number'), null);
-        this._DefaultValueAccessor_40_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import28.ElementRef(this._el_40));
-        this._NumberValueAccessor_40_4 = new import20.Wrapper_NumberValueAccessor(this.renderer, new import28.ElementRef(this._el_40));
+        this._DefaultValueAccessor_40_3 = new import17.Wrapper_DefaultValueAccessor(this.renderer, new import29.ElementRef(this._el_40));
+        this._NumberValueAccessor_40_4 = new import20.Wrapper_NumberValueAccessor(this.renderer, new import29.ElementRef(this._el_40));
         this._RequiredValidator_40_5 = new import18.Wrapper_RequiredValidator();
         this._NG_VALIDATORS_40_6 = [this._RequiredValidator_40_5.context];
         this._NG_VALUE_ACCESSOR_40_7 = [
@@ -274,7 +283,7 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._NgModel_40_8 = new import19.Wrapper_NgModel(this._ControlContainer_2_4, this._NG_VALIDATORS_40_6, null, this._NG_VALUE_ACCESSOR_40_7);
         this._NgControl_40_9 = this._NgModel_40_8.context;
         this._NgControlStatus_40_10 = new import13.Wrapper_NgControlStatus(this._NgControl_40_9);
-        this._MdInputDirective_40_11 = new import15.Wrapper_MdInputDirective(new import28.ElementRef(this._el_40), this.renderer, this._NgControl_40_9);
+        this._MdInputDirective_40_11 = new import15.Wrapper_MdInputDirective(new import29.ElementRef(this._el_40), this.renderer, this._NgControl_40_9);
         this._text_41 = this.renderer.createText(null, '\n		', null);
         this.compView_38.create(this._MdInputContainer_38_3.context);
         this._text_42 = this.renderer.createText(this._el_2, '\n		\n		', null);
@@ -282,16 +291,16 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._text_44 = this.renderer.createText(this._el_43, '\n			', null);
         this._el_45 = import3.createRenderElement(this.renderer, this._el_43, 'button', new import3.InlineArray4(4, 'md-raised-button', '', 'type', 'submit'), null);
         this.compView_45 = new import27.View_MdButton0(this.viewUtils, this, 45, this._el_45);
-        this._MdPrefixRejector_45_3 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import29.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
-        this._MdButton_45_4 = new import27.Wrapper_MdButton(new import28.ElementRef(this._el_45), this.renderer);
+        this._MdPrefixRejector_45_3 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import30.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
+        this._MdButton_45_4 = new import27.Wrapper_MdButton(new import29.ElementRef(this._el_45), this.renderer);
         this._MdRaisedButtonCssMatStyler_45_5 = new import27.Wrapper_MdRaisedButtonCssMatStyler();
         this._text_46 = this.renderer.createText(null, 'Save', null);
         this.compView_45.create(this._MdButton_45_4.context);
         this._text_47 = this.renderer.createText(this._el_43, '\n			', null);
         this._el_48 = import3.createRenderElement(this.renderer, this._el_43, 'a', new import3.InlineArray2(2, 'md-button', ''), null);
         this.compView_48 = new import27.View_MdAnchor0(this.viewUtils, this, 48, this._el_48);
-        this._MdPrefixRejector_48_3 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import29.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
-        this._MdAnchor_48_4 = new import27.Wrapper_MdAnchor(new import28.ElementRef(this._el_48), this.renderer);
+        this._MdPrefixRejector_48_3 = new import22.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import30.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
+        this._MdAnchor_48_4 = new import27.Wrapper_MdAnchor(new import29.ElementRef(this._el_48), this.renderer);
         this._MdButtonCssMatStyler_48_5 = new import27.Wrapper_MdButtonCssMatStyler();
         this._text_49 = this.renderer.createText(null, 'Cancel', null);
         this.compView_48.create(this._MdAnchor_48_4.context);
@@ -309,6 +318,8 @@ export var View_PatientProfileComponent0 = (function (_super) {
         var disposable_5 = import3.subscribeToRenderElement(this, this._el_14, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_14));
         var disposable_6 = import3.subscribeToRenderElement(this, this._el_16, new import3.InlineArray8(8, 'ngModelChange', null, 'input', null, 'blur', null, 'focus', null), this.eventHandler(this.handleEvent_16));
         this._NgModel_16_7.subscribe(this, this.eventHandler(this.handleEvent_16), true);
+        this._pipe_date_0 = new import28.DatePipe(this.parentView.injectorGet(import33.LOCALE_ID, this.parentIndex));
+        this._pipe_date_0_0 = import3.pureProxy2(this._pipe_date_0.transform.bind(this._pipe_date_0));
         var disposable_7 = import3.subscribeToRenderElement(this, this._el_19, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_19));
         var disposable_8 = import3.subscribeToRenderElement(this, this._el_21, new import3.InlineArray8(8, 'ngModelChange', null, 'input', null, 'blur', null, 'focus', null), this.eventHandler(this.handleEvent_21));
         this._NgModel_21_7.subscribe(this, this.eventHandler(this.handleEvent_21), true);
@@ -425,25 +436,25 @@ export var View_PatientProfileComponent0 = (function (_super) {
         return null;
     };
     View_PatientProfileComponent0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import32.DefaultValueAccessor) && (6 === requestNodeIndex))) {
+        if (((token === import34.DefaultValueAccessor) && (6 === requestNodeIndex))) {
             return this._DefaultValueAccessor_6_3.context;
         }
-        if (((token === import33.RequiredValidator) && (6 === requestNodeIndex))) {
+        if (((token === import35.RequiredValidator) && (6 === requestNodeIndex))) {
             return this._RequiredValidator_6_4.context;
         }
-        if (((token === import34.NG_VALIDATORS) && (6 === requestNodeIndex))) {
+        if (((token === import36.NG_VALIDATORS) && (6 === requestNodeIndex))) {
             return this._NG_VALIDATORS_6_5;
         }
-        if (((token === import35.NG_VALUE_ACCESSOR) && (6 === requestNodeIndex))) {
+        if (((token === import37.NG_VALUE_ACCESSOR) && (6 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_6_6;
         }
-        if (((token === import36.NgModel) && (6 === requestNodeIndex))) {
+        if (((token === import38.NgModel) && (6 === requestNodeIndex))) {
             return this._NgModel_6_7.context;
         }
-        if (((token === import37.NgControl) && (6 === requestNodeIndex))) {
+        if (((token === import39.NgControl) && (6 === requestNodeIndex))) {
             return this._NgControl_6_8;
         }
-        if (((token === import38.NgControlStatus) && (6 === requestNodeIndex))) {
+        if (((token === import40.NgControlStatus) && (6 === requestNodeIndex))) {
             return this._NgControlStatus_6_9.context;
         }
         if (((token === import14.MdInputDirective) && (6 === requestNodeIndex))) {
@@ -452,25 +463,25 @@ export var View_PatientProfileComponent0 = (function (_super) {
         if (((token === import14.MdInputContainer) && ((4 <= requestNodeIndex) && (requestNodeIndex <= 7)))) {
             return this._MdInputContainer_4_3.context;
         }
-        if (((token === import32.DefaultValueAccessor) && (11 === requestNodeIndex))) {
+        if (((token === import34.DefaultValueAccessor) && (11 === requestNodeIndex))) {
             return this._DefaultValueAccessor_11_3.context;
         }
-        if (((token === import33.RequiredValidator) && (11 === requestNodeIndex))) {
+        if (((token === import35.RequiredValidator) && (11 === requestNodeIndex))) {
             return this._RequiredValidator_11_4.context;
         }
-        if (((token === import34.NG_VALIDATORS) && (11 === requestNodeIndex))) {
+        if (((token === import36.NG_VALIDATORS) && (11 === requestNodeIndex))) {
             return this._NG_VALIDATORS_11_5;
         }
-        if (((token === import35.NG_VALUE_ACCESSOR) && (11 === requestNodeIndex))) {
+        if (((token === import37.NG_VALUE_ACCESSOR) && (11 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_11_6;
         }
-        if (((token === import36.NgModel) && (11 === requestNodeIndex))) {
+        if (((token === import38.NgModel) && (11 === requestNodeIndex))) {
             return this._NgModel_11_7.context;
         }
-        if (((token === import37.NgControl) && (11 === requestNodeIndex))) {
+        if (((token === import39.NgControl) && (11 === requestNodeIndex))) {
             return this._NgControl_11_8;
         }
-        if (((token === import38.NgControlStatus) && (11 === requestNodeIndex))) {
+        if (((token === import40.NgControlStatus) && (11 === requestNodeIndex))) {
             return this._NgControlStatus_11_9.context;
         }
         if (((token === import14.MdInputDirective) && (11 === requestNodeIndex))) {
@@ -479,25 +490,25 @@ export var View_PatientProfileComponent0 = (function (_super) {
         if (((token === import14.MdInputContainer) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 12)))) {
             return this._MdInputContainer_9_3.context;
         }
-        if (((token === import32.DefaultValueAccessor) && (16 === requestNodeIndex))) {
+        if (((token === import34.DefaultValueAccessor) && (16 === requestNodeIndex))) {
             return this._DefaultValueAccessor_16_3.context;
         }
-        if (((token === import33.RequiredValidator) && (16 === requestNodeIndex))) {
+        if (((token === import35.RequiredValidator) && (16 === requestNodeIndex))) {
             return this._RequiredValidator_16_4.context;
         }
-        if (((token === import34.NG_VALIDATORS) && (16 === requestNodeIndex))) {
+        if (((token === import36.NG_VALIDATORS) && (16 === requestNodeIndex))) {
             return this._NG_VALIDATORS_16_5;
         }
-        if (((token === import35.NG_VALUE_ACCESSOR) && (16 === requestNodeIndex))) {
+        if (((token === import37.NG_VALUE_ACCESSOR) && (16 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_16_6;
         }
-        if (((token === import36.NgModel) && (16 === requestNodeIndex))) {
+        if (((token === import38.NgModel) && (16 === requestNodeIndex))) {
             return this._NgModel_16_7.context;
         }
-        if (((token === import37.NgControl) && (16 === requestNodeIndex))) {
+        if (((token === import39.NgControl) && (16 === requestNodeIndex))) {
             return this._NgControl_16_8;
         }
-        if (((token === import38.NgControlStatus) && (16 === requestNodeIndex))) {
+        if (((token === import40.NgControlStatus) && (16 === requestNodeIndex))) {
             return this._NgControlStatus_16_9.context;
         }
         if (((token === import14.MdInputDirective) && (16 === requestNodeIndex))) {
@@ -506,25 +517,25 @@ export var View_PatientProfileComponent0 = (function (_super) {
         if (((token === import14.MdInputContainer) && ((14 <= requestNodeIndex) && (requestNodeIndex <= 17)))) {
             return this._MdInputContainer_14_3.context;
         }
-        if (((token === import32.DefaultValueAccessor) && (21 === requestNodeIndex))) {
+        if (((token === import34.DefaultValueAccessor) && (21 === requestNodeIndex))) {
             return this._DefaultValueAccessor_21_3.context;
         }
-        if (((token === import33.RequiredValidator) && (21 === requestNodeIndex))) {
+        if (((token === import35.RequiredValidator) && (21 === requestNodeIndex))) {
             return this._RequiredValidator_21_4.context;
         }
-        if (((token === import34.NG_VALIDATORS) && (21 === requestNodeIndex))) {
+        if (((token === import36.NG_VALIDATORS) && (21 === requestNodeIndex))) {
             return this._NG_VALIDATORS_21_5;
         }
-        if (((token === import35.NG_VALUE_ACCESSOR) && (21 === requestNodeIndex))) {
+        if (((token === import37.NG_VALUE_ACCESSOR) && (21 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_21_6;
         }
-        if (((token === import36.NgModel) && (21 === requestNodeIndex))) {
+        if (((token === import38.NgModel) && (21 === requestNodeIndex))) {
             return this._NgModel_21_7.context;
         }
-        if (((token === import37.NgControl) && (21 === requestNodeIndex))) {
+        if (((token === import39.NgControl) && (21 === requestNodeIndex))) {
             return this._NgControl_21_8;
         }
-        if (((token === import38.NgControlStatus) && (21 === requestNodeIndex))) {
+        if (((token === import40.NgControlStatus) && (21 === requestNodeIndex))) {
             return this._NgControlStatus_21_9.context;
         }
         if (((token === import14.MdInputDirective) && (21 === requestNodeIndex))) {
@@ -533,28 +544,28 @@ export var View_PatientProfileComponent0 = (function (_super) {
         if (((token === import14.MdInputContainer) && ((19 <= requestNodeIndex) && (requestNodeIndex <= 22)))) {
             return this._MdInputContainer_19_3.context;
         }
-        if (((token === import32.DefaultValueAccessor) && (26 === requestNodeIndex))) {
+        if (((token === import34.DefaultValueAccessor) && (26 === requestNodeIndex))) {
             return this._DefaultValueAccessor_26_3.context;
         }
-        if (((token === import39.NumberValueAccessor) && (26 === requestNodeIndex))) {
+        if (((token === import41.NumberValueAccessor) && (26 === requestNodeIndex))) {
             return this._NumberValueAccessor_26_4.context;
         }
-        if (((token === import33.RequiredValidator) && (26 === requestNodeIndex))) {
+        if (((token === import35.RequiredValidator) && (26 === requestNodeIndex))) {
             return this._RequiredValidator_26_5.context;
         }
-        if (((token === import34.NG_VALIDATORS) && (26 === requestNodeIndex))) {
+        if (((token === import36.NG_VALIDATORS) && (26 === requestNodeIndex))) {
             return this._NG_VALIDATORS_26_6;
         }
-        if (((token === import35.NG_VALUE_ACCESSOR) && (26 === requestNodeIndex))) {
+        if (((token === import37.NG_VALUE_ACCESSOR) && (26 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_26_7;
         }
-        if (((token === import36.NgModel) && (26 === requestNodeIndex))) {
+        if (((token === import38.NgModel) && (26 === requestNodeIndex))) {
             return this._NgModel_26_8.context;
         }
-        if (((token === import37.NgControl) && (26 === requestNodeIndex))) {
+        if (((token === import39.NgControl) && (26 === requestNodeIndex))) {
             return this._NgControl_26_9;
         }
-        if (((token === import38.NgControlStatus) && (26 === requestNodeIndex))) {
+        if (((token === import40.NgControlStatus) && (26 === requestNodeIndex))) {
             return this._NgControlStatus_26_10.context;
         }
         if (((token === import14.MdInputDirective) && (26 === requestNodeIndex))) {
@@ -566,58 +577,58 @@ export var View_PatientProfileComponent0 = (function (_super) {
         if (((token === import24.MdOption) && ((31 <= requestNodeIndex) && (requestNodeIndex <= 32)))) {
             return this._MdOption_31_3.context;
         }
-        if (((token === import29.MdPrefixRejector) && ((31 <= requestNodeIndex) && (requestNodeIndex <= 32)))) {
+        if (((token === import30.MdPrefixRejector) && ((31 <= requestNodeIndex) && (requestNodeIndex <= 32)))) {
             return this._MdPrefixRejector_31_4.context;
         }
         if (((token === import24.MdOption) && ((34 <= requestNodeIndex) && (requestNodeIndex <= 35)))) {
             return this._MdOption_34_3.context;
         }
-        if (((token === import29.MdPrefixRejector) && ((34 <= requestNodeIndex) && (requestNodeIndex <= 35)))) {
+        if (((token === import30.MdPrefixRejector) && ((34 <= requestNodeIndex) && (requestNodeIndex <= 35)))) {
             return this._MdPrefixRejector_34_4.context;
         }
-        if (((token === import33.RequiredValidator) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
+        if (((token === import35.RequiredValidator) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
             return this._RequiredValidator_29_3.context;
         }
-        if (((token === import34.NG_VALIDATORS) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
+        if (((token === import36.NG_VALIDATORS) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
             return this._NG_VALIDATORS_29_4;
         }
-        if (((token === import36.NgModel) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
+        if (((token === import38.NgModel) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
             return this._NgModel_29_5.context;
         }
-        if (((token === import37.NgControl) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
+        if (((token === import39.NgControl) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
             return this._NgControl_29_6;
         }
-        if (((token === import38.NgControlStatus) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
+        if (((token === import40.NgControlStatus) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
             return this._NgControlStatus_29_7.context;
         }
-        if (((token === import29.MdPrefixRejector) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
+        if (((token === import30.MdPrefixRejector) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
             return this._MdPrefixRejector_29_8.context;
         }
         if (((token === import21.MdSelect) && ((29 <= requestNodeIndex) && (requestNodeIndex <= 36)))) {
             return this._MdSelect_29_9.context;
         }
-        if (((token === import32.DefaultValueAccessor) && (40 === requestNodeIndex))) {
+        if (((token === import34.DefaultValueAccessor) && (40 === requestNodeIndex))) {
             return this._DefaultValueAccessor_40_3.context;
         }
-        if (((token === import39.NumberValueAccessor) && (40 === requestNodeIndex))) {
+        if (((token === import41.NumberValueAccessor) && (40 === requestNodeIndex))) {
             return this._NumberValueAccessor_40_4.context;
         }
-        if (((token === import33.RequiredValidator) && (40 === requestNodeIndex))) {
+        if (((token === import35.RequiredValidator) && (40 === requestNodeIndex))) {
             return this._RequiredValidator_40_5.context;
         }
-        if (((token === import34.NG_VALIDATORS) && (40 === requestNodeIndex))) {
+        if (((token === import36.NG_VALIDATORS) && (40 === requestNodeIndex))) {
             return this._NG_VALIDATORS_40_6;
         }
-        if (((token === import35.NG_VALUE_ACCESSOR) && (40 === requestNodeIndex))) {
+        if (((token === import37.NG_VALUE_ACCESSOR) && (40 === requestNodeIndex))) {
             return this._NG_VALUE_ACCESSOR_40_7;
         }
-        if (((token === import36.NgModel) && (40 === requestNodeIndex))) {
+        if (((token === import38.NgModel) && (40 === requestNodeIndex))) {
             return this._NgModel_40_8.context;
         }
-        if (((token === import37.NgControl) && (40 === requestNodeIndex))) {
+        if (((token === import39.NgControl) && (40 === requestNodeIndex))) {
             return this._NgControl_40_9;
         }
-        if (((token === import38.NgControlStatus) && (40 === requestNodeIndex))) {
+        if (((token === import40.NgControlStatus) && (40 === requestNodeIndex))) {
             return this._NgControlStatus_40_10.context;
         }
         if (((token === import14.MdInputDirective) && (40 === requestNodeIndex))) {
@@ -626,7 +637,7 @@ export var View_PatientProfileComponent0 = (function (_super) {
         if (((token === import14.MdInputContainer) && ((38 <= requestNodeIndex) && (requestNodeIndex <= 41)))) {
             return this._MdInputContainer_38_3.context;
         }
-        if (((token === import29.MdPrefixRejector) && ((45 <= requestNodeIndex) && (requestNodeIndex <= 46)))) {
+        if (((token === import30.MdPrefixRejector) && ((45 <= requestNodeIndex) && (requestNodeIndex <= 46)))) {
             return this._MdPrefixRejector_45_3.context;
         }
         if (((token === import26.MdButton) && ((45 <= requestNodeIndex) && (requestNodeIndex <= 46)))) {
@@ -635,7 +646,7 @@ export var View_PatientProfileComponent0 = (function (_super) {
         if (((token === import26.MdRaisedButtonCssMatStyler) && ((45 <= requestNodeIndex) && (requestNodeIndex <= 46)))) {
             return this._MdRaisedButtonCssMatStyler_45_5.context;
         }
-        if (((token === import29.MdPrefixRejector) && ((48 <= requestNodeIndex) && (requestNodeIndex <= 49)))) {
+        if (((token === import30.MdPrefixRejector) && ((48 <= requestNodeIndex) && (requestNodeIndex <= 49)))) {
             return this._MdPrefixRejector_48_3.context;
         }
         if (((token === import26.MdAnchor) && ((48 <= requestNodeIndex) && (requestNodeIndex <= 49)))) {
@@ -644,18 +655,19 @@ export var View_PatientProfileComponent0 = (function (_super) {
         if (((token === import26.MdButtonCssMatStyler) && ((48 <= requestNodeIndex) && (requestNodeIndex <= 49)))) {
             return this._MdButtonCssMatStyler_48_5.context;
         }
-        if (((token === import40.NgForm) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 51)))) {
+        if (((token === import42.NgForm) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 51)))) {
             return this._NgForm_2_3.context;
         }
-        if (((token === import41.ControlContainer) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 51)))) {
+        if (((token === import43.ControlContainer) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 51)))) {
             return this._ControlContainer_2_4;
         }
-        if (((token === import38.NgControlStatusGroup) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 51)))) {
+        if (((token === import40.NgControlStatusGroup) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 51)))) {
             return this._NgControlStatusGroup_2_5.context;
         }
         return notFoundResult;
     };
     View_PatientProfileComponent0.prototype.detectChangesInternal = function (throwOnChange) {
+        var valUnwrapper = new import44.ValueUnwrapper();
         this._NgForm_2_3.ngDoCheck(this, this._el_2, throwOnChange);
         this._NgControlStatusGroup_2_5.ngDoCheck(this, this._el_2, throwOnChange);
         this._MdInputContainer_4_3.ngDoCheck(this, this._el_4, throwOnChange);
@@ -701,8 +713,9 @@ export var View_PatientProfileComponent0 = (function (_super) {
         this._RequiredValidator_16_4.ngDoCheck(this, this._el_16, throwOnChange);
         var currVal_16_2_0 = 'dob';
         this._NgModel_16_7.check_name(currVal_16_2_0, throwOnChange, false);
-        var currVal_16_2_1 = this.context.pp.patient.dob;
-        this._NgModel_16_7.check_model(currVal_16_2_1, throwOnChange, false);
+        valUnwrapper.reset();
+        var currVal_16_2_1 = valUnwrapper.unwrap(import3.castByValue(this._pipe_date_0_0, this._pipe_date_0.transform)(this.context.pp.patient.dob, 'yyyy-MM-dd'));
+        this._NgModel_16_7.check_model(currVal_16_2_1, throwOnChange, valUnwrapper.hasWrappedValue);
         this._NgModel_16_7.ngDoCheck(this, this._el_16, throwOnChange);
         this._NgControlStatus_16_9.ngDoCheck(this, this._el_16, throwOnChange);
         var currVal_16_4_0 = 'Date of birth';
@@ -1167,4 +1180,5 @@ export var View_PatientProfileComponent0 = (function (_super) {
     };
     return View_PatientProfileComponent0;
 }(import1.AppView));
+export { View_PatientProfileComponent0 };
 //# sourceMappingURL=patient-profile.component.ngfactory.js.map

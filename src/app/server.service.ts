@@ -8,39 +8,36 @@ import 'rxjs/add/observable/from';
 
 import { Patient } from './patient';
 import { Form } from './form';
+import { Protocol } from './protocol';
 
 
 @Injectable() export class Server{
-	private temppatients: Patient[] = []
-	private withProfile: Patient = {id:0,name:'Patient',uhid:'MM00449713',dob:'19/09/1986',bednum:'0909',profile:{weight:100,diabetes:'Yes'}};
-	private formsStore: Form[] = [{patientId:3,type:'infusion',dt:new Date(),savedBy:{id:1,name:'Pravin'},values:{currentRate:4,modifiedRate:5,plasmaGlucose:180}}]
-	constructor(){
-		for(var i=0;i<20;i++){let n=new Patient();n.id=(i+3);n.uhid='MM004497'+(i+6);n.name='Patient '+(i+3);this.temppatients.push(n);}
-	}
+	private dataUrl='/data/';
+	constructor(private http: Http){}
 	getPatients(uhid? :string): Observable<Patient[]>{
-		if(uhid){
-			var p=this.temppatients.find(pat=>pat.uhid.toString().toLowerCase()==uhid.toString().toLowerCase());
-			return Observable.from(p?[[p]]:[[]]);
-		}else return Observable.from([this.temppatients]);
+		return this.http.post(this.dataUrl+'getPatients',uhid).map(this.parseBody).catch(this.handleError);
 	}
 	getProfile(id :number): Observable<Patient>{
-		let p=this.temppatients.find(p=>p.id==id)||new Patient();
-		return Observable.from([p]);
+		return this.http.post(this.dataUrl+'getProfile',id).map(this.parseBody).catch(this.handleError);
 	}
-	savePatient(patient: Patient): Observable<Patient>{
-		if(!patient.id){
-			patient.id=Math.round(Math.random()*100);
-			this.temppatients.push(patient);
-		}
-		return Observable.from([patient]);
+	savePatient(patient: Patient): Observable<Patient>{		
+		return this.http.post(this.dataUrl+'savePatient',patient).map(this.parseBody).catch(this.handleError);
 	}
 	saveForm(form: Form): Observable<string>{
-		form.dt=new Date();
-		this.formsStore.push(form);
-		return Observable.of('success');
+		return this.http.post(this.dataUrl+'saveForm',form).map(this.parseBody).catch(this.handleError);
 	}
-	getForms(id: number): Observable<Form[]>{
-		return Observable.from([this.formsStore.filter(form=>form.patientId==id)]);
+	getForms(patientid: number): Observable<Form[]>{
+		return this.http.post(this.dataUrl+'getForms',patientid).map(this.parseBody).catch(this.handleError);
+	}
+	getProtocol(type: string): Observable<Protocol>{
+		return this.http.post(this.dataUrl+'getProtocol',type).map(this.parseBody).catch(this.handleError);
+	}
+	saveProtocol(protocol: Protocol): Observable<Protocol>{		
+		return this.http.post(this.dataUrl+'saveProtocol',protocol).map(this.parseBody).catch(this.handleError);
+	}
+	private parseBody = (res: Response)=>{
+		if(res.text()=='fail')this.handleError('Server Internal Error');
+		return res.text()=='success'?'success':(res.json()||{});
 	}
 	private handleError (error: Response | any) {
 		// In a real world app, we might use a remote logging infrastructure

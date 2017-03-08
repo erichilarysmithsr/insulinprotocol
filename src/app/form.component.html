@@ -2,15 +2,15 @@
 	<div *ngIf="type=='infusion'">
 		<form (ngSubmit)="saveForm()" #infusionForm="ngForm" >
 			<md-input-container class="big">
-				<input mdInput type="number" name="currentRate" placeholder="Current Infusion Rate (units/hr)" required [(ngModel)]="form.values.currentRate">
+				<input mdInput type="number" name="currentRate" placeholder="Current Infusion Rate (units/hr)" required [(ngModel)]="form.data.currentRate">
 			</md-input-container>
 			<br>
 			<md-input-container class="big">
-				<input mdInput type="number" name="plasmaGlucose" placeholder="Plasma Glucose (mg/dl)" required [(ngModel)]="form.values.plasmaGlucose">
+				<input mdInput type="number" name="plasmaGlucose" placeholder="Plasma Glucose (mg/dl)" required [(ngModel)]="form.data.plasmaGlucose">
 			</md-input-container>
 			<br>
 			<md-input-container class="big">
-				<input mdInput type="number" name="modifiedRate" placeholder="Modified Infusion Rate (units/hr)" required [(ngModel)]="form.values.modifiedRate">
+				<input mdInput type="number" name="modifiedRate" placeholder="Modified Infusion Rate (units/hr)" required [(ngModel)]="form.data.modifiedRate">
 			</md-input-container>
 			
 			<div style="text-align:center;margin-top:10px;">
@@ -22,9 +22,9 @@
 
 	<div *ngIf="type=='subcutaneous'">
 		<form (ngSubmit)="saveForm()" #subcutaneousForm="ngForm" >
-			<md-select placeholder="Dosage Type" name="diabetes" required [(ngModel)]="form.values.dosageType" class="big">
+			<md-select placeholder="Dosage Type" name="dosageType" required [(ngModel)]="form.data.dosageType" class="big">
 				<md-option value="Before Breakfast" >Before Breakfast</md-option>
-				<md-option value="10am" >10am</md-option>			
+				<md-option value="10:00 AM" >10:00 AM</md-option>			
 				<md-option value="Before Lunch">Before Lunch</md-option>
 				<md-option value="Before Evening Snack">Before Evening Snack</md-option>
 				<md-option value="Before Dinner">Before Dinner</md-option>
@@ -32,7 +32,7 @@
 			</md-select>
 			<br>
 			<md-input-container class="big">
-				<input mdInput type="number" name="plasmaGlucose" placeholder="Plasma Glucose (mg/dl)" required [(ngModel)]="form.values.plasmaGlucose">
+				<input mdInput type="number" name="plasmaGlucose" placeholder="Plasma Glucose (mg/dl)" required [(ngModel)]="form.data.plasmaGlucose">
 			</md-input-container>					
 			
 			<div style="text-align:center;margin-top:10px;">

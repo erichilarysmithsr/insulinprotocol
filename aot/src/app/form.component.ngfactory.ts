@@ -435,7 +435,7 @@ class View_FormComponent1 extends import1.AppView<any> {
     this._RequiredValidator_6_5.ngDoCheck(this,this._el_6,throwOnChange);
     const currVal_6_3_0:any = 'currentRate';
     this._NgModel_6_8.check_name(currVal_6_3_0,throwOnChange,false);
-    const currVal_6_3_1:any = this.parentView.context.form.values.currentRate;
+    const currVal_6_3_1:any = this.parentView.context.form.data.currentRate;
     this._NgModel_6_8.check_model(currVal_6_3_1,throwOnChange,false);
     this._NgModel_6_8.ngDoCheck(this,this._el_6,throwOnChange);
     this._NgControlStatus_6_10.ngDoCheck(this,this._el_6,throwOnChange);
@@ -454,7 +454,7 @@ class View_FormComponent1 extends import1.AppView<any> {
     this._RequiredValidator_13_5.ngDoCheck(this,this._el_13,throwOnChange);
     const currVal_13_3_0:any = 'plasmaGlucose';
     this._NgModel_13_8.check_name(currVal_13_3_0,throwOnChange,false);
-    const currVal_13_3_1:any = this.parentView.context.form.values.plasmaGlucose;
+    const currVal_13_3_1:any = this.parentView.context.form.data.plasmaGlucose;
     this._NgModel_13_8.check_model(currVal_13_3_1,throwOnChange,false);
     this._NgModel_13_8.ngDoCheck(this,this._el_13,throwOnChange);
     this._NgControlStatus_13_10.ngDoCheck(this,this._el_13,throwOnChange);
@@ -473,7 +473,7 @@ class View_FormComponent1 extends import1.AppView<any> {
     this._RequiredValidator_20_5.ngDoCheck(this,this._el_20,throwOnChange);
     const currVal_20_3_0:any = 'modifiedRate';
     this._NgModel_20_8.check_name(currVal_20_3_0,throwOnChange,false);
-    const currVal_20_3_1:any = this.parentView.context.form.values.modifiedRate;
+    const currVal_20_3_1:any = this.parentView.context.form.data.modifiedRate;
     this._NgModel_20_8.check_model(currVal_20_3_1,throwOnChange,false);
     this._NgModel_20_8.ngDoCheck(this,this._el_20,throwOnChange);
     this._NgControlStatus_20_10.ngDoCheck(this,this._el_20,throwOnChange);
@@ -606,7 +606,7 @@ class View_FormComponent1 extends import1.AppView<any> {
     result = (this._NumberValueAccessor_6_4.handleEvent(eventName,$event) && result);
     result = (this._MdInputDirective_6_11.handleEvent(eventName,$event) && result);
     if ((eventName == 'ngModelChange')) {
-      const pd_sub_0:any = ((<any>(this.parentView.context.form.values.currentRate = $event)) !== false);
+      const pd_sub_0:any = ((<any>(this.parentView.context.form.data.currentRate = $event)) !== false);
       result = (pd_sub_0 && result);
     }
     return result;
@@ -624,7 +624,7 @@ class View_FormComponent1 extends import1.AppView<any> {
     result = (this._NumberValueAccessor_13_4.handleEvent(eventName,$event) && result);
     result = (this._MdInputDirective_13_11.handleEvent(eventName,$event) && result);
     if ((eventName == 'ngModelChange')) {
-      const pd_sub_0:any = ((<any>(this.parentView.context.form.values.plasmaGlucose = $event)) !== false);
+      const pd_sub_0:any = ((<any>(this.parentView.context.form.data.plasmaGlucose = $event)) !== false);
       result = (pd_sub_0 && result);
     }
     return result;
@@ -642,7 +642,7 @@ class View_FormComponent1 extends import1.AppView<any> {
     result = (this._NumberValueAccessor_20_4.handleEvent(eventName,$event) && result);
     result = (this._MdInputDirective_20_11.handleEvent(eventName,$event) && result);
     if ((eventName == 'ngModelChange')) {
-      const pd_sub_0:any = ((<any>(this.parentView.context.form.values.modifiedRate = $event)) !== false);
+      const pd_sub_0:any = ((<any>(this.parentView.context.form.data.modifiedRate = $event)) !== false);
       result = (pd_sub_0 && result);
     }
     return result;
@@ -1000,7 +1000,7 @@ class View_FormComponent2 extends import1.AppView<any> {
     this._RequiredValidator_4_3.ngDoCheck(this,this._el_4,throwOnChange);
     const currVal_4_1_0:any = 'diabetes';
     this._NgModel_4_5.check_name(currVal_4_1_0,throwOnChange,false);
-    const currVal_4_1_1:any = this.parentView.context.form.values.dosageType;
+    const currVal_4_1_1:any = this.parentView.context.form.data.dosageType;
     this._NgModel_4_5.check_model(currVal_4_1_1,throwOnChange,false);
     this._NgModel_4_5.ngDoCheck(this,this._el_4,throwOnChange);
     this._NgControlStatus_4_7.ngDoCheck(this,this._el_4,throwOnChange);
@@ -1042,7 +1042,7 @@ class View_FormComponent2 extends import1.AppView<any> {
     this._RequiredValidator_29_5.ngDoCheck(this,this._el_29,throwOnChange);
     const currVal_29_3_0:any = 'plasmaGlucose';
     this._NgModel_29_8.check_name(currVal_29_3_0,throwOnChange,false);
-    const currVal_29_3_1:any = this.parentView.context.form.values.plasmaGlucose;
+    const currVal_29_3_1:any = this.parentView.context.form.data.plasmaGlucose;
     this._NgModel_29_8.check_model(currVal_29_3_1,throwOnChange,false);
     this._NgModel_29_8.ngDoCheck(this,this._el_29,throwOnChange);
     this._NgControlStatus_29_10.ngDoCheck(this,this._el_29,throwOnChange);
@@ -1187,7 +1187,7 @@ class View_FormComponent2 extends import1.AppView<any> {
     var result:boolean = true;
     result = (this._MdSelect_4_9.handleEvent(eventName,$event) && result);
     if ((eventName == 'ngModelChange')) {
-      const pd_sub_0:any = ((<any>(this.parentView.context.form.values.dosageType = $event)) !== false);
+      const pd_sub_0:any = ((<any>(this.parentView.context.form.data.dosageType = $event)) !== false);
       result = (pd_sub_0 && result);
     }
     return result;
@@ -1241,7 +1241,7 @@ class View_FormComponent2 extends import1.AppView<any> {
     result = (this._NumberValueAccessor_29_4.handleEvent(eventName,$event) && result);
     result = (this._MdInputDirective_29_11.handleEvent(eventName,$event) && result);
     if ((eventName == 'ngModelChange')) {
-      const pd_sub_0:any = ((<any>(this.parentView.context.form.values.plasmaGlucose = $event)) !== false);
+      const pd_sub_0:any = ((<any>(this.parentView.context.form.data.plasmaGlucose = $event)) !== false);
       result = (pd_sub_0 && result);
     }
     return result;

@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Server } from './server.service';
-export var PatientListComponent = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var server_service_1 = require("./server.service");
+var PatientListComponent = (function () {
     function PatientListComponent(server, router) {
         this.server = server;
         this.router = router;
@@ -37,15 +39,16 @@ export var PatientListComponent = (function () {
     PatientListComponent.prototype.formsList = function (id) {
         this.router.navigate(['patient', id, 'forms-list']);
     };
-    PatientListComponent = __decorate([
-        Component({
-            moduleId: module.id,
-            templateUrl: 'patient-list.component.html',
-            selector: 'patient-list',
-            styleUrls: ['patient-list.component.css']
-        }), 
-        __metadata('design:paramtypes', [Server, Router])
-    ], PatientListComponent);
     return PatientListComponent;
 }());
+PatientListComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        templateUrl: 'patient-list.component.html',
+        selector: 'patient-list',
+        styleUrls: ['patient-list.component.css']
+    }),
+    __metadata("design:paramtypes", [server_service_1.Server, router_1.Router])
+], PatientListComponent);
+exports.PatientListComponent = PatientListComponent;
 //# sourceMappingURL=patient-list.component.js.map
