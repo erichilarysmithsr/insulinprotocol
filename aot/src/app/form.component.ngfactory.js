@@ -26,7 +26,7 @@ import * as import9 from '@angular/router/src/router';
 import * as import10 from '@angular/router/src/router_state';
 import * as import11 from '@angular/common/src/location/location';
 import * as import12 from '../../../src/app/server.service';
-import * as import13 from '@angular/material/dialog/dialog';
+import * as import13 from '../../../src/app/dialog.service';
 import * as import14 from '../../node_modules/@angular/forms/src/directives/ng_form.ngfactory';
 import * as import15 from '../../node_modules/@angular/forms/src/directives/ng_control_status.ngfactory';
 import * as import16 from '@angular/material/input/input-container';
@@ -101,7 +101,7 @@ var View_FormComponent_Host0 = (function (_super) {
     View_FormComponent_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
         this.compView_0 = new View_FormComponent0(this.viewUtils, this, 0, this._el_0);
-        this._FormComponent_0_3 = new Wrapper_FormComponent(this.injectorGet(import8.PatientProvider, this.parentIndex), this.injectorGet(import9.Router, this.parentIndex), this.injectorGet(import10.ActivatedRoute, this.parentIndex), this.injectorGet(import11.Location, this.parentIndex), this.injectorGet(import12.Server, this.parentIndex), this.injectorGet(import13.MdDialog, this.parentIndex));
+        this._FormComponent_0_3 = new Wrapper_FormComponent(this.injectorGet(import8.PatientProvider, this.parentIndex), this.injectorGet(import9.Router, this.parentIndex), this.injectorGet(import10.ActivatedRoute, this.parentIndex), this.injectorGet(import11.Location, this.parentIndex), this.injectorGet(import12.Server, this.parentIndex), this.injectorGet(import13.DialogService, this.parentIndex));
         this.compView_0.create(this._FormComponent_0_3.context);
         this.init(this._el_0, (this.renderer.directRenderer ? null : [this._el_0]), null);
         return new import7.ComponentRef_(0, this, this._el_0, this._FormComponent_0_3.context);
@@ -690,7 +690,7 @@ var View_FormComponent2 = (function (_super) {
         this._ControlContainer_2_4 = this._NgForm_2_3.context;
         this._NgControlStatusGroup_2_5 = new import15.Wrapper_NgControlStatusGroup(this._ControlContainer_2_4);
         this._text_3 = this.renderer.createText(this._el_2, '\n			', null);
-        this._el_4 = import3.createRenderElement(this.renderer, this._el_2, 'md-select', new import3.InlineArray16(10, 'class', 'big', 'name', 'diabetes', 'placeholder', 'Dosage Type', 'required', '', 'role', 'listbox'), null);
+        this._el_4 = import3.createRenderElement(this.renderer, this._el_2, 'md-select', new import3.InlineArray16(10, 'class', 'big', 'name', 'dosageType', 'placeholder', 'Dosage Type', 'required', '', 'role', 'listbox'), null);
         this.compView_4 = new import40.View_MdSelect0(this.viewUtils, this, 4, this._el_4);
         this._RequiredValidator_4_3 = new import21.Wrapper_RequiredValidator();
         this._NG_VALIDATORS_4_4 = [this._RequiredValidator_4_3.context];
@@ -708,11 +708,11 @@ var View_FormComponent2 = (function (_super) {
         this._text_7 = this.renderer.createText(null, 'Before Breakfast', null);
         this.compView_6.create(this._MdOption_6_3.context);
         this._text_8 = this.renderer.createText(null, '\n				', null);
-        this._el_9 = import3.createRenderElement(this.renderer, null, 'md-option', new import3.InlineArray4(4, 'role', 'option', 'value', '10am'), null);
+        this._el_9 = import3.createRenderElement(this.renderer, null, 'md-option', new import3.InlineArray4(4, 'role', 'option', 'value', '10:00 AM'), null);
         this.compView_9 = new import42.View_MdOption0(this.viewUtils, this, 9, this._el_9);
         this._MdOption_9_3 = new import42.Wrapper_MdOption(new import27.ElementRef(this._el_9), this.renderer);
         this._MdPrefixRejector_9_4 = new import24.Wrapper_MdPrefixRejector(this.parentView.parentView.injectorGet(import28.MATERIAL_COMPATIBILITY_MODE, this.parentView.parentIndex, null));
-        this._text_10 = this.renderer.createText(null, '10am', null);
+        this._text_10 = this.renderer.createText(null, '10:00 AM', null);
         this.compView_9.create(this._MdOption_9_3.context);
         this._text_11 = this.renderer.createText(null, '			\n				', null);
         this._el_12 = import3.createRenderElement(this.renderer, null, 'md-option', new import3.InlineArray4(4, 'role', 'option', 'value', 'Before Lunch'), null);
@@ -991,7 +991,7 @@ var View_FormComponent2 = (function (_super) {
         var currVal_4_0_0 = '';
         this._RequiredValidator_4_3.check_required(currVal_4_0_0, throwOnChange, false);
         this._RequiredValidator_4_3.ngDoCheck(this, this._el_4, throwOnChange);
-        var currVal_4_1_0 = 'diabetes';
+        var currVal_4_1_0 = 'dosageType';
         this._NgModel_4_5.check_name(currVal_4_1_0, throwOnChange, false);
         var currVal_4_1_1 = this.parentView.context.form.data.dosageType;
         this._NgModel_4_5.check_model(currVal_4_1_1, throwOnChange, false);
@@ -1007,7 +1007,7 @@ var View_FormComponent2 = (function (_super) {
         this._MdOption_6_3.check_value(currVal_6_0_0, throwOnChange, false);
         this._MdOption_6_3.ngDoCheck(this, this._el_6, throwOnChange);
         this._MdPrefixRejector_6_4.ngDoCheck(this, this._el_6, throwOnChange);
-        var currVal_9_0_0 = '10am';
+        var currVal_9_0_0 = '10:00 AM';
         this._MdOption_9_3.check_value(currVal_9_0_0, throwOnChange, false);
         this._MdOption_9_3.ngDoCheck(this, this._el_9, throwOnChange);
         this._MdPrefixRejector_9_4.ngDoCheck(this, this._el_9, throwOnChange);

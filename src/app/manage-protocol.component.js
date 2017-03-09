@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,10 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var server_service_1 = require("./server.service");
-var dialog_service_1 = require("./dialog.service");
+import { Component } from '@angular/core';
+import { Server } from './server.service';
+import { DialogService } from './dialog.service';
 var ManageProtocolComponent = (function () {
     function ManageProtocolComponent(server, dialog) {
         this.server = server;
@@ -39,11 +37,11 @@ var ManageProtocolComponent = (function () {
     return ManageProtocolComponent;
 }());
 ManageProtocolComponent = __decorate([
-    core_1.Component({
+    Component({
         moduleId: module.id,
         templateUrl: 'manage-protocol.component.html'
     }),
-    __metadata("design:paramtypes", [server_service_1.Server, dialog_service_1.DialogService])
+    __metadata("design:paramtypes", [Server, DialogService])
 ], ManageProtocolComponent);
-exports.ManageProtocolComponent = ManageProtocolComponent;
+export { ManageProtocolComponent };
 //# sourceMappingURL=manage-protocol.component.js.map

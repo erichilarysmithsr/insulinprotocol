@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,11 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var patient_provider_service_1 = require("./patient-provider.service");
-var server_service_1 = require("./server.service");
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PatientProvider } from './patient-provider.service';
+import { Server } from './server.service';
 var FormsListComponent = (function () {
     function FormsListComponent(pp, route, server) {
         this.pp = pp;
@@ -29,11 +27,11 @@ var FormsListComponent = (function () {
     return FormsListComponent;
 }());
 FormsListComponent = __decorate([
-    core_1.Component({
+    Component({
         moduleId: module.id,
         templateUrl: 'forms-list.component.html'
     }),
-    __metadata("design:paramtypes", [patient_provider_service_1.PatientProvider, router_1.ActivatedRoute, server_service_1.Server])
+    __metadata("design:paramtypes", [PatientProvider, ActivatedRoute, Server])
 ], FormsListComponent);
-exports.FormsListComponent = FormsListComponent;
+export { FormsListComponent };
 //# sourceMappingURL=forms-list.component.js.map

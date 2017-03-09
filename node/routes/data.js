@@ -163,7 +163,7 @@ function FormProcessor(insulinDeliveryType,forms){
         for(var i=0;i<forms.length;i++){
             var f=forms[i],dt=date.format(new Date(f.dt),'DD MMM YYYY');
             if(!fh[f.type])fh[f.type]={};if(!fh[f.type][dt])fh[f.type][dt]={};fh[f.type][dt][f.data.dosageType]=f.data;
-            if(f.type=='subcutaneous')this.isValid=true;if(!this.dosageType)this.dosageType=f.data.dosageType;
+            if(f.type=='subcutaneous'){this.isValid=true;if(!this.dosageType)this.dosageType=f.data.dosageType;}
         }
         this.nextDosageType=this.order[this.order.findIndex(r=>r==this.dosageType)+1];
     }else if(insulinDeliveryType=='infusion'){
@@ -179,8 +179,8 @@ FormProcessor.prototype.getValue=function(param,day,dosageType){
     var dt=day=='today'?date.format(new Date(),'DD MMM YYYY'):day=='yest'?date.format(date.addDays(new Date(),-1),'DD MMM YYYY'):null;
     var dose=dosageType=='same'?this.dosageType:dosageType=='next'?this.nextDosageType:dosageType;
     if(!fh)throw 'Form Hash is not defined';if(!type||!field)throw 'Invalid Param: '+param;if(!type)throw 'Invalid Day: '+day;
-    if(!this.isValid)throw 'FormProcessor should be checked for isValid before calling get';
-    return fh[type]&&fh[type][dt]&&fh[type][dt][dose]?fh[type][dt][dose][field]*1:null;
+    if(!this.isValid)throw 'FormProcessor should be checked for isValid before calling getValue';
+    return fh[type]&&fh[type][dt]&&fh[type][dt][dose]?fh[type][dt][dose][field]*1:undefined;
 };
 
 module.exports = router;

@@ -26,13 +26,13 @@ import * as import17 from '@angular/material/dialog/dialog-content-directives';
 import * as import18 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
 import * as import19 from '@angular/core/src/linker/template_ref';
 import * as import20 from '@angular/common/src/directives/ng_if';
-export class Wrapper_DialogDisplay {
+export class Wrapper_DialogComponent {
   /*private*/ _eventHandler:Function;
-  context:import0.DialogDisplay;
+  context:import0.DialogComponent;
   /*private*/ _changed:boolean;
   constructor() {
     this._changed = false;
-    this.context = new import0.DialogDisplay();
+    this.context = new import0.DialogComponent();
   }
   ngOnDetach(view:import1.AppView<any>,componentView:import1.AppView<any>,el:any):void {
   }
@@ -53,28 +53,28 @@ export class Wrapper_DialogDisplay {
     this._eventHandler = _eventHandler;
   }
 }
-var renderType_DialogDisplay_Host:import2.RenderComponentType = import3.createRenderComponentType('',0,import4.ViewEncapsulation.None,([] as any[]),{});
-class View_DialogDisplay_Host0 extends import1.AppView<any> {
+var renderType_DialogComponent_Host:import2.RenderComponentType = import3.createRenderComponentType('',0,import4.ViewEncapsulation.None,([] as any[]),{});
+class View_DialogComponent_Host0 extends import1.AppView<any> {
   _el_0:any;
-  compView_0:import1.AppView<import0.DialogDisplay>;
-  _DialogDisplay_0_3:Wrapper_DialogDisplay;
+  compView_0:import1.AppView<import0.DialogComponent>;
+  _DialogComponent_0_3:Wrapper_DialogComponent;
   constructor(viewUtils:import3.ViewUtils,parentView:import1.AppView<any>,parentIndex:number,parentElement:any) {
-    super(View_DialogDisplay_Host0,renderType_DialogDisplay_Host,import5.ViewType.HOST,viewUtils,parentView,parentIndex,parentElement,import6.ChangeDetectorStatus.CheckAlways);
+    super(View_DialogComponent_Host0,renderType_DialogComponent_Host,import5.ViewType.HOST,viewUtils,parentView,parentIndex,parentElement,import6.ChangeDetectorStatus.CheckAlways);
   }
   createInternal(rootSelector:string):import7.ComponentRef<any> {
     this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer,'ng-component',import3.EMPTY_INLINE_ARRAY,rootSelector,(null as any));
-    this.compView_0 = new View_DialogDisplay0(this.viewUtils,this,0,this._el_0);
-    this._DialogDisplay_0_3 = new Wrapper_DialogDisplay();
-    this.compView_0.create(this._DialogDisplay_0_3.context);
+    this.compView_0 = new View_DialogComponent0(this.viewUtils,this,0,this._el_0);
+    this._DialogComponent_0_3 = new Wrapper_DialogComponent();
+    this.compView_0.create(this._DialogComponent_0_3.context);
     this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [this._el_0]),(null as any));
-    return new import7.ComponentRef_<any>(0,this,this._el_0,this._DialogDisplay_0_3.context);
+    return new import7.ComponentRef_<any>(0,this,this._el_0,this._DialogComponent_0_3.context);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import0.DialogDisplay) && (0 === requestNodeIndex))) { return this._DialogDisplay_0_3.context; }
+    if (((token === import0.DialogComponent) && (0 === requestNodeIndex))) { return this._DialogComponent_0_3.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    this._DialogDisplay_0_3.ngDoCheck(this,this._el_0,throwOnChange);
+    this._DialogComponent_0_3.ngDoCheck(this,this._el_0,throwOnChange);
     this.compView_0.internalDetectChanges(throwOnChange);
   }
   destroyInternal():void {
@@ -84,9 +84,9 @@ class View_DialogDisplay_Host0 extends import1.AppView<any> {
     cb(this._el_0,ctx);
   }
 }
-export const DialogDisplayNgFactory:import7.ComponentFactory<import0.DialogDisplay> = new import7.ComponentFactory<import0.DialogDisplay>('ng-component',View_DialogDisplay_Host0,import0.DialogDisplay);
-const styles_DialogDisplay:any[] = ([] as any[]);
-class View_DialogDisplay1 extends import1.AppView<any> {
+export const DialogComponentNgFactory:import7.ComponentFactory<import0.DialogComponent> = new import7.ComponentFactory<import0.DialogComponent>('ng-component',View_DialogComponent_Host0,import0.DialogComponent);
+const styles_DialogComponent:any[] = ([] as any[]);
+class View_DialogComponent1 extends import1.AppView<any> {
   _el_0:any;
   compView_0:import1.AppView<import8.MdButton>;
   _MdPrefixRejector_0_3:import9.Wrapper_MdPrefixRejector;
@@ -96,7 +96,7 @@ class View_DialogDisplay1 extends import1.AppView<any> {
   _text_1:any;
   /*private*/ _expr_7:any;
   constructor(viewUtils:import3.ViewUtils,parentView:import1.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import12.ViewContainer) {
-    super(View_DialogDisplay1,renderType_DialogDisplay,import5.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import6.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
+    super(View_DialogComponent1,renderType_DialogComponent,import5.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import6.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
     this._expr_7 = import13.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import7.ComponentRef<any> {
@@ -155,8 +155,8 @@ class View_DialogDisplay1 extends import1.AppView<any> {
     return result;
   }
 }
-var renderType_DialogDisplay:import2.RenderComponentType = import3.createRenderComponentType('',0,import4.ViewEncapsulation.None,styles_DialogDisplay,{});
-export class View_DialogDisplay0 extends import1.AppView<import0.DialogDisplay> {
+var renderType_DialogComponent:import2.RenderComponentType = import3.createRenderComponentType('',0,import4.ViewEncapsulation.None,styles_DialogComponent,{});
+export class View_DialogComponent0 extends import1.AppView<import0.DialogComponent> {
   _text_0:any;
   _el_1:any;
   _MdPrefixRejector_1_3:import9.Wrapper_MdPrefixRejector;
@@ -181,7 +181,7 @@ export class View_DialogDisplay0 extends import1.AppView<import0.DialogDisplay> 
   /*private*/ _expr_21:any;
   /*private*/ _expr_22:any;
   constructor(viewUtils:import3.ViewUtils,parentView:import1.AppView<any>,parentIndex:number,parentElement:any) {
-    super(View_DialogDisplay0,renderType_DialogDisplay,import5.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import6.ChangeDetectorStatus.CheckAlways);
+    super(View_DialogComponent0,renderType_DialogComponent,import5.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import6.ChangeDetectorStatus.CheckAlways);
     this._expr_21 = import13.UNINITIALIZED;
     this._expr_22 = import13.UNINITIALIZED;
   }
@@ -265,7 +265,7 @@ export class View_DialogDisplay0 extends import1.AppView<import0.DialogDisplay> 
     this._vc_9.destroyNestedViews();
   }
   createEmbeddedViewInternal(nodeIndex:number):import1.AppView<any> {
-    if ((nodeIndex == 9)) { return new View_DialogDisplay1(this.viewUtils,this,9,this._anchor_9,this._vc_9); }
+    if ((nodeIndex == 9)) { return new View_DialogComponent1(this.viewUtils,this,9,this._anchor_9,this._vc_9); }
     return (null as any);
   }
 }

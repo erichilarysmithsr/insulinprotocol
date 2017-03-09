@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,13 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-var Observable_1 = require("rxjs/Observable");
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/catch");
-require("rxjs/add/observable/from");
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/from';
 var Server = (function () {
     function Server(http) {
         var _this = this;
@@ -53,7 +51,7 @@ var Server = (function () {
     Server.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         var errMsg;
-        if (error instanceof http_1.Response) {
+        if (error instanceof Response) {
             var body = error.json() || '';
             var err = body.error || JSON.stringify(body);
             errMsg = error.status + " - " + (error.statusText || '') + " " + err;
@@ -62,13 +60,13 @@ var Server = (function () {
             errMsg = error.message ? error.message : error.toString();
         }
         console.error(errMsg);
-        return Observable_1.Observable.throw(errMsg);
+        return Observable.throw(errMsg);
     };
     return Server;
 }());
 Server = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    Injectable(),
+    __metadata("design:paramtypes", [Http])
 ], Server);
-exports.Server = Server;
+export { Server };
 //# sourceMappingURL=server.service.js.map

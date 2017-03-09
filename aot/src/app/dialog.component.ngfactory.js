@@ -34,74 +34,74 @@ import * as import17 from '@angular/material/dialog/dialog-content-directives';
 import * as import18 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
 import * as import19 from '@angular/core/src/linker/template_ref';
 import * as import20 from '@angular/common/src/directives/ng_if';
-var Wrapper_DialogDisplay = (function () {
-    function Wrapper_DialogDisplay() {
+var Wrapper_DialogComponent = (function () {
+    function Wrapper_DialogComponent() {
         this._changed = false;
-        this.context = new import0.DialogDisplay();
+        this.context = new import0.DialogComponent();
     }
-    Wrapper_DialogDisplay.prototype.ngOnDetach = function (view, componentView, el) {
+    Wrapper_DialogComponent.prototype.ngOnDetach = function (view, componentView, el) {
     };
-    Wrapper_DialogDisplay.prototype.ngOnDestroy = function () {
+    Wrapper_DialogComponent.prototype.ngOnDestroy = function () {
     };
-    Wrapper_DialogDisplay.prototype.ngDoCheck = function (view, el, throwOnChange) {
+    Wrapper_DialogComponent.prototype.ngDoCheck = function (view, el, throwOnChange) {
         var changed = this._changed;
         this._changed = false;
         return changed;
     };
-    Wrapper_DialogDisplay.prototype.checkHost = function (view, componentView, el, throwOnChange) {
+    Wrapper_DialogComponent.prototype.checkHost = function (view, componentView, el, throwOnChange) {
     };
-    Wrapper_DialogDisplay.prototype.handleEvent = function (eventName, $event) {
+    Wrapper_DialogComponent.prototype.handleEvent = function (eventName, $event) {
         var result = true;
         return result;
     };
-    Wrapper_DialogDisplay.prototype.subscribe = function (view, _eventHandler) {
+    Wrapper_DialogComponent.prototype.subscribe = function (view, _eventHandler) {
         this._eventHandler = _eventHandler;
     };
-    return Wrapper_DialogDisplay;
+    return Wrapper_DialogComponent;
 }());
-export { Wrapper_DialogDisplay };
-var renderType_DialogDisplay_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
-var View_DialogDisplay_Host0 = (function (_super) {
-    __extends(View_DialogDisplay_Host0, _super);
-    function View_DialogDisplay_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        return _super.call(this, View_DialogDisplay_Host0, renderType_DialogDisplay_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
+export { Wrapper_DialogComponent };
+var renderType_DialogComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
+var View_DialogComponent_Host0 = (function (_super) {
+    __extends(View_DialogComponent_Host0, _super);
+    function View_DialogComponent_Host0(viewUtils, parentView, parentIndex, parentElement) {
+        return _super.call(this, View_DialogComponent_Host0, renderType_DialogComponent_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
     }
-    View_DialogDisplay_Host0.prototype.createInternal = function (rootSelector) {
+    View_DialogComponent_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
-        this.compView_0 = new View_DialogDisplay0(this.viewUtils, this, 0, this._el_0);
-        this._DialogDisplay_0_3 = new Wrapper_DialogDisplay();
-        this.compView_0.create(this._DialogDisplay_0_3.context);
+        this.compView_0 = new View_DialogComponent0(this.viewUtils, this, 0, this._el_0);
+        this._DialogComponent_0_3 = new Wrapper_DialogComponent();
+        this.compView_0.create(this._DialogComponent_0_3.context);
         this.init(this._el_0, (this.renderer.directRenderer ? null : [this._el_0]), null);
-        return new import7.ComponentRef_(0, this, this._el_0, this._DialogDisplay_0_3.context);
+        return new import7.ComponentRef_(0, this, this._el_0, this._DialogComponent_0_3.context);
     };
-    View_DialogDisplay_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import0.DialogDisplay) && (0 === requestNodeIndex))) {
-            return this._DialogDisplay_0_3.context;
+    View_DialogComponent_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
+        if (((token === import0.DialogComponent) && (0 === requestNodeIndex))) {
+            return this._DialogComponent_0_3.context;
         }
         return notFoundResult;
     };
-    View_DialogDisplay_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        this._DialogDisplay_0_3.ngDoCheck(this, this._el_0, throwOnChange);
+    View_DialogComponent_Host0.prototype.detectChangesInternal = function (throwOnChange) {
+        this._DialogComponent_0_3.ngDoCheck(this, this._el_0, throwOnChange);
         this.compView_0.internalDetectChanges(throwOnChange);
     };
-    View_DialogDisplay_Host0.prototype.destroyInternal = function () {
+    View_DialogComponent_Host0.prototype.destroyInternal = function () {
         this.compView_0.destroy();
     };
-    View_DialogDisplay_Host0.prototype.visitRootNodesInternal = function (cb, ctx) {
+    View_DialogComponent_Host0.prototype.visitRootNodesInternal = function (cb, ctx) {
         cb(this._el_0, ctx);
     };
-    return View_DialogDisplay_Host0;
+    return View_DialogComponent_Host0;
 }(import1.AppView));
-export var DialogDisplayNgFactory = new import7.ComponentFactory('ng-component', View_DialogDisplay_Host0, import0.DialogDisplay);
-var styles_DialogDisplay = [];
-var View_DialogDisplay1 = (function (_super) {
-    __extends(View_DialogDisplay1, _super);
-    function View_DialogDisplay1(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
-        var _this = _super.call(this, View_DialogDisplay1, renderType_DialogDisplay, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
+export var DialogComponentNgFactory = new import7.ComponentFactory('ng-component', View_DialogComponent_Host0, import0.DialogComponent);
+var styles_DialogComponent = [];
+var View_DialogComponent1 = (function (_super) {
+    __extends(View_DialogComponent1, _super);
+    function View_DialogComponent1(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
+        var _this = _super.call(this, View_DialogComponent1, renderType_DialogComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
         _this._expr_7 = import13.UNINITIALIZED;
         return _this;
     }
-    View_DialogDisplay1.prototype.createInternal = function (rootSelector) {
+    View_DialogComponent1.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'button', new import3.InlineArray8(6, 'md-button', '', 'md-dialog-close', '', 'type', 'button'), null);
         this.compView_0 = new import10.View_MdButton0(this.viewUtils, this, 0, this._el_0);
         this._MdPrefixRejector_0_3 = new import9.Wrapper_MdPrefixRejector(this.parentView.parentView.injectorGet(import14.MATERIAL_COMPATIBILITY_MODE, this.parentView.parentIndex, null));
@@ -117,7 +117,7 @@ var View_DialogDisplay1 = (function (_super) {
         ]), [disposable_0]);
         return null;
     };
-    View_DialogDisplay1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
+    View_DialogComponent1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import14.MdPrefixRejector) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
             return this._MdPrefixRejector_0_3.context;
         }
@@ -132,7 +132,7 @@ var View_DialogDisplay1 = (function (_super) {
         }
         return notFoundResult;
     };
-    View_DialogDisplay1.prototype.detectChangesInternal = function (throwOnChange) {
+    View_DialogComponent1.prototype.detectChangesInternal = function (throwOnChange) {
         this._MdPrefixRejector_0_3.ngDoCheck(this, this._el_0, throwOnChange);
         if (this._MdButton_0_4.ngDoCheck(this, this._el_0, throwOnChange)) {
             this.compView_0.markAsCheckOnce();
@@ -149,36 +149,36 @@ var View_DialogDisplay1 = (function (_super) {
         }
         this.compView_0.internalDetectChanges(throwOnChange);
     };
-    View_DialogDisplay1.prototype.destroyInternal = function () {
+    View_DialogComponent1.prototype.destroyInternal = function () {
         this.compView_0.destroy();
     };
-    View_DialogDisplay1.prototype.visitRootNodesInternal = function (cb, ctx) {
+    View_DialogComponent1.prototype.visitRootNodesInternal = function (cb, ctx) {
         cb(this._el_0, ctx);
     };
-    View_DialogDisplay1.prototype.visitProjectableNodesInternal = function (nodeIndex, ngContentIndex, cb, ctx) {
+    View_DialogComponent1.prototype.visitProjectableNodesInternal = function (nodeIndex, ngContentIndex, cb, ctx) {
         if (((nodeIndex == 0) && (ngContentIndex == 0))) {
             cb(this._text_1, ctx);
         }
     };
-    View_DialogDisplay1.prototype.handleEvent_0 = function (eventName, $event) {
+    View_DialogComponent1.prototype.handleEvent_0 = function (eventName, $event) {
         this.compView_0.markPathToRootAsCheckOnce();
         var result = true;
         result = (this._MdButton_0_4.handleEvent(eventName, $event) && result);
         result = (this._MdDialogClose_0_6.handleEvent(eventName, $event) && result);
         return result;
     };
-    return View_DialogDisplay1;
+    return View_DialogComponent1;
 }(import1.AppView));
-var renderType_DialogDisplay = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_DialogDisplay, {});
-var View_DialogDisplay0 = (function (_super) {
-    __extends(View_DialogDisplay0, _super);
-    function View_DialogDisplay0(viewUtils, parentView, parentIndex, parentElement) {
-        var _this = _super.call(this, View_DialogDisplay0, renderType_DialogDisplay, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
+var renderType_DialogComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_DialogComponent, {});
+var View_DialogComponent0 = (function (_super) {
+    __extends(View_DialogComponent0, _super);
+    function View_DialogComponent0(viewUtils, parentView, parentIndex, parentElement) {
+        var _this = _super.call(this, View_DialogComponent0, renderType_DialogComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways) || this;
         _this._expr_21 = import13.UNINITIALIZED;
         _this._expr_22 = import13.UNINITIALIZED;
         return _this;
     }
-    View_DialogDisplay0.prototype.createInternal = function (rootSelector) {
+    View_DialogComponent0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
         this._text_0 = this.renderer.createText(parentRenderNode, '\n		', null);
         this._el_1 = import3.createRenderElement(this.renderer, parentRenderNode, 'h2', new import3.InlineArray2(2, 'md-dialog-title', ''), null);
@@ -217,7 +217,7 @@ var View_DialogDisplay0 = (function (_super) {
         ]), null);
         return null;
     };
-    View_DialogDisplay0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
+    View_DialogComponent0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import14.MdPrefixRejector) && ((1 <= requestNodeIndex) && (requestNodeIndex <= 2)))) {
             return this._MdPrefixRejector_1_3.context;
         }
@@ -244,7 +244,7 @@ var View_DialogDisplay0 = (function (_super) {
         }
         return notFoundResult;
     };
-    View_DialogDisplay0.prototype.detectChangesInternal = function (throwOnChange) {
+    View_DialogComponent0.prototype.detectChangesInternal = function (throwOnChange) {
         this._MdPrefixRejector_1_3.ngDoCheck(this, this._el_1, throwOnChange);
         this._MdDialogTitle_1_4.ngDoCheck(this, this._el_1, throwOnChange);
         this._MdPrefixRejector_4_3.ngDoCheck(this, this._el_4, throwOnChange);
@@ -269,16 +269,16 @@ var View_DialogDisplay0 = (function (_super) {
         }
         this._MdDialogActions_7_4.checkHost(this, this, this._el_7, throwOnChange);
     };
-    View_DialogDisplay0.prototype.destroyInternal = function () {
+    View_DialogComponent0.prototype.destroyInternal = function () {
         this._vc_9.destroyNestedViews();
     };
-    View_DialogDisplay0.prototype.createEmbeddedViewInternal = function (nodeIndex) {
+    View_DialogComponent0.prototype.createEmbeddedViewInternal = function (nodeIndex) {
         if ((nodeIndex == 9)) {
-            return new View_DialogDisplay1(this.viewUtils, this, 9, this._anchor_9, this._vc_9);
+            return new View_DialogComponent1(this.viewUtils, this, 9, this._anchor_9, this._vc_9);
         }
         return null;
     };
-    return View_DialogDisplay0;
+    return View_DialogComponent0;
 }(import1.AppView));
-export { View_DialogDisplay0 };
+export { View_DialogComponent0 };
 //# sourceMappingURL=dialog.component.ngfactory.js.map
