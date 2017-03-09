@@ -35,6 +35,9 @@ import { Protocol } from './protocol';
 	saveProtocol(protocol: Protocol): Observable<Protocol>{		
 		return this.http.post(this.dataUrl+'saveProtocol',protocol).map(this.parseBody).catch(this.handleError);
 	}
+	validateProtocol(patient: any,forms: any[]): Observable<any>{
+		return this.http.post(this.dataUrl+'validateProtocol',{patient:patient,forms:forms}).map(this.parseBody).catch(this.handleError);
+	}
 	private parseBody = (res: Response)=>{
 		if(res.text()=='fail')this.handleError('Server Internal Error');
 		return res.text()=='success'?'success':(res.json()||{});

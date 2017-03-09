@@ -14,6 +14,7 @@ import { PatientProfileComponent } from './patient-profile.component';
 import { FormComponent } from './form.component';
 import { FormsListComponent } from './forms-list.component';
 import { ManageProtocolComponent } from './manage-protocol.component';
+import { ValidateProtocolComponent } from './validate-protocol.component';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 import { DialogComponent } from './dialog.component';
@@ -37,12 +38,13 @@ const appRoutes: Routes=[
 		]
 	},
 	{path:'manage-protocol',component:ManageProtocolComponent},
+	{path:'validate-protocol',component:ValidateProtocolComponent},
 	{ path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,RouterModule.forRoot(appRoutes),MaterialModule.forRoot(),MdDialogModule.forRoot()],
-  declarations: [ AppComponent,PatientListComponent,PatientProfileComponent,PageNotFoundComponent,FormComponent,PatientComponent,DialogComponent,FormsListComponent,ManageProtocolComponent ],
+  declarations: [ AppComponent,PatientListComponent,PatientProfileComponent,PageNotFoundComponent,FormComponent,PatientComponent,DialogComponent,FormsListComponent,ManageProtocolComponent,ValidateProtocolComponent ],
   providers: [ Server,DialogService ],
   bootstrap:    [ AppComponent ],
   entryComponents:[DialogComponent]

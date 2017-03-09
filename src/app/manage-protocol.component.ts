@@ -19,7 +19,7 @@ import { DialogService } from './dialog.service';
 	}
 	getProtocol(): void{
 		delete this.protocol;
-		this.server.getProtocol(this.type).subscribe((rs)=>{this.protocol=rs});
+		this.server.getProtocol(this.type).subscribe((rs)=>{this.protocol=rs;});
 	}
 	saveProtocol(): void{
 		this.server.saveProtocol(this.protocol).subscribe(()=>{

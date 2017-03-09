@@ -23,12 +23,12 @@
 					<thead>
 						<th *ngFor="let col of config[type]">{{col.t}}</th>
 					</thead>
-					<tr *ngFor="let row of protocol?.data?.chart;let i = index;">
-						<td *ngFor="let col of config[type];let j = index;">
+					<tr *ngFor="let row of protocol?.data?.chart;let i = index; ">
+						<td *ngFor="let col of config[type]; let j=index; ">
 							<md-input-container *ngIf="col.type">
-								<input mdInput [type]="col.type" [name]="i+j"  required [(ngModel)]="row[col.k]" class="centered">
+								<input mdInput [type]="col.type" [name]="i+'_'+j"  required [(ngModel)]="row[col.k]" class="centered">
 							</md-input-container>
-							<span *ngIf="!col.type">{{row[col.k]}}</span>			
+							<span *ngIf="!col.type">{{row[col.k]}}</span>
 						</td>
 					</tr>
 				</table>		

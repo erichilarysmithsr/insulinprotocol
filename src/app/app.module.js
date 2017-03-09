@@ -19,6 +19,7 @@ var patient_profile_component_1 = require("./patient-profile.component");
 var form_component_1 = require("./form.component");
 var forms_list_component_1 = require("./forms-list.component");
 var manage_protocol_component_1 = require("./manage-protocol.component");
+var validate_protocol_component_1 = require("./validate-protocol.component");
 var page_not_found_component_1 = require("./page-not-found.component");
 var dialog_component_1 = require("./dialog.component");
 var server_service_1 = require("./server.service");
@@ -38,6 +39,7 @@ var appRoutes = [
         ]
     },
     { path: 'manage-protocol', component: manage_protocol_component_1.ManageProtocolComponent },
+    { path: 'validate-protocol', component: validate_protocol_component_1.ValidateProtocolComponent },
     { path: '**', component: page_not_found_component_1.PageNotFoundComponent }
 ];
 var AppModule = (function () {
@@ -48,7 +50,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule.forRoot(appRoutes), material_1.MaterialModule.forRoot(), material_2.MdDialogModule.forRoot()],
-        declarations: [app_component_1.AppComponent, patient_list_component_1.PatientListComponent, patient_profile_component_1.PatientProfileComponent, page_not_found_component_1.PageNotFoundComponent, form_component_1.FormComponent, patient_component_1.PatientComponent, dialog_component_1.DialogComponent, forms_list_component_1.FormsListComponent, manage_protocol_component_1.ManageProtocolComponent],
+        declarations: [app_component_1.AppComponent, patient_list_component_1.PatientListComponent, patient_profile_component_1.PatientProfileComponent, page_not_found_component_1.PageNotFoundComponent, form_component_1.FormComponent, patient_component_1.PatientComponent, dialog_component_1.DialogComponent, forms_list_component_1.FormsListComponent, manage_protocol_component_1.ManageProtocolComponent, validate_protocol_component_1.ValidateProtocolComponent],
         providers: [server_service_1.Server, dialog_service_1.DialogService],
         bootstrap: [app_component_1.AppComponent],
         entryComponents: [dialog_component_1.DialogComponent]

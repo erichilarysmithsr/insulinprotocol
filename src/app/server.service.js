@@ -47,6 +47,9 @@ var Server = (function () {
     Server.prototype.saveProtocol = function (protocol) {
         return this.http.post(this.dataUrl + 'saveProtocol', protocol).map(this.parseBody).catch(this.handleError);
     };
+    Server.prototype.validateProtocol = function (patient, forms) {
+        return this.http.post(this.dataUrl + 'validateProtocol', { patient: patient, forms: forms }).map(this.parseBody).catch(this.handleError);
+    };
     Server.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         var errMsg;
