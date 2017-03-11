@@ -1,60 +1,57 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var forms_1 = require("@angular/forms");
-var router_1 = require("@angular/router");
-var material_1 = require("@angular/material");
-var material_2 = require("@angular/material");
-var app_component_1 = require("./app.component");
-var patient_list_component_1 = require("./patient-list.component");
-var patient_component_1 = require("./patient.component");
-var patient_profile_component_1 = require("./patient-profile.component");
-var form_component_1 = require("./form.component");
-var forms_list_component_1 = require("./forms-list.component");
-var manage_protocol_component_1 = require("./manage-protocol.component");
-var validate_protocol_component_1 = require("./validate-protocol.component");
-var page_not_found_component_1 = require("./page-not-found.component");
-var dialog_component_1 = require("./dialog.component");
-var server_service_1 = require("./server.service");
-var dialog_service_1 = require("./dialog.service");
-var auth_service_1 = require("./auth.service");
-var auth_guard_service_1 = require("./auth-guard.service");
-var http_1 = require("@angular/http");
-var angular2_jwt_1 = require("angular2-jwt");
-function authHttpServiceFactory(http, options) {
-    return new angular2_jwt_1.AuthHttp(new angular2_jwt_1.AuthConfig({
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@angular/material';
+import { MdDialogModule } from '@angular/material';
+import { AppComponent } from './app.component';
+import { PatientListComponent } from './patient-list.component';
+import { PatientComponent } from './patient.component';
+import { PatientProfileComponent } from './patient-profile.component';
+import { FormComponent } from './form.component';
+import { FormsListComponent } from './forms-list.component';
+import { ManageProtocolComponent } from './manage-protocol.component';
+import { ValidateProtocolComponent } from './validate-protocol.component';
+import { PageNotFoundComponent } from './page-not-found.component';
+import { DialogComponent } from './dialog.component';
+import { Server } from './server.service';
+import { DialogService } from './dialog.service';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+export function authHttpServiceFactory(http, options) {
+    return new AuthHttp(new AuthConfig({
         tokenName: 'token',
         tokenGetter: (function () { return localStorage.getItem('id_token'); }),
         globalHeaders: [],
     }), http, options);
 }
-exports.authHttpServiceFactory = authHttpServiceFactory;
 var appRoutes = [
     { path: '', pathMatch: 'full', redirectTo: '/patient-list' },
-    { path: 'patient-list', component: patient_list_component_1.PatientListComponent },
+    { path: 'patient-list', component: PatientListComponent },
     {
-        path: 'patient', component: patient_component_1.PatientComponent,
+        path: 'patient', component: PatientComponent,
         children: [
             { path: '', pathMatch: 'full', redirectTo: '0/profile' },
             { path: ':id', pathMatch: 'full', redirectTo: ':id/profile' },
-            { path: ':id/profile', component: patient_profile_component_1.PatientProfileComponent },
-            { path: ':id/forms-list', component: forms_list_component_1.FormsListComponent },
-            { path: ':id/form', component: form_component_1.FormComponent },
-            { path: ':id/form/:type', component: form_component_1.FormComponent },
-            { path: '**', component: page_not_found_component_1.PageNotFoundComponent }
+            { path: ':id/profile', component: PatientProfileComponent },
+            { path: ':id/forms-list', component: FormsListComponent },
+            { path: ':id/form', component: FormComponent },
+            { path: ':id/form/:type', component: FormComponent },
+            { path: '**', component: PageNotFoundComponent }
         ],
-        canActivate: [auth_guard_service_1.AuthGuard]
+        canActivate: [AuthGuard]
     },
-    { path: 'manage-protocol', component: manage_protocol_component_1.ManageProtocolComponent },
-    { path: 'validate-protocol', component: validate_protocol_component_1.ValidateProtocolComponent },
-    { path: '**', component: page_not_found_component_1.PageNotFoundComponent }
+    { path: 'manage-protocol', component: ManageProtocolComponent },
+    { path: 'validate-protocol', component: ValidateProtocolComponent },
+    { path: '**', component: PageNotFoundComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -62,17 +59,17 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule.forRoot(appRoutes), material_1.MaterialModule.forRoot(), material_2.MdDialogModule.forRoot()],
-        declarations: [app_component_1.AppComponent, patient_list_component_1.PatientListComponent, patient_profile_component_1.PatientProfileComponent, page_not_found_component_1.PageNotFoundComponent, form_component_1.FormComponent, patient_component_1.PatientComponent, dialog_component_1.DialogComponent, forms_list_component_1.FormsListComponent, manage_protocol_component_1.ManageProtocolComponent, validate_protocol_component_1.ValidateProtocolComponent],
-        providers: [server_service_1.Server, dialog_service_1.DialogService, auth_guard_service_1.AuthGuard, auth_service_1.AuthService, {
-                provide: angular2_jwt_1.AuthHttp,
+    NgModule({
+        imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes), MaterialModule.forRoot(), MdDialogModule.forRoot()],
+        declarations: [AppComponent, PatientListComponent, PatientProfileComponent, PageNotFoundComponent, FormComponent, PatientComponent, DialogComponent, FormsListComponent, ManageProtocolComponent, ValidateProtocolComponent],
+        providers: [Server, DialogService, AuthGuard, AuthService, {
+                provide: AuthHttp,
                 useFactory: authHttpServiceFactory,
-                deps: [http_1.Http, http_1.RequestOptions]
+                deps: [Http, RequestOptions]
             }],
-        bootstrap: [app_component_1.AppComponent],
-        entryComponents: [dialog_component_1.DialogComponent]
+        bootstrap: [AppComponent],
+        entryComponents: [DialogComponent]
     })
 ], AppModule);
-exports.AppModule = AppModule;
+export { AppModule };
 //# sourceMappingURL=app.module.js.map

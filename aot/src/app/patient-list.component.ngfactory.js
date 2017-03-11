@@ -28,32 +28,24 @@ import * as import11 from './patient-list.component.css.shim.ngstyle';
 import * as import12 from '@angular/material/card/card';
 import * as import13 from '../../node_modules/@angular/material/core/compatibility/compatibility.ngfactory';
 import * as import14 from '../../node_modules/@angular/material/card/card.ngfactory';
-import * as import15 from '@angular/material/menu/menu-directive';
-import * as import16 from '../../node_modules/@angular/material/menu/menu-directive.ngfactory';
-import * as import17 from '@angular/core/src/linker/query_list';
-import * as import18 from '@angular/material/menu/menu-item';
-import * as import19 from '../../node_modules/@angular/material/menu/menu-item.ngfactory';
-import * as import20 from '@angular/core/src/linker/view_container';
-import * as import21 from '../../node_modules/@angular/material/menu/menu-trigger.ngfactory';
-import * as import22 from '@angular/core/src/change_detection/change_detection_util';
-import * as import23 from '@angular/material/core/compatibility/compatibility';
-import * as import24 from '@angular/core/src/linker/element_ref';
-import * as import25 from '@angular/material/core/overlay/overlay';
-import * as import26 from '@angular/material/core/rtl/dir';
-import * as import27 from '@angular/material/menu/menu-trigger';
-import * as import28 from '@angular/material/button/button';
-import * as import29 from '../../node_modules/@angular/material/button/button.ngfactory';
-import * as import30 from '@angular/material/toolbar/toolbar';
-import * as import31 from '../../node_modules/@angular/material/toolbar/toolbar.ngfactory';
-import * as import32 from '@angular/material/input/input-container';
-import * as import33 from '../../node_modules/@angular/material/input/input-container.ngfactory';
-import * as import34 from '../../node_modules/@angular/common/src/directives/ng_for.ngfactory';
-import * as import35 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
-import * as import36 from '@angular/forms/src/directives/ng_control';
-import * as import37 from '@angular/core/src/linker/template_ref';
-import * as import38 from '@angular/core/src/change_detection/differs/iterable_differs';
-import * as import39 from '@angular/common/src/directives/ng_for';
-import * as import40 from '@angular/common/src/directives/ng_if';
+import * as import15 from '@angular/core/src/linker/view_container';
+import * as import16 from '@angular/core/src/change_detection/change_detection_util';
+import * as import17 from '@angular/material/core/compatibility/compatibility';
+import * as import18 from '@angular/material/button/button';
+import * as import19 from '../../node_modules/@angular/material/button/button.ngfactory';
+import * as import20 from '@angular/core/src/linker/element_ref';
+import * as import21 from '@angular/material/toolbar/toolbar';
+import * as import22 from '../../node_modules/@angular/material/toolbar/toolbar.ngfactory';
+import * as import23 from '@angular/material/input/input-container';
+import * as import24 from '../../node_modules/@angular/material/input/input-container.ngfactory';
+import * as import25 from '@angular/core/src/linker/query_list';
+import * as import26 from '../../node_modules/@angular/common/src/directives/ng_for.ngfactory';
+import * as import27 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
+import * as import28 from '@angular/forms/src/directives/ng_control';
+import * as import29 from '@angular/core/src/linker/template_ref';
+import * as import30 from '@angular/core/src/change_detection/differs/iterable_differs';
+import * as import31 from '@angular/common/src/directives/ng_for';
+import * as import32 from '@angular/common/src/directives/ng_if';
 var Wrapper_PatientListComponent = (function () {
     function Wrapper_PatientListComponent(p0, p1, p2) {
         this._changed = false;
@@ -123,72 +115,48 @@ var View_PatientListComponent1 = (function (_super) {
     __extends(View_PatientListComponent1, _super);
     function View_PatientListComponent1(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
         var _this = _super.call(this, View_PatientListComponent1, renderType_PatientListComponent, import5.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways, declaredViewContainer) || this;
-        _this._expr_51 = import22.UNINITIALIZED;
-        _this._expr_52 = import22.UNINITIALIZED;
-        _this._expr_53 = import22.UNINITIALIZED;
+        _this._expr_32 = import16.UNINITIALIZED;
+        _this._expr_33 = import16.UNINITIALIZED;
+        _this._expr_34 = import16.UNINITIALIZED;
         return _this;
     }
     View_PatientListComponent1.prototype.createInternal = function (rootSelector) {
         this._el_0 = import3.createRenderElement(this.renderer, null, 'md-card', import3.EMPTY_INLINE_ARRAY, null);
         this.compView_0 = new import14.View_MdCard0(this.viewUtils, this, 0, this._el_0);
-        this._MdPrefixRejector_0_3 = new import13.Wrapper_MdPrefixRejector(this.parentView.parentView.injectorGet(import23.MATERIAL_COMPATIBILITY_MODE, this.parentView.parentIndex, null));
+        this._MdPrefixRejector_0_3 = new import13.Wrapper_MdPrefixRejector(this.parentView.parentView.injectorGet(import17.MATERIAL_COMPATIBILITY_MODE, this.parentView.parentIndex, null));
         this._MdCard_0_4 = new import14.Wrapper_MdCard();
         this._text_1 = this.renderer.createText(null, '\n		', null);
-        this._el_2 = import3.createRenderElement(this.renderer, null, 'md-menu', new import3.InlineArray2(2, 'role', 'menu'), null);
-        this.compView_2 = new import16.View_MdMenu0(this.viewUtils, this, 2, this._el_2);
-        this._MdPrefixRejector_2_3 = new import13.Wrapper_MdPrefixRejector(this.parentView.parentView.injectorGet(import23.MATERIAL_COMPATIBILITY_MODE, this.parentView.parentIndex, null));
-        this._MdMenu_2_4 = new import16.Wrapper_MdMenu(null, null);
-        this._query_MdMenuItem_2_0 = new import17.QueryList();
-        this._text_3 = this.renderer.createText(null, '\n		  ', null);
-        this._el_4 = import3.createRenderElement(this.renderer, null, 'button', new import3.InlineArray4(4, 'md-menu-item', '', 'role', 'menuitem'), null);
-        this.compView_4 = new import19.View_MdMenuItem0(this.viewUtils, this, 4, this._el_4);
-        this._MdMenuItem_4_3 = new import19.Wrapper_MdMenuItem(this.renderer, new import24.ElementRef(this._el_4));
-        this._text_5 = this.renderer.createText(null, 'Insulin infusion', null);
-        this.compView_4.create(this._MdMenuItem_4_3.context);
-        this._text_6 = this.renderer.createText(null, '\n		  ', null);
-        this._el_7 = import3.createRenderElement(this.renderer, null, 'button', new import3.InlineArray4(4, 'md-menu-item', '', 'role', 'menuitem'), null);
-        this.compView_7 = new import19.View_MdMenuItem0(this.viewUtils, this, 7, this._el_7);
-        this._MdMenuItem_7_3 = new import19.Wrapper_MdMenuItem(this.renderer, new import24.ElementRef(this._el_7));
-        this._text_8 = this.renderer.createText(null, 'Subcutaneous insulin', null);
-        this.compView_7.create(this._MdMenuItem_7_3.context);
-        this._text_9 = this.renderer.createText(null, '\n		', null);
-        this.compView_2.create(this._MdMenu_2_4.context);
-        this._text_10 = this.renderer.createText(null, '\n		', null);
-        this._el_11 = import3.createRenderElement(this.renderer, null, 'md-card-title', new import3.InlineArray2(2, 'style', 'cursor:pointer;'), null);
-        this._MdPrefixRejector_11_3 = new import13.Wrapper_MdPrefixRejector(this.parentView.parentView.injectorGet(import23.MATERIAL_COMPATIBILITY_MODE, this.parentView.parentIndex, null));
-        this._MdCardTitle_11_4 = new import14.Wrapper_MdCardTitle();
-        this._text_12 = this.renderer.createText(this._el_11, '\n			', null);
-        this._el_13 = import3.createRenderElement(this.renderer, this._el_11, 'span', new import3.InlineArray2(2, 'aria-haspopup', 'true'), null);
-        this._vc_13 = new import20.ViewContainer(13, 11, this, this._el_13);
-        this._MdMenuTrigger_13_5 = new import21.Wrapper_MdMenuTrigger(this.parentView.parentView.injectorGet(import25.Overlay, this.parentView.parentIndex), new import24.ElementRef(this._el_13), this._vc_13.vcRef, this.renderer, this.parentView.parentView.injectorGet(import26.Dir, this.parentView.parentIndex, null));
-        this._text_14 = this.renderer.createText(this._el_13, '', null);
-        this._text_15 = this.renderer.createText(this._el_11, '\n			', null);
-        this._el_16 = import3.createRenderElement(this.renderer, this._el_11, 'i', new import3.InlineArray2(2, 'class', 'material-icons fright'), null);
-        this._text_17 = this.renderer.createText(this._el_16, 'list', null);
-        this._text_18 = this.renderer.createText(this._el_11, '\n			', null);
-        this._el_19 = import3.createRenderElement(this.renderer, this._el_11, 'i', new import3.InlineArray2(2, 'class', 'material-icons fright'), null);
-        this._text_20 = this.renderer.createText(this._el_19, 'mode_edit', null);
-        this._text_21 = this.renderer.createText(this._el_11, '\n		', null);
-        this._text_22 = this.renderer.createText(null, '\n		\n		', null);
-        this._el_23 = import3.createRenderElement(this.renderer, null, 'div', import3.EMPTY_INLINE_ARRAY, null);
-        this._text_24 = this.renderer.createText(this._el_23, '\n			', null);
-        this._el_25 = import3.createRenderElement(this.renderer, this._el_23, 'div', new import3.InlineArray2(2, 'class', 'fright halfwidth'), null);
-        this._el_26 = import3.createRenderElement(this.renderer, this._el_25, 'label', import3.EMPTY_INLINE_ARRAY, null);
-        this._text_27 = this.renderer.createText(this._el_26, 'Bed Number: ', null);
-        this._text_28 = this.renderer.createText(this._el_25, '', null);
-        this._text_29 = this.renderer.createText(this._el_23, '\n			', null);
-        this._el_30 = import3.createRenderElement(this.renderer, this._el_23, 'div', new import3.InlineArray2(2, 'class', 'halfwidth'), null);
-        this._el_31 = import3.createRenderElement(this.renderer, this._el_30, 'label', import3.EMPTY_INLINE_ARRAY, null);
-        this._text_32 = this.renderer.createText(this._el_31, 'UHID: ', null);
-        this._text_33 = this.renderer.createText(this._el_30, '', null);
-        this._text_34 = this.renderer.createText(this._el_23, '		\n		', null);
-        this._text_35 = this.renderer.createText(null, '\n	', null);
+        this._el_2 = import3.createRenderElement(this.renderer, null, 'md-card-title', new import3.InlineArray2(2, 'style', 'cursor:pointer;'), null);
+        this._MdPrefixRejector_2_3 = new import13.Wrapper_MdPrefixRejector(this.parentView.parentView.injectorGet(import17.MATERIAL_COMPATIBILITY_MODE, this.parentView.parentIndex, null));
+        this._MdCardTitle_2_4 = new import14.Wrapper_MdCardTitle();
+        this._text_3 = this.renderer.createText(this._el_2, '\n			', null);
+        this._el_4 = import3.createRenderElement(this.renderer, this._el_2, 'span', import3.EMPTY_INLINE_ARRAY, null);
+        this._text_5 = this.renderer.createText(this._el_4, '', null);
+        this._text_6 = this.renderer.createText(this._el_2, '\n			', null);
+        this._el_7 = import3.createRenderElement(this.renderer, this._el_2, 'i', new import3.InlineArray2(2, 'class', 'material-icons fright'), null);
+        this._text_8 = this.renderer.createText(this._el_7, 'list', null);
+        this._text_9 = this.renderer.createText(this._el_2, '\n			', null);
+        this._el_10 = import3.createRenderElement(this.renderer, this._el_2, 'i', new import3.InlineArray2(2, 'class', 'material-icons fright'), null);
+        this._text_11 = this.renderer.createText(this._el_10, 'mode_edit', null);
+        this._text_12 = this.renderer.createText(this._el_2, '\n		', null);
+        this._text_13 = this.renderer.createText(null, '\n		\n		', null);
+        this._el_14 = import3.createRenderElement(this.renderer, null, 'div', import3.EMPTY_INLINE_ARRAY, null);
+        this._text_15 = this.renderer.createText(this._el_14, '\n			', null);
+        this._el_16 = import3.createRenderElement(this.renderer, this._el_14, 'div', new import3.InlineArray2(2, 'class', 'fright halfwidth'), null);
+        this._el_17 = import3.createRenderElement(this.renderer, this._el_16, 'label', import3.EMPTY_INLINE_ARRAY, null);
+        this._text_18 = this.renderer.createText(this._el_17, 'Bed Number: ', null);
+        this._text_19 = this.renderer.createText(this._el_16, '', null);
+        this._text_20 = this.renderer.createText(this._el_14, '\n			', null);
+        this._el_21 = import3.createRenderElement(this.renderer, this._el_14, 'div', new import3.InlineArray2(2, 'class', 'halfwidth'), null);
+        this._el_22 = import3.createRenderElement(this.renderer, this._el_21, 'label', import3.EMPTY_INLINE_ARRAY, null);
+        this._text_23 = this.renderer.createText(this._el_22, 'UHID: ', null);
+        this._text_24 = this.renderer.createText(this._el_21, '', null);
+        this._text_25 = this.renderer.createText(this._el_14, '		\n		', null);
+        this._text_26 = this.renderer.createText(null, '\n	', null);
         this.compView_0.create(this._MdCard_0_4.context);
         var disposable_0 = import3.subscribeToRenderElement(this, this._el_4, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_4));
         var disposable_1 = import3.subscribeToRenderElement(this, this._el_7, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_7));
-        var disposable_2 = import3.subscribeToRenderElement(this, this._el_13, new import3.InlineArray4(4, 'mousedown', null, 'click', null), this.eventHandler(this.handleEvent_13));
-        var disposable_3 = import3.subscribeToRenderElement(this, this._el_16, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_16));
-        var disposable_4 = import3.subscribeToRenderElement(this, this._el_19, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_19));
+        var disposable_2 = import3.subscribeToRenderElement(this, this._el_10, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_10));
         this.init(this._el_0, (this.renderer.directRenderer ? null : [
             this._el_0,
             this._text_1,
@@ -200,67 +168,41 @@ var View_PatientListComponent1 = (function (_super) {
             this._el_7,
             this._text_8,
             this._text_9,
-            this._text_10,
-            this._el_11,
+            this._el_10,
+            this._text_11,
             this._text_12,
-            this._el_13,
-            this._text_14,
+            this._text_13,
+            this._el_14,
             this._text_15,
             this._el_16,
-            this._text_17,
+            this._el_17,
             this._text_18,
-            this._el_19,
+            this._text_19,
             this._text_20,
-            this._text_21,
-            this._text_22,
-            this._el_23,
+            this._el_21,
+            this._el_22,
+            this._text_23,
             this._text_24,
-            this._el_25,
-            this._el_26,
-            this._text_27,
-            this._text_28,
-            this._text_29,
-            this._el_30,
-            this._el_31,
-            this._text_32,
-            this._text_33,
-            this._text_34,
-            this._text_35
+            this._text_25,
+            this._text_26
         ]), [
             disposable_0,
             disposable_1,
-            disposable_2,
-            disposable_3,
-            disposable_4
+            disposable_2
         ]);
         return null;
     };
     View_PatientListComponent1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import18.MdMenuItem) && ((4 <= requestNodeIndex) && (requestNodeIndex <= 5)))) {
-            return this._MdMenuItem_4_3.context;
-        }
-        if (((token === import18.MdMenuItem) && ((7 <= requestNodeIndex) && (requestNodeIndex <= 8)))) {
-            return this._MdMenuItem_7_3.context;
-        }
-        if (((token === import23.MdPrefixRejector) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 9)))) {
+        if (((token === import17.MdPrefixRejector) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 12)))) {
             return this._MdPrefixRejector_2_3.context;
         }
-        if (((token === import15.MdMenu) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 9)))) {
-            return this._MdMenu_2_4.context;
+        if (((token === import12.MdCardTitle) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 12)))) {
+            return this._MdCardTitle_2_4.context;
         }
-        if (((token === import27.MdMenuTrigger) && ((13 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
-            return this._MdMenuTrigger_13_5.context;
-        }
-        if (((token === import23.MdPrefixRejector) && ((11 <= requestNodeIndex) && (requestNodeIndex <= 21)))) {
-            return this._MdPrefixRejector_11_3.context;
-        }
-        if (((token === import12.MdCardTitle) && ((11 <= requestNodeIndex) && (requestNodeIndex <= 21)))) {
-            return this._MdCardTitle_11_4.context;
-        }
-        if (((token === import23.MdPrefixRejector) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 35)))) {
+        if (((token === import17.MdPrefixRejector) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 26)))) {
             return this._MdPrefixRejector_0_3.context;
         }
-        if (((token === import12.MdCard) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 35)))) {
+        if (((token === import12.MdCard) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 26)))) {
             return this._MdCard_0_4.context;
         }
         return notFoundResult;
@@ -271,65 +213,28 @@ var View_PatientListComponent1 = (function (_super) {
             this.compView_0.markAsCheckOnce();
         }
         this._MdPrefixRejector_2_3.ngDoCheck(this, this._el_2, throwOnChange);
-        this._MdMenu_2_4.ngDoCheck(this, this._el_2, throwOnChange);
-        this._MdMenuItem_4_3.ngDoCheck(this, this._el_4, throwOnChange);
-        this._MdMenuItem_7_3.ngDoCheck(this, this._el_7, throwOnChange);
-        this._MdPrefixRejector_11_3.ngDoCheck(this, this._el_11, throwOnChange);
-        this._MdCardTitle_11_4.ngDoCheck(this, this._el_11, throwOnChange);
-        var currVal_13_0_0 = this._MdMenu_2_4.context;
-        this._MdMenuTrigger_13_5.check_menu(currVal_13_0_0, throwOnChange, false);
-        this._MdMenuTrigger_13_5.ngDoCheck(this, this._el_13, throwOnChange);
-        this._vc_13.detectChangesInNestedViews(throwOnChange);
-        if (!throwOnChange) {
-            if (this._query_MdMenuItem_2_0.dirty) {
-                this._query_MdMenuItem_2_0.reset([
-                    this._MdMenuItem_4_3.context,
-                    this._MdMenuItem_7_3.context
-                ]);
-                this._MdMenu_2_4.context.items = this._query_MdMenuItem_2_0;
-                this._query_MdMenuItem_2_0.notifyOnChanges();
-            }
-            if ((this.numberOfChecks === 0)) {
-                this._MdMenu_2_4.context.ngAfterContentInit();
-            }
-        }
+        this._MdCardTitle_2_4.ngDoCheck(this, this._el_2, throwOnChange);
         this._MdCard_0_4.checkHost(this, this.compView_0, this._el_0, throwOnChange);
-        this._MdMenuItem_4_3.checkHost(this, this.compView_4, this._el_4, throwOnChange);
-        this._MdMenuItem_7_3.checkHost(this, this.compView_7, this._el_7, throwOnChange);
-        this._MdCardTitle_11_4.checkHost(this, this, this._el_11, throwOnChange);
-        var currVal_51 = import3.inlineInterpolate(1, '', this.context.$implicit.name, '');
-        if (import3.checkBinding(throwOnChange, this._expr_51, currVal_51)) {
-            this.renderer.setText(this._text_14, currVal_51);
-            this._expr_51 = currVal_51;
+        this._MdCardTitle_2_4.checkHost(this, this, this._el_2, throwOnChange);
+        var currVal_32 = import3.inlineInterpolate(1, '', this.context.$implicit.name, '');
+        if (import3.checkBinding(throwOnChange, this._expr_32, currVal_32)) {
+            this.renderer.setText(this._text_5, currVal_32);
+            this._expr_32 = currVal_32;
         }
-        var currVal_52 = import3.inlineInterpolate(1, '', this.context.$implicit.bednum, '');
-        if (import3.checkBinding(throwOnChange, this._expr_52, currVal_52)) {
-            this.renderer.setText(this._text_28, currVal_52);
-            this._expr_52 = currVal_52;
+        var currVal_33 = import3.inlineInterpolate(1, '', this.context.$implicit.bednum, '');
+        if (import3.checkBinding(throwOnChange, this._expr_33, currVal_33)) {
+            this.renderer.setText(this._text_19, currVal_33);
+            this._expr_33 = currVal_33;
         }
-        var currVal_53 = import3.inlineInterpolate(1, ' ', this.context.$implicit.uhid, '');
-        if (import3.checkBinding(throwOnChange, this._expr_53, currVal_53)) {
-            this.renderer.setText(this._text_33, currVal_53);
-            this._expr_53 = currVal_53;
+        var currVal_34 = import3.inlineInterpolate(1, ' ', this.context.$implicit.uhid, '');
+        if (import3.checkBinding(throwOnChange, this._expr_34, currVal_34)) {
+            this.renderer.setText(this._text_24, currVal_34);
+            this._expr_34 = currVal_34;
         }
         this.compView_0.internalDetectChanges(throwOnChange);
-        this.compView_2.internalDetectChanges(throwOnChange);
-        this.compView_4.internalDetectChanges(throwOnChange);
-        this.compView_7.internalDetectChanges(throwOnChange);
-        if (!throwOnChange) {
-            if ((this.numberOfChecks === 0)) {
-                this._MdMenuTrigger_13_5.context.ngAfterViewInit();
-            }
-        }
     };
     View_PatientListComponent1.prototype.destroyInternal = function () {
-        this._vc_13.destroyNestedViews();
         this.compView_0.destroy();
-        this.compView_2.destroy();
-        this.compView_4.destroy();
-        this.compView_7.destroy();
-        this._MdMenu_2_4.ngOnDestroy();
-        this._MdMenuTrigger_13_5.ngOnDestroy();
     };
     View_PatientListComponent1.prototype.visitRootNodesInternal = function (cb, ctx) {
         cb(this._el_0, ctx);
@@ -338,53 +243,21 @@ var View_PatientListComponent1 = (function (_super) {
         if (((nodeIndex == 0) && (ngContentIndex == 0))) {
             cb(this._text_1, ctx);
             cb(this._el_2, ctx);
-            cb(this._text_10, ctx);
-            cb(this._el_11, ctx);
-            cb(this._text_22, ctx);
-            cb(this._el_23, ctx);
-            cb(this._text_35, ctx);
-        }
-        if (((nodeIndex == 2) && (ngContentIndex == 0))) {
-            cb(this._text_3, ctx);
-            cb(this._el_4, ctx);
-            cb(this._text_6, ctx);
-            cb(this._el_7, ctx);
-            cb(this._text_9, ctx);
-        }
-        if (((nodeIndex == 4) && (ngContentIndex == 0))) {
-            cb(this._text_5, ctx);
-        }
-        if (((nodeIndex == 7) && (ngContentIndex == 0))) {
-            cb(this._text_8, ctx);
+            cb(this._text_13, ctx);
+            cb(this._el_14, ctx);
+            cb(this._text_26, ctx);
         }
     };
     View_PatientListComponent1.prototype.handleEvent_4 = function (eventName, $event) {
-        this.compView_4.markPathToRootAsCheckOnce();
+        this.markPathToRootAsCheckOnce();
         var result = true;
-        result = (this._MdMenuItem_4_3.handleEvent(eventName, $event) && result);
         if ((eventName == 'click')) {
-            var pd_sub_0 = (this.parentView.context.showForm(this.context.$implicit.id, 'infusion') !== false);
+            var pd_sub_0 = (this.parentView.context.showForm(this.context.$implicit.id) !== false);
             result = (pd_sub_0 && result);
         }
         return result;
     };
     View_PatientListComponent1.prototype.handleEvent_7 = function (eventName, $event) {
-        this.compView_7.markPathToRootAsCheckOnce();
-        var result = true;
-        result = (this._MdMenuItem_7_3.handleEvent(eventName, $event) && result);
-        if ((eventName == 'click')) {
-            var pd_sub_0 = (this.parentView.context.showForm(this.context.$implicit.id, 'subcutaneous') !== false);
-            result = (pd_sub_0 && result);
-        }
-        return result;
-    };
-    View_PatientListComponent1.prototype.handleEvent_13 = function (eventName, $event) {
-        this.markPathToRootAsCheckOnce();
-        var result = true;
-        result = (this._MdMenuTrigger_13_5.handleEvent(eventName, $event) && result);
-        return result;
-    };
-    View_PatientListComponent1.prototype.handleEvent_16 = function (eventName, $event) {
         this.markPathToRootAsCheckOnce();
         var result = true;
         if ((eventName == 'click')) {
@@ -393,7 +266,7 @@ var View_PatientListComponent1 = (function (_super) {
         }
         return result;
     };
-    View_PatientListComponent1.prototype.handleEvent_19 = function (eventName, $event) {
+    View_PatientListComponent1.prototype.handleEvent_10 = function (eventName, $event) {
         this.markPathToRootAsCheckOnce();
         var result = true;
         if ((eventName == 'click')) {
@@ -421,10 +294,10 @@ var View_PatientListComponent2 = (function (_super) {
         this._el_8 = import3.createRenderElement(this.renderer, this._el_0, 'div', new import3.InlineArray2(2, 'style', 'margin:1em auto;'), null);
         this._text_9 = this.renderer.createText(this._el_8, '\n			', null);
         this._el_10 = import3.createRenderElement(this.renderer, this._el_8, 'button', new import3.InlineArray2(2, 'md-raised-button', ''), null);
-        this.compView_10 = new import29.View_MdButton0(this.viewUtils, this, 10, this._el_10);
-        this._MdPrefixRejector_10_3 = new import13.Wrapper_MdPrefixRejector(this.parentView.parentView.injectorGet(import23.MATERIAL_COMPATIBILITY_MODE, this.parentView.parentIndex, null));
-        this._MdButton_10_4 = new import29.Wrapper_MdButton(new import24.ElementRef(this._el_10), this.renderer);
-        this._MdRaisedButtonCssMatStyler_10_5 = new import29.Wrapper_MdRaisedButtonCssMatStyler();
+        this.compView_10 = new import19.View_MdButton0(this.viewUtils, this, 10, this._el_10);
+        this._MdPrefixRejector_10_3 = new import13.Wrapper_MdPrefixRejector(this.parentView.parentView.injectorGet(import17.MATERIAL_COMPATIBILITY_MODE, this.parentView.parentIndex, null));
+        this._MdButton_10_4 = new import19.Wrapper_MdButton(new import20.ElementRef(this._el_10), this.renderer);
+        this._MdRaisedButtonCssMatStyler_10_5 = new import19.Wrapper_MdRaisedButtonCssMatStyler();
         this._text_11 = this.renderer.createText(null, 'Add a patient', null);
         this.compView_10.create(this._MdButton_10_4.context);
         this._text_12 = this.renderer.createText(this._el_8, '	\n		', null);
@@ -449,13 +322,13 @@ var View_PatientListComponent2 = (function (_super) {
         return null;
     };
     View_PatientListComponent2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import23.MdPrefixRejector) && ((10 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
+        if (((token === import17.MdPrefixRejector) && ((10 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
             return this._MdPrefixRejector_10_3.context;
         }
-        if (((token === import28.MdButton) && ((10 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
+        if (((token === import18.MdButton) && ((10 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
             return this._MdButton_10_4.context;
         }
-        if (((token === import28.MdRaisedButtonCssMatStyler) && ((10 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
+        if (((token === import18.MdRaisedButtonCssMatStyler) && ((10 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
             return this._MdRaisedButtonCssMatStyler_10_5.context;
         }
         return notFoundResult;
@@ -504,9 +377,9 @@ var View_PatientListComponent0 = (function (_super) {
         this._el_0 = import3.createRenderElement(this.renderer, parentRenderNode, 'div', new import3.InlineArray2(2, 'class', 'topfixed'), null);
         this._text_1 = this.renderer.createText(this._el_0, '\n	', null);
         this._el_2 = import3.createRenderElement(this.renderer, this._el_0, 'md-toolbar', new import3.InlineArray4(4, 'color', 'primary', 'role', 'toolbar'), null);
-        this.compView_2 = new import31.View_MdToolbar0(this.viewUtils, this, 2, this._el_2);
-        this._MdPrefixRejector_2_3 = new import13.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import23.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
-        this._MdToolbar_2_4 = new import31.Wrapper_MdToolbar(new import24.ElementRef(this._el_2), this.renderer);
+        this.compView_2 = new import22.View_MdToolbar0(this.viewUtils, this, 2, this._el_2);
+        this._MdPrefixRejector_2_3 = new import13.Wrapper_MdPrefixRejector(this.parentView.injectorGet(import17.MATERIAL_COMPATIBILITY_MODE, this.parentIndex, null));
+        this._MdToolbar_2_4 = new import22.Wrapper_MdToolbar(new import20.ElementRef(this._el_2), this.renderer);
         this._text_3 = this.renderer.createText(null, '\n		', null);
         this._el_4 = import3.createRenderElement(this.renderer, null, 'span', import3.EMPTY_INLINE_ARRAY, null);
         this._text_5 = this.renderer.createText(this._el_4, 'Glucose control advisor', null);
@@ -524,14 +397,14 @@ var View_PatientListComponent0 = (function (_super) {
         this._el_16 = import3.createRenderElement(this.renderer, this._el_0, 'div', new import3.InlineArray2(2, 'style', 'padding:5px;'), null);
         this._text_17 = this.renderer.createText(this._el_16, '\n		', null);
         this._el_18 = import3.createRenderElement(this.renderer, this._el_16, 'md-input-container', new import3.InlineArray2(2, 'style', 'width:100%;'), null);
-        this.compView_18 = new import33.View_MdInputContainer0(this.viewUtils, this, 18, this._el_18);
-        this._MdInputContainer_18_3 = new import33.Wrapper_MdInputContainer();
-        this._query_MdInputDirective_18_0 = new import17.QueryList();
-        this._query_MdPlaceholder_18_1 = new import17.QueryList();
-        this._query_MdHint_18_2 = new import17.QueryList();
+        this.compView_18 = new import24.View_MdInputContainer0(this.viewUtils, this, 18, this._el_18);
+        this._MdInputContainer_18_3 = new import24.Wrapper_MdInputContainer();
+        this._query_MdInputDirective_18_0 = new import25.QueryList();
+        this._query_MdPlaceholder_18_1 = new import25.QueryList();
+        this._query_MdHint_18_2 = new import25.QueryList();
         this._text_19 = this.renderer.createText(null, '\n			', null);
         this._el_20 = import3.createRenderElement(this.renderer, null, 'input', new import3.InlineArray8(8, 'mdInput', '', 'name', 'search', 'placeholder', 'Search by UHID', 'type', 'search'), null);
-        this._MdInputDirective_20_3 = new import33.Wrapper_MdInputDirective(new import24.ElementRef(this._el_20), this.renderer, this.parentView.injectorGet(import36.NgControl, this.parentIndex, null));
+        this._MdInputDirective_20_3 = new import24.Wrapper_MdInputDirective(new import20.ElementRef(this._el_20), this.renderer, this.parentView.injectorGet(import28.NgControl, this.parentIndex, null));
         this._text_21 = this.renderer.createText(null, '\n		', null);
         this.compView_18.create(this._MdInputContainer_18_3.context);
         this._text_22 = this.renderer.createText(this._el_16, '\n	', null);
@@ -540,14 +413,14 @@ var View_PatientListComponent0 = (function (_super) {
         this._el_25 = import3.createRenderElement(this.renderer, parentRenderNode, 'div', new import3.InlineArray2(2, 'style', 'padding:120px 5px 0 5px;box-sizing:border-box;overflow:scroll;height:100%;'), null);
         this._text_26 = this.renderer.createText(this._el_25, '	\n	', null);
         this._anchor_27 = this.renderer.createTemplateAnchor(this._el_25, null);
-        this._vc_27 = new import20.ViewContainer(27, 25, this, this._anchor_27);
-        this._TemplateRef_27_5 = new import37.TemplateRef_(this, 27, this._anchor_27);
-        this._NgFor_27_6 = new import34.Wrapper_NgFor(this._vc_27.vcRef, this._TemplateRef_27_5, this.parentView.injectorGet(import38.IterableDiffers, this.parentIndex), this.ref);
+        this._vc_27 = new import15.ViewContainer(27, 25, this, this._anchor_27);
+        this._TemplateRef_27_5 = new import29.TemplateRef_(this, 27, this._anchor_27);
+        this._NgFor_27_6 = new import26.Wrapper_NgFor(this._vc_27.vcRef, this._TemplateRef_27_5, this.parentView.injectorGet(import30.IterableDiffers, this.parentIndex), this.ref);
         this._text_28 = this.renderer.createText(this._el_25, '\n	', null);
         this._anchor_29 = this.renderer.createTemplateAnchor(this._el_25, null);
-        this._vc_29 = new import20.ViewContainer(29, 25, this, this._anchor_29);
-        this._TemplateRef_29_5 = new import37.TemplateRef_(this, 29, this._anchor_29);
-        this._NgIf_29_6 = new import35.Wrapper_NgIf(this._vc_29.vcRef, this._TemplateRef_29_5);
+        this._vc_29 = new import15.ViewContainer(29, 25, this, this._anchor_29);
+        this._TemplateRef_29_5 = new import29.TemplateRef_(this, 29, this._anchor_29);
+        this._NgIf_29_6 = new import27.Wrapper_NgIf(this._vc_29.vcRef, this._TemplateRef_29_5);
         this._text_30 = this.renderer.createText(this._el_25, '\n	\n', null);
         this._text_31 = this.renderer.createText(parentRenderNode, '\n', null);
         var disposable_0 = import3.subscribeToRenderElement(this, this._el_18, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_18));
@@ -596,28 +469,28 @@ var View_PatientListComponent0 = (function (_super) {
         return null;
     };
     View_PatientListComponent0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import23.MdPrefixRejector) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
+        if (((token === import17.MdPrefixRejector) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
             return this._MdPrefixRejector_2_3.context;
         }
-        if (((token === import30.MdToolbar) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
+        if (((token === import21.MdToolbar) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 14)))) {
             return this._MdToolbar_2_4.context;
         }
-        if (((token === import32.MdInputDirective) && (20 === requestNodeIndex))) {
+        if (((token === import23.MdInputDirective) && (20 === requestNodeIndex))) {
             return this._MdInputDirective_20_3.context;
         }
-        if (((token === import32.MdInputContainer) && ((18 <= requestNodeIndex) && (requestNodeIndex <= 21)))) {
+        if (((token === import23.MdInputContainer) && ((18 <= requestNodeIndex) && (requestNodeIndex <= 21)))) {
             return this._MdInputContainer_18_3.context;
         }
-        if (((token === import37.TemplateRef) && (27 === requestNodeIndex))) {
+        if (((token === import29.TemplateRef) && (27 === requestNodeIndex))) {
             return this._TemplateRef_27_5;
         }
-        if (((token === import39.NgFor) && (27 === requestNodeIndex))) {
+        if (((token === import31.NgFor) && (27 === requestNodeIndex))) {
             return this._NgFor_27_6.context;
         }
-        if (((token === import37.TemplateRef) && (29 === requestNodeIndex))) {
+        if (((token === import29.TemplateRef) && (29 === requestNodeIndex))) {
             return this._TemplateRef_29_5;
         }
-        if (((token === import40.NgIf) && (29 === requestNodeIndex))) {
+        if (((token === import32.NgIf) && (29 === requestNodeIndex))) {
             return this._NgIf_29_6.context;
         }
         return notFoundResult;

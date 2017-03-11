@@ -30,8 +30,8 @@ router.post('/getPatients',parseText,authCheck,function(req,res) {
 router.post('/savePatient',parseJSON,authCheck,function(req,res) {
 	var patient=req.body;if(!patient)return res.send('fail');
     protocolManager.process(patient)
-        .then(patient => db.one(patient.id?"UPDATE patients SET name=${name},uhid=${uhid},dob=${dob},bednum=${bednum},profile=${profile} WHERE id=${id} RETURNING *":"INSERT INTO patients(name,uhid,dob,bednum,profile) VALUES (${name},${uhid},${dob},${bednum},${profile}) RETURNING *",patient))
-        .then(rs=>res.json(rs),e=>{log(e);res.send('fail');});
+    .then(patient => db.one(patient.id?"UPDATE patients SET name=${name},uhid=${uhid},dob=${dob},bednum=${bednum},profile=${profile} WHERE id=${id} RETURNING *":"INSERT INTO patients(name,uhid,dob,bednum,profile) VALUES (${name},${uhid},${dob},${bednum},${profile}) RETURNING *",patient))
+    .then(rs=>res.json(rs),e=>{log(e);res.send('fail');});
 });
 
 router.post('/getProfile',parseText,authCheck,function(req,res){
@@ -42,16 +42,16 @@ router.post('/getProfile',parseText,authCheck,function(req,res){
 
 router.post('/saveForm',parseJSON,authCheck,function(req,res){
     var form=req.body;form.dt=new Date();form.savedBy={id:0,name:'dummy'};
-    db.none("INSERT INTO forms(type,dt,savedBy,patientId,data) VALUES (${type},${dt},${savedBy},${patientId},${data})",form)
-    .then(rs => {
-        let recommedation;
+    db.one("INSERT INTO forms(type,dt,savedBy,patientId,data) VALUES (${type},${dt},${savedBy},${patientId},${data}) RETURNING id",form)
+    .then(rs => { form.id = rs.id;
+        var recommedation;
         if(form.type=='subcutaneous'||form.type=='infusion')
-             Promise.all([db.one("SELECT * FROM patients WHERE id=$1",[form.patientId]),db.any("SELECT * FROM forms WHERE patientId=$1 ORDER by id DESC",[form.patientId])])
-            .then(rs => protocolManager.recommend(rs[0],rs[1]))
-            .then(rs => { recommedation = rs; let f = {type:form.type+'Recommedation',savedBy:form.savedBy,patientId:form.patientId,data:rs,dt:new Date()};return db.none("INSERT INTO forms(type,dt,savedBy,patientId,data) VALUES (${type},${dt},${savedBy},${patientId},${data})",f);})
-            .then(() => res.json(recommedation));
-        else res.send('success');
-    }).catch(e => {log(e);res.end('fail');});
+         Promise.all([db.one("SELECT * FROM patients WHERE id=$1",[form.patientId]),db.any("SELECT * FROM forms WHERE patientId=$1 ORDER by id DESC",[form.patientId])])
+     .then(rs => protocolManager.recommend(rs[0],rs[1]))
+     .then(rs => {rs.parentId = form.id; recommedation = rs; let f = {type : form.type+'Recommedation',savedBy : form.savedBy, patientId : form.patientId, data :rs, dt: new Date() };return db.one("INSERT INTO forms(type,dt,savedBy,patientId,data) VALUES (${type},${dt},${savedBy},${patientId},${data}) RETURNING id",f);})
+     .then(rs => { recommedation.id = rs.id; res.json(recommedation); },e => {log(e);res.end('fail');});
+     else res.send('success');
+ }).catch(e => {log(e);res.end('fail');});
 });
 
 router.post('/getForms',parseText,authCheck,function(req,res){// to rewrite
@@ -105,28 +105,27 @@ ProtocolManager.prototype.recommend=function(patient,forms){
         if(!fp.isValid)return resolve({text:'Please enter a glucose measurement to get recommendations',error:1});
         if(profile.insulinDeliveryType=='subcutaneous'){
            protocolManager.get('subcutaneous').then(protocol=>{
-            var chart=protocol.data.chart,chartRow=chart.find(r=>r.t==fp.dosageType);
-            if(!chartRow)reject('dosageType:'+fp.dosageType+' not configured in the protocol chart.');
-            if(fp.getValue('insulin','yest','same')){
-                if(fp.dosageType=='Bedtime'){
-                    if(fp.getValue('bg','today','Before Breakfast')){
-                        dose = fp.getValue('insulin','yest','Bedtime')+(fp.getValue('bg','today','Before Breakfast') - 130) * fp.getValue('insulin','yest','Bedtime') / 200;
-                        return resolve({dosageType:fp.dosageType,dose:dose,text:'Yesterday\'s Bedtime Dose: '+fp.getValue('insulin','yest','Bedtime')+'<br>Fasting BG Today: '+fp.getValue('bg','today','Before Breakfast')+'<br><br>Give '+round(dose,0)+' units of '+chartRow.ins+' subcutaneously'});
+                var chart=protocol.data.chart,chartRow=chart.find(r=>r.t==fp.dosageType);
+                if(!chartRow)reject('dosageType:'+fp.dosageType+' not configured in the protocol chart.');
+                if(fp.dosageType != '10:00 AM' && fp.getValue('insulin','yest','same')){
+                    if(fp.dosageType=='Bedtime'){
+                        if(fp.getValue('bg','today','Before Breakfast')){
+                            dose = fp.getValue('insulin','yest','Bedtime')+(fp.getValue('bg','today','Before Breakfast') - 130) * fp.getValue('insulin','yest','Bedtime') / 200;
+                            return resolve({dosageType:fp.dosageType,dose:dose,text:'Yesterday\'s Bedtime Dose: '+fp.getValue('insulin','yest','Bedtime')+'<br>Fasting BG Today: '+fp.getValue('bg','today','Before Breakfast')+'<br><br>Give '+round(dose,0)+' units of '+chartRow.ins+' subcutaneously'});
+                        }
+                    }else{
+                        if(fp.getValue('bg','yest','next')){
+                            dose = fp.getValue('insulin','yest','same')+(fp.getValue('bg','yest','next') - fp.getValue('bg','yest','same')) / 500 * fp.getValue('insulin','yest','same') + (fp.getValue('bg','today','same') - 150) / 50;
+                            return resolve({dosageType:fp.dosageType,dose:dose,text:'Yesterday\'s Dose: '+fp.getValue('insulin','yest','same')+'<br>Pre-Meal BG Yesterday: '+fp.getValue('bg','yest','same')+'<br>Next BG Yesterday: '+fp.getValue('bg','yest','next')+'<br><br>Give '+round(dose,0)+' units of '+chartRow.ins+' subcutaneously'});
+                        }
                     }
-                }else{
-                    if(fp.getValue('bg','yest','next')){
-                        dose = fp.getValue('insulin','yest','same')+(fp.getValue('bg','yest','next') - fp.getValue('bg','yest','same')) / 500 * fp.getValue('insulin','yest','same') + (fp.getValue('bg','today','same') - 150) / 50;
-                        return resolve({dosageType:fp.dosageType,dose:dose,text:'Yesterday\'s Dose: '+fp.getValue('insulin','yest','same')+'<br>Pre-Meal BG Yesterday: '+fp.getValue('bg','yest','same')+'<br>Next BG Yesterday: '+fp.getValue('bg','yest','next')+'<br><br>Give '+round(dose,0)+' units of '+chartRow.ins+' subcutaneously'});
-                    }
-                }
-            }
-        //lookup from protocol chart                                    
-        if(!profile.subcutaneousColumn)reject('Subcutaneous Column not defined for patientId:'+patient.id);
-        dose=chartRow[profile.subcutaneousColumn];
-        if(!dose){
-            reject('dosageType:'+fp.dosageType+', column: '+profile.subcutaneousColumn+' not configured in protocol chart');
-        }else resolve({dosageType:fp.dosageType,dose:dose,text:'Using dosage chart due to insufficient past data<br>Current Dosage Column: '+profile.subcutaneousColumn+'<br><br>Give '+round(dose,0)+' units of '+chartRow.ins+' subcutaneously'});
-    });
+                }                                
+                if(!profile.subcutaneousColumn)reject('Subcutaneous Column not defined for patientId:'+patient.id);
+                dose=chartRow[profile.subcutaneousColumn];
+                if(dose === undefined){
+                    reject('dosageType:'+fp.dosageType+', column: '+profile.subcutaneousColumn+' not configured in protocol chart');
+                }else resolve({dosageType:fp.dosageType,dose:dose,text:'Using dosage chart due to insufficient past data<br>Current Dosage Column: '+profile.subcutaneousColumn+'<br><br>Give '+round(dose,0)+' units of '+chartRow.ins+' subcutaneously'});
+            });
        }else if(patient.insulinDeliveryType=='infusion'){
         reject('Protocol for insulin infusion is not yet developed');
     }else{
@@ -173,13 +172,14 @@ ProtocolManager.prototype.process=function(patient,form){//form is optional
 
 function FormProcessor(insulinDeliveryType,forms){
     this.insulinDeliveryType=insulinDeliveryType;
-    this.order=['Before Breakfast','10:00 AM','Before Lunch','Before Evening Snack','Before Dinner','Bedtime'];
+    this.order=['Before Breakfast','Before Lunch','Before Evening Snack','Before Dinner','Bedtime'];
+    forms.sort((f1,f2) => f1.dt?new Date(f1.dt):new Date() - f2.dt?new Date(f2.dt):new Date());
     var fh={};
     if(insulinDeliveryType=='subcutaneous'){
         for(var i=0;i<forms.length;i++){
             var f=forms[i],dt=date.format(new Date(f.dt),'DD MMM YYYY');
             if(!fh[f.type])fh[f.type]={};if(!fh[f.type][dt])fh[f.type][dt]={};fh[f.type][dt][f.data.dosageType]=f.data;
-            if(f.type=='subcutaneous'){this.isValid=true;if(!this.dosageType)this.dosageType=f.data.dosageType;}
+            if(f.type=='subcutaneous'){this.isValid=true;if(f.data.dosageType)this.dosageType=f.data.dosageType;}
         }
         this.nextDosageType=this.order[this.order.findIndex(r=>r==this.dosageType)+1];
     }else if(insulinDeliveryType=='infusion'){

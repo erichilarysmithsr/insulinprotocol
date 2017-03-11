@@ -46,7 +46,8 @@
 				<input mdInput type="number" name="insulinDose" placeholder="Insulin Dose Given" required [(ngModel)]="form.data.insulinDose">
 			</md-input-container>
 			<div style="text-align:center;margin-top:10px;">
-				<button md-raised-button type="submit" [disabled]="!insulinForm.form.valid">Save</button>				
+				<button md-raised-button type="submit" [disabled]="!insulinForm.form.valid">Save</button>	
+				<a md-button (click)="goBack()">Cancel</a>			
 			</div>			
 		</div>		
 	</form>		

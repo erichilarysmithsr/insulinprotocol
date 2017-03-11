@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/throw';
 
 import { Patient } from './patient';
 import { Form } from './form';
@@ -41,7 +42,7 @@ import { AppSettings } from './app-settings';
 		return this.http.post(this.dataUrl+'validateProtocol',{patient:patient,forms:forms}).map(this.parseBody).catch(this.handleError);
 	}
 	private parseBody = (res: Response)=>{
-		if(res.text()=='fail')this.handleError('Server Internal Error');
+		if(res.text()=='fail')throw "Server Internal Error";
 		return res.text()=='success'?'success':(res.json()||{});
 	}
 	private handleError (error: Response | any) {
@@ -54,7 +55,7 @@ import { AppSettings } from './app-settings';
 		} else {
 			errMsg = error.message ? error.message : error.toString();
 		}
-		console.error(errMsg);
+		console.log(errMsg);
 		return Observable.throw(errMsg);
 	}
 }

@@ -687,6 +687,10 @@ var AppModuleInjector = (function (_super) {
                                     component: import112.FormsListComponent
                                 },
                                 {
+                                    path: ':id/form',
+                                    component: import113.FormComponent
+                                },
+                                {
                                     path: ':id/form/:type',
                                     component: import113.FormComponent
                                 },

@@ -29,10 +29,10 @@ import { DialogService } from './dialog.service';
 				let diag=this.dialog.show('Saved','The form submitted has been successfully saved.',[],'Close');
 				diag.afterClosed().subscribe(()=>this.router.navigate(['patient-list']));
 			}else{
-				this.form = new Form();this.form.data.dosageType=rs.dosageType;
-				this.type=this.type+'Dose';this.recommendation=rs;
+				this.form = new Form(); this.form.data.dosageType = rs.dosageType; this.form.data.parentId = rs.id;
+				this.type = this.type+'Dose'; this.recommendation = rs;
 			}			
-		});		
+		},(e)=>this.error=e);		
 	}
 	goBack(): void{
 		this.router.navigate(['patient-list']);

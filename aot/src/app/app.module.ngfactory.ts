@@ -508,6 +508,11 @@ class AppModuleInjector extends import0.NgModuleInjector<import1.AppModule> {
             }
             ,
             {
+              path: ':id/form',
+              component: import113.FormComponent
+            }
+            ,
+            {
               path: ':id/form/:type',
               component: import113.FormComponent
             }
