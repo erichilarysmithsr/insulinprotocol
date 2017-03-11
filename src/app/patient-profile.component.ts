@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { PatientProvider } from './patient-provider.service';
 import { Patient } from './patient';
+import { AppSettings } from './app-settings';
 
 @Component({
 	moduleId:module.id,
@@ -11,6 +12,9 @@ import { Patient } from './patient';
 }) export class PatientProfileComponent implements OnInit{
 	error: any;
 	constructor(public pp: PatientProvider, private router: Router,private route: ActivatedRoute,private location: Location){}
+	getOptions(type: string): any{
+		let conf = AppSettings[type]; return conf.filter((r: any) => r.k.match(/col/));
+	}
 	ngOnInit(): void{
 		let id=+this.route.snapshot.params['id'];
 		this.pp.getPatient(id).subscribe(()=>{

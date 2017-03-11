@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,17 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Server } from './server.service';
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var server_service_1 = require("./server.service");
+var auth_service_1 = require("./auth.service");
 var PatientListComponent = (function () {
-    function PatientListComponent(server, router) {
+    function PatientListComponent(server, router, authService) {
         this.server = server;
         this.router = router;
+        this.authService = authService;
     }
     PatientListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.server.getPatients().subscribe(function (patients) { return _this.patients = patients; }, function (error) { return _this.error = error; });
+        this.authService.login().then(function () { return _this.server.getPatients().subscribe(function (patients) { return _this.patients = patients; }, function (error) { return _this.error = error; }); });
     };
     PatientListComponent.prototype.onSearch = function (search) {
         var _this = this;
@@ -32,7 +36,7 @@ var PatientListComponent = (function () {
     PatientListComponent.prototype.showForm = function (id, type) {
         if (!id)
             return;
-        this.router.navigate(['patient', id, 'form', type]);
+        this.router.navigate(['patient', id, 'form']);
     };
     PatientListComponent.prototype.formsList = function (id) {
         this.router.navigate(['patient', id, 'forms-list']);
@@ -40,13 +44,13 @@ var PatientListComponent = (function () {
     return PatientListComponent;
 }());
 PatientListComponent = __decorate([
-    Component({
+    core_1.Component({
         moduleId: module.id,
         templateUrl: 'patient-list.component.html',
         selector: 'patient-list',
         styleUrls: ['patient-list.component.css']
     }),
-    __metadata("design:paramtypes", [Server, Router])
+    __metadata("design:paramtypes", [server_service_1.Server, router_1.Router, auth_service_1.AuthService])
 ], PatientListComponent);
-export { PatientListComponent };
+exports.PatientListComponent = PatientListComponent;
 //# sourceMappingURL=patient-list.component.js.map

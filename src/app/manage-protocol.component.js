@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,16 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from '@angular/core';
-import { Server } from './server.service';
-import { DialogService } from './dialog.service';
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var server_service_1 = require("./server.service");
+var dialog_service_1 = require("./dialog.service");
+var app_settings_1 = require("./app-settings");
 var ManageProtocolComponent = (function () {
     function ManageProtocolComponent(server, dialog) {
         this.server = server;
         this.dialog = dialog;
         this.type = 'subcutaneous';
         this.config = {
-            subcutaneous: [{ k: 't', t: 'Sampling Time' }, { k: 'ins', t: 'Insulin Type' }, { k: 'col1', t: 'Column 1', type: 'number' }, { k: 'col2', t: 'Column 2', type: 'number' }, { k: 'col3', t: 'Column 3', type: 'number' }, { k: 'col4', t: 'Column 4', type: 'number' }, { k: 'col5', t: 'Column 5', type: 'number' }, { k: 'col6', t: 'Column 6', type: 'number' }, { k: 'col7', t: 'Column 7', type: 'number' }, { k: 'col8', t: 'Column 8', type: 'number' }]
+            subcutaneous: app_settings_1.AppSettings.subcutaneous,
+            infusion: app_settings_1.AppSettings.infusion
         };
     }
     ManageProtocolComponent.prototype.ngOnInit = function () {
@@ -37,11 +41,11 @@ var ManageProtocolComponent = (function () {
     return ManageProtocolComponent;
 }());
 ManageProtocolComponent = __decorate([
-    Component({
+    core_1.Component({
         moduleId: module.id,
         templateUrl: 'manage-protocol.component.html'
     }),
-    __metadata("design:paramtypes", [Server, DialogService])
+    __metadata("design:paramtypes", [server_service_1.Server, dialog_service_1.DialogService])
 ], ManageProtocolComponent);
-export { ManageProtocolComponent };
+exports.ManageProtocolComponent = ManageProtocolComponent;
 //# sourceMappingURL=manage-protocol.component.js.map

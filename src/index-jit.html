@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <base href="/">
     <title>Glucose control advisor</title>
     <meta charset="UTF-8">
@@ -15,16 +15,17 @@
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/date-and-time/date-and-time.min.js"></script>
+    <script src="//cdn.auth0.com/js/lock/10.2.2/lock.min.js"></script>
     <script src="systemjs.config.js"></script>
     <script>
       System.import('main-jit.js').catch(function(err){ console.error(err); });
-    </script>
-  </head>
-  <body>
+  </script>
+</head>
+<body>
     <my-app>
       <div class="loading">
         Please wait while the app is being downloaded
-      </div>
-    </my-app>
-  </body>
+    </div>
+</my-app>
+</body>
 </html>

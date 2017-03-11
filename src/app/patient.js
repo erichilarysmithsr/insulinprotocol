@@ -1,10 +1,12 @@
-import { Profile } from './profile';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var profile_1 = require("./profile");
 var Patient = (function () {
     function Patient() {
-        this.profile = new Profile();
+        this.profile = new profile_1.Profile();
         //add other optional properties diabetes type, etc
     }
     return Patient;
 }());
-export { Patient };
+exports.Patient = Patient;
 //# sourceMappingURL=patient.js.map

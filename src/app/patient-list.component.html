@@ -13,12 +13,8 @@
 </div>
 <div style="padding:120px 5px 0 5px;box-sizing:border-box;overflow:scroll;height:100%;">	
 	<md-card *ngFor="let patient of patients">
-		<md-menu #formList="mdMenu">
-		  <button md-menu-item (click)="showForm(patient.id,'infusion')">Insulin infusion</button>
-		  <button md-menu-item (click)="showForm(patient.id,'subcutaneous')">Subcutaneous insulin</button>
-		</md-menu>
 		<md-card-title style="cursor:pointer;">
-			<span [mdMenuTriggerFor]="formList">{{patient.name}}</span>
+			<span (click)="showForm(patient.id)" >{{patient.name}}</span>
 			<i (click)="formsList(patient.id)" class="material-icons fright">list</i>
 			<i (click)="editPatient(patient.id)" class="material-icons fright">mode_edit</i>
 		</md-card-title>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Patient } from './patient';
 import { Server } from './server.service';
+import { AuthService } from './auth.service';
 
 @Component({
 	moduleId:module.id,
@@ -12,9 +13,9 @@ import { Server } from './server.service';
 }) export class PatientListComponent implements OnInit{
 	patients: Patient[]
 	error: any
-	constructor(private server: Server,private router: Router){}
+	constructor(private server: Server,private router: Router,private authService: AuthService){}
 	ngOnInit(): void{
-		this.server.getPatients().subscribe(patients=>this.patients=patients,error=>this.error=error);
+		this.authService.login().then(()=>this.server.getPatients().subscribe(patients=>this.patients=patients,error=>this.error=error))
 	}
 	onSearch(search: string): void{
 		this.server.getPatients(search).subscribe(patients=>this.patients=patients,error=>this.error=error);
@@ -27,7 +28,7 @@ import { Server } from './server.service';
 	}
 	showForm(id: number,type: string): void{
 		if(!id)return;
-		this.router.navigate(['patient',id,'form',type]);
+		this.router.navigate(['patient',id,'form']);
 	}
 	formsList(id: number): void{
 		this.router.navigate(['patient',id,'forms-list']);

@@ -22,7 +22,20 @@ import { DialogComponent } from './dialog.component';
 import { Server } from './server.service';
 import { DialogService } from './dialog.service';
 
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
 
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenName: 'token',
+          tokenGetter: (() => localStorage.getItem('id_token')),
+          globalHeaders: [],
+     }), http, options);
+}
+	
 const appRoutes: Routes=[
 	{path:'',pathMatch:'full',redirectTo:'/patient-list'},
 	{path:'patient-list',component:PatientListComponent},
@@ -33,9 +46,11 @@ const appRoutes: Routes=[
 			{path:':id',pathMatch:'full',redirectTo:':id/profile'},
 			{path:':id/profile',component:PatientProfileComponent},
 			{path:':id/forms-list',component:FormsListComponent},
+			{path:':id/form',component:FormComponent},
 			{path:':id/form/:type',component:FormComponent},
 			{path:'**',component:PageNotFoundComponent}
 		]
+		,canActivate:[AuthGuard]
 	},
 	{path:'manage-protocol',component:ManageProtocolComponent},
 	{path:'validate-protocol',component:ValidateProtocolComponent},
@@ -45,7 +60,11 @@ const appRoutes: Routes=[
 @NgModule({
   imports:      [ BrowserModule,FormsModule,RouterModule.forRoot(appRoutes),MaterialModule.forRoot(),MdDialogModule.forRoot()],
   declarations: [ AppComponent,PatientListComponent,PatientProfileComponent,PageNotFoundComponent,FormComponent,PatientComponent,DialogComponent,FormsListComponent,ManageProtocolComponent,ValidateProtocolComponent ],
-  providers: [ Server,DialogService ],
+  providers: [ Server,DialogService,AuthGuard,AuthService,{
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    } ],
   bootstrap:    [ AppComponent ],
   entryComponents:[DialogComponent]
 })

@@ -24,8 +24,8 @@
     "deploy": "npm run build:aot && git push heroku master"
   },
   "engines": {
-    "node": "6.9.4",
-    "npm": "4.3.0"
+    "node": "6.10.0",
+    "npm": "3.10.10"
   },
   "jshintConfig": {
     "esversion": 6
@@ -46,12 +46,16 @@
     "@angular/platform-server": "^2.4.7",
     "@angular/router": "~3.4.0",
     "@google-cloud/datastore": "^0.7.0",
+    "angular2-jwt": "^0.1.28",
+    "auth0-lock": "^10.12.3",
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "core-js": "^2.4.1",
+    "cors": "^2.8.1",
     "date-and-time": "^0.4.0",
     "debug": "^2.6.1",
     "express": "~4.14.1",
+    "express-jwt": "^5.1.0",
     "morgan": "~1.7.0",
     "pg-promise": "^5.6.2",
     "rxjs": "5.0.1",
@@ -76,7 +80,7 @@
     "lodash": "^4.16.4",
     "protractor": "~4.0.14",
     "rimraf": "^2.5.4",
-    "rollup": "^0.41.4",
+    "rollup": "0.41.0",
     "rollup-plugin-commonjs": "^7.0.0",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",

@@ -5,5 +5,5 @@ export class Form{
 	dt: Date
 	savedBy: User
 	patientId: number
-	data?: Object = {}
+	data?: any = {}
 }

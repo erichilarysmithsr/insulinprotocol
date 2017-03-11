@@ -14,23 +14,30 @@ import { DialogService } from './dialog.service';
 })export class FormComponent{
 	error: any
 	form = new Form()
-	data: Object = {}
 	patientId: number
-	public type: string
+	type: string
+	recommendation: string
 	constructor(public pp: PatientProvider, private router: Router,private route: ActivatedRoute,private location: Location,private server: Server,private dialog: DialogService){}
 	ngOnInit(): void{
 		this.patientId=+this.route.snapshot.params['id'];if(!this.patientId)return;
-		this.pp.getPatient(this.patientId).subscribe();
-		this.type=this.route.snapshot.params['type'];
+		this.pp.getPatient(this.patientId).subscribe(()=>this.type=this.pp.patient.profile.insulinDeliveryType);
 	}
 	saveForm(): void{
 		this.form.patientId=this.patientId;this.form.type=this.type;
-		this.server.saveForm(this.form).subscribe(()=>{
-			let diag=this.dialog.show('Saved','The form submitted has been successfully saved.',[],'Close');
-			diag.afterClosed().subscribe(()=>this.router.navigate(['patient-list']));
+		this.server.saveForm(this.form).subscribe((rs: any)=>{
+			if(rs=='success'){
+				let diag=this.dialog.show('Saved','The form submitted has been successfully saved.',[],'Close');
+				diag.afterClosed().subscribe(()=>this.router.navigate(['patient-list']));
+			}else{
+				this.form = new Form();this.form.data.dosageType=rs.dosageType;
+				this.type=this.type+'Dose';this.recommendation=rs;
+			}			
 		});		
 	}
 	goBack(): void{
 		this.router.navigate(['patient-list']);
+	}
+	changeProfile(): void{
+		this.router.navigate(['patient',this.patientId]);
 	}
 }

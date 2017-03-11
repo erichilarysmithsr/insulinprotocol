@@ -22,6 +22,16 @@
 		<md-input-container class="big">
 			<input mdInput type="number" name="preTransplantDose" placeholder="Pre-Transplant Insulin Dose (units/day)" required [(ngModel)]="pp.patient.profile.preTransplantDose">
 		</md-input-container>
+		<md-select placeholder="Insulin Delivery Type" name="insulinDeliveryType" class="medium" required [(ngModel)]="pp.patient.profile.insulinDeliveryType" >
+			<md-option value="infusion" >Infusion</md-option>
+			<md-option value="subcutaneous">Subcutaneous</md-option>
+		</md-select>
+		<md-select *ngIf="pp.patient.profile.insulinDeliveryType=='subcutaneous' && pp.patient.profile.subcutaneousColumn" placeholder="Subcutaneous Column" name="subcutaneousColumn" class="medium" required [(ngModel)]="pp.patient.profile.subcutaneousColumn" >
+			<md-option *ngFor="let item of getOptions('subcutaneous')" [value]=item.k >{{item.t}}</md-option>
+		</md-select>
+		<md-select *ngIf="pp.patient.profile.insulinDeliveryType=='infusion' && pp.patient.profile.infusionColumn" placeholder="Infusion Column" name="infusionColumn" class="medium" required [(ngModel)]="pp.patient.profile.infusionColumn" >
+			<md-option *ngFor="let item of getOptions('infusion')" [value]=item.k >{{item.t}}</md-option>
+		</md-select>
 		
 		<div style="text-align:center;margin-top:10px;">
 			<button md-raised-button type="submit" [disabled]="!profileForm.form.valid">Save</button>
