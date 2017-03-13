@@ -28,7 +28,7 @@ import { AuthService } from './auth.service';
 	}
 	showForm(id: number,type: string): void{
 		if(!id)return;
-		this.router.navigate(['patient',id,'form']);
+		this.router.navigate(['patient',id,'form',type]);
 	}
 	formsList(id: number): void{
 		this.router.navigate(['patient',id,'forms-list']);

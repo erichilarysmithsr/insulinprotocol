@@ -5,8 +5,21 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
+.splashScreen{
+    height:100%;
+    width: 100%;
+    background-color: #000; 
+    background-image: url(/assets/splashscreen.jpg); 
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-attachment: fixed;       
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
-.loading{font-size:20px;color:#CCC;margin-top:50px;text-align: center;}
+.loading{font-size:20px;color:#CCC;padding-top:50px;text-align: center;}
 .nodata{color:#CCC;margin-top:5px;text-align:center;}
 .mainwindow{max-width:800px;margin:0 auto;position:relative;overflow:hidden;height:100%;}
 .topfixed{position:absolute;top:0;left:0;width:100%;z-index:10;background-color: #FFF;}
@@ -30,10 +43,10 @@ h1 {
   font-weight: 400;
   src: url(/material-icon-font/MaterialIcons-Regular.eot); /* For IE6-8 */
   src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url(/material-icon-font/MaterialIcons-Regular.woff2) format('woff2'),
-       url(/material-icon-font/MaterialIcons-Regular.woff) format('woff'),
-       url(/material-icon-font/MaterialIcons-Regular.ttf) format('truetype');
+  local('MaterialIcons-Regular'),
+  url(/material-icon-font/MaterialIcons-Regular.woff2) format('woff2'),
+  url(/material-icon-font/MaterialIcons-Regular.woff) format('woff'),
+  url(/material-icon-font/MaterialIcons-Regular.ttf) format('truetype');
 }
 
 .material-icons {

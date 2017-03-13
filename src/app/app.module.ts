@@ -18,6 +18,7 @@ import { ValidateProtocolComponent } from './validate-protocol.component';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 import { DialogComponent } from './dialog.component';
+import { LoginComponent } from './login.component';
 
 import { Server } from './server.service';
 import { DialogService } from './dialog.service';
@@ -37,6 +38,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 }
 	
 const appRoutes: Routes=[
+	{path:'login',component:LoginComponent},
 	{path:'',pathMatch:'full',redirectTo:'/patient-list'},
 	{path:'patient-list',component:PatientListComponent},
 	{
@@ -59,7 +61,7 @@ const appRoutes: Routes=[
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,RouterModule.forRoot(appRoutes),MaterialModule.forRoot(),MdDialogModule.forRoot()],
-  declarations: [ AppComponent,PatientListComponent,PatientProfileComponent,PageNotFoundComponent,FormComponent,PatientComponent,DialogComponent,FormsListComponent,ManageProtocolComponent,ValidateProtocolComponent ],
+  declarations: [ AppComponent,PatientListComponent,PatientProfileComponent,PageNotFoundComponent,FormComponent,PatientComponent,DialogComponent,FormsListComponent,ManageProtocolComponent,ValidateProtocolComponent,LoginComponent ],
   providers: [ Server,DialogService,AuthGuard,AuthService,{
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
