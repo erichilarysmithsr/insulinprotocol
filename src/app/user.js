@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class User {
+export class User {
 }
-exports.User = User;
 //# sourceMappingURL=user.js.map

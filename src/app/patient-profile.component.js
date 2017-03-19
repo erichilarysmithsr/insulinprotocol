@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,12 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const router_1 = require("@angular/router");
-const common_1 = require("@angular/common");
-const patient_provider_service_1 = require("./patient-provider.service");
-const app_settings_1 = require("./app-settings");
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { PatientProvider } from './patient-provider.service';
+import { AppSettings } from './app-settings';
 let PatientProfileComponent = class PatientProfileComponent {
     constructor(pp, router, route, location) {
         this.pp = pp;
@@ -22,7 +20,7 @@ let PatientProfileComponent = class PatientProfileComponent {
         this.location = location;
     }
     getOptions(type) {
-        let conf = app_settings_1.AppSettings[type];
+        let conf = AppSettings[type];
         return conf.filter((r) => r.k.match(/col/));
     }
     ngOnInit() {
@@ -41,11 +39,11 @@ let PatientProfileComponent = class PatientProfileComponent {
     }
 };
 PatientProfileComponent = __decorate([
-    core_1.Component({
+    Component({
         moduleId: module.id,
         templateUrl: 'patient-profile.component.html'
     }),
-    __metadata("design:paramtypes", [patient_provider_service_1.PatientProvider, router_1.Router, router_1.ActivatedRoute, common_1.Location])
+    __metadata("design:paramtypes", [PatientProvider, Router, ActivatedRoute, Location])
 ], PatientProfileComponent);
-exports.PatientProfileComponent = PatientProfileComponent;
+export { PatientProfileComponent };
 //# sourceMappingURL=patient-profile.component.js.map

@@ -10,8 +10,8 @@ import { AuthService } from './auth.service';
   templateUrl:'app.component.html'
 })
 export class AppComponent implements AfterViewInit { 
-	@ViewChild(MdSidenav) private sideNav: MdSidenav;
-	constructor(private authService: AuthService,private router: Router){
+	@ViewChild(MdSidenav) public sideNav: MdSidenav;
+	constructor(public authService: AuthService,private router: Router){
 		this.authService.init();
 	}
 	ngAfterViewInit(): void{

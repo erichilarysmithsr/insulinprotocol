@@ -23,7 +23,6 @@ export default {
       nodeResolve({jsnext: true, module: true}),
       commonjs({
         include: ['node_modules/rxjs/**','node_modules/angular2-jwt/angular2-jwt.js']
-      }),
-      uglify()
+      })
   ]
 };

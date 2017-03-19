@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,21 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 //This service is a caching method to allow multiple components to use the same patient without requesting each time
-const core_1 = require("@angular/core");
-const Observable_1 = require("rxjs/Observable");
-const server_service_1 = require("./server.service");
-const patient_1 = require("./patient");
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Server } from './server.service';
+import { Patient } from './patient';
 let PatientProvider = class PatientProvider {
     constructor(server) {
         this.server = server;
-        this.patient = new patient_1.Patient();
+        this.patient = new Patient();
     }
     ;
     getPatient(id) {
         if (this.patient && this.patient.id == id)
-            return Observable_1.Observable.from([this.patient]);
+            return Observable.from([this.patient]);
         else
             return this.server.getProfile(id).do(patient => { this.patient = patient; });
     }
@@ -31,8 +29,8 @@ let PatientProvider = class PatientProvider {
     }
 };
 PatientProvider = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [server_service_1.Server])
+    Injectable(),
+    __metadata("design:paramtypes", [Server])
 ], PatientProvider);
-exports.PatientProvider = PatientProvider;
+export { PatientProvider };
 //# sourceMappingURL=patient-provider.service.js.map

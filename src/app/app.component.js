@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,11 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const router_1 = require("@angular/router");
-const material_1 = require("@angular/material");
-const auth_service_1 = require("./auth.service");
+import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { MdSidenav } from '@angular/material';
+import { AuthService } from './auth.service';
 let AppComponent = class AppComponent {
     constructor(authService, router) {
         this.authService = authService;
@@ -28,16 +26,16 @@ let AppComponent = class AppComponent {
     }
 };
 __decorate([
-    core_1.ViewChild(material_1.MdSidenav),
-    __metadata("design:type", material_1.MdSidenav)
+    ViewChild(MdSidenav),
+    __metadata("design:type", MdSidenav)
 ], AppComponent.prototype, "sideNav", void 0);
 AppComponent = __decorate([
-    core_1.Component({
+    Component({
         selector: 'my-app',
         moduleId: module.id,
         templateUrl: 'app.component.html'
     }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
+    __metadata("design:paramtypes", [AuthService, Router])
 ], AppComponent);
-exports.AppComponent = AppComponent;
+export { AppComponent };
 //# sourceMappingURL=app.component.js.map
