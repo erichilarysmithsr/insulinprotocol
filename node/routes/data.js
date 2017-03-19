@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var datastore = require('@google-cloud/datastore')();
 var debug = require('debug')('nodeserver'),log=require('debug')('default');
 var pgp = require('pg-promise')();
 var db = pgp(process.env.DATABASE_URL);
