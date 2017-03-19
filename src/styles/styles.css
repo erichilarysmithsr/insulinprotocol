@@ -1,13 +1,23 @@
-html{margin:0;height:100%;width:100%;}
-body{font-family:Helvetica,Arial,Sans-Serif;margin:0;height:100%;width:100%;color:#222;}
+:root {
+  --orange-red: #ff5722;
+}
+html, body, material-app, md-sidenav-container, .mainwindow {
+  margin: 0;width: 100%;height: 100%;max-width:800px;
+}
+body{font-family:Roboto,Helvetica,Arial,Sans-Serif;color:#222;}
+.loading{font-size:20px;color:#CCC;padding-top:50px;text-align: center;}
+.nodata{color:#CCC;margin-top:5px;text-align:center;}
+.mainwindow{position:relative;overflow:hidden;}
+.topfixed{position:absolute;top:0;left:0;width:100%;z-index:10;background-color: #FFF;}
+
 h1 {
   color: #369;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
 .splashScreen{
     height:100%;
     width: 100%;
+    max-width: 800px;
     background-color: #000; 
     background-image: url(/assets/splashscreen.jpg); 
     background-repeat: no-repeat; 
@@ -18,15 +28,47 @@ h1 {
     -o-background-size: cover;
     background-size: cover;
 }
+.appTitle{  
+  position: absolute;
+  top: 34.5%;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-align: center;
+  color: #ff5722;
+  color: var(--orange-red);
+}
+.insulin {
+  margin-top: 20px;
+  width: 39.4px;
+  height: 58.8px;
+  object-fit: contain;
+}
+.profileBox{
+  height: 30%;
+  width: 100%;
+  background-color: #F4F4F4;
+  text-align: center;
+}
+.profileImg{
+  height: 33%;
+  padding-top: 21%;
+}
+.sideNavOption{
+  height: 10%;
+  font-size: 18px;
+  padding-left: 8.5%;
+  border-bottom: 2px solid #e4e4e4;
+}
 
-.loading{font-size:20px;color:#CCC;padding-top:50px;text-align: center;}
-.nodata{color:#CCC;margin-top:5px;text-align:center;}
-.mainwindow{max-width:800px;margin:0 auto;position:relative;overflow:hidden;height:100%;}
-.topfixed{position:absolute;top:0;left:0;width:100%;z-index:10;background-color: #FFF;}
 .padded{padding:5px;}
+
+.patBox{display:inline-block;flex:1 1 auto;}
 
 .fright{float:right;} .filler{flex:1 1 auto;}
 .full{width:100%;}
+.fullButton{width:90%;max-width:350px;margin-bottom: 10px !important;}
 .big{width:300px;margin-top:5px;}
 .medium{width:200px;margin-top:5px;}
 .small{width:100px;margin-top:5px;}
@@ -50,6 +92,7 @@ h1 {
 }
 
 .material-icons {
+  cursor: pointer;
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;

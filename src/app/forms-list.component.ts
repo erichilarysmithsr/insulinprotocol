@@ -10,13 +10,26 @@ import { Server } from './server.service';
 	moduleId:module.id,
 	templateUrl:'forms-list.component.html'
 }) export class FormsListComponent implements OnInit{
-	constructor(private pp: PatientProvider,private route: ActivatedRoute,private server: Server){}
+	constructor(private pp: PatientProvider,private route: ActivatedRoute,private router: Router,private server: Server){}
 	id: number
 	error: any
-	forms: {infusion: Form[],subcutaneous: Form[]}={infusion:[],subcutaneous:[]};
+	forms: Form[] = []
 	ngOnInit(): void{
-		let id=+this.route.snapshot.params['id'];
-		this.pp.getPatient(id).subscribe(()=>{},error=>this.error=error);
-		this.server.getForms(id).subscribe(forms=>{forms.forEach(form=>this.forms[form.type].push(form))},error=>this.error=error);
+		this.route.params.switchMap(params=>this.pp.getPatient(+params['id'])).subscribe(()=>{},e=>this.error=e);
+		this.route.params.switchMap(params=>this.server.getForms(+params['id'])).subscribe(forms=>this.processForms(forms),e=>this.error=e);
+	}
+	goBack(): void{
+		this.router.navigate(['patient-list']);
+	}
+	private processForms(forms: Form[]): void{
+		let h = {};
+		for(var i=0;i<forms.length;i++){
+			let f=forms[i],parentId = f.data.parentId;
+			if(parentId&&h[parentId]){
+				if(f.data.dose)h[parentId].data.dose=f.data.dose;
+				if(f.data.insulinDose)h[parentId].data.insulinDose=f.data.insulinDose;
+			}else h[f.id]=f;
+		}
+		for(var t in h)this.forms.push(h[t]);this.forms.reverse();
 	}
 }

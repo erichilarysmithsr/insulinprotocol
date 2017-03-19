@@ -9,29 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var patient_provider_service_1 = require("./patient-provider.service");
-var PatientComponent = (function () {
-    function PatientComponent(pp, route) {
+const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
+const patient_provider_service_1 = require("./patient-provider.service");
+let PatientComponent = class PatientComponent {
+    constructor(pp, route, router) {
         this.pp = pp;
         this.route = route;
+        this.router = router;
     }
-    PatientComponent.prototype.ngOnInit = function () {
-        var id = +this.route.snapshot.params['id'];
+    ngOnInit() {
+        let id = +this.route.snapshot.params['id'];
         if (!id)
             return;
-        this.pp.getPatient(id).subscribe(function (patient) { });
-    };
-    return PatientComponent;
-}());
+        this.pp.getPatient(id).subscribe(patient => { });
+    }
+    goBack() {
+        this.router.navigate(['patient-list']);
+    }
+};
 PatientComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        template: "\n\t\t<md-toolbar style=\"margin:0 0 10px 0;\" color=\"primary\">\n\t\t\t<span>{{pp.patient.id?pp.patient.name:'New Patient'}}</span>\n\t\t</md-toolbar>\n\t\t<router-outlet></router-outlet>\n\t",
+        template: `
+		<md-toolbar color="primary">
+			<i class="material-icons" (click)="goBack()">arrow_back</i>
+			<span>{{pp.patient.id?pp.patient.name:'New Patient'}}</span>
+		</md-toolbar>
+		<router-outlet></router-outlet>
+	`,
         providers: [patient_provider_service_1.PatientProvider]
     }),
-    __metadata("design:paramtypes", [patient_provider_service_1.PatientProvider, router_1.ActivatedRoute])
+    __metadata("design:paramtypes", [patient_provider_service_1.PatientProvider, router_1.ActivatedRoute, router_1.Router])
 ], PatientComponent);
 exports.PatientComponent = PatientComponent;
 //# sourceMappingURL=patient.component.js.map

@@ -9,56 +9,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var common_1 = require("@angular/common");
-var patient_provider_service_1 = require("./patient-provider.service");
-var form_1 = require("./form");
-var server_service_1 = require("./server.service");
-var dialog_service_1 = require("./dialog.service");
-var FormComponent = (function () {
-    function FormComponent(pp, router, route, location, server, dialog) {
+const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
+const common_1 = require("@angular/common");
+const patient_provider_service_1 = require("./patient-provider.service");
+const form_1 = require("./form");
+const server_service_1 = require("./server.service");
+const dialog_service_1 = require("./dialog.service");
+let FormComponent = class FormComponent {
+    constructor(pp, router, route, location, server, dialogService) {
         this.pp = pp;
         this.router = router;
         this.route = route;
         this.location = location;
         this.server = server;
-        this.dialog = dialog;
+        this.dialogService = dialogService;
         this.form = new form_1.Form();
     }
-    FormComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.patientId = +this.route.snapshot.params['id'];
-        if (!this.patientId)
-            return;
-        this.pp.getPatient(this.patientId).subscribe(function () { return _this.type = _this.pp.patient.profile.insulinDeliveryType; });
-    };
-    FormComponent.prototype.saveForm = function () {
-        var _this = this;
+    ngOnInit() {
+        this.route.params.do(params => this.patientId = +params['id']).switchMap(params => this.pp.getPatient(+params['id'])).subscribe(() => this.type = this.pp.patient.profile.insulinDeliveryType);
+    }
+    saveForm() {
         this.form.patientId = this.patientId;
         this.form.type = this.type;
-        this.server.saveForm(this.form).subscribe(function (rs) {
+        this.server.saveForm(this.form).subscribe((rs) => {
             if (rs == 'success') {
-                var diag = _this.dialog.show('Saved', 'The form submitted has been successfully saved.', [], 'Close');
-                diag.afterClosed().subscribe(function () { return _this.router.navigate(['patient-list']); });
+                let diag = this.dialogService.show('Saved', 'The form submitted has been successfully saved.', [], 'Close');
+                diag.afterClosed().subscribe(() => this.router.navigate(['patient-list']));
             }
             else {
-                _this.form = new form_1.Form();
-                _this.form.data.dosageType = rs.dosageType;
-                _this.form.data.parentId = rs.id;
-                _this.type = _this.type + 'Dose';
-                _this.recommendation = rs;
+                this.form = new form_1.Form();
+                this.form.data.dosageType = rs.dosageType;
+                this.form.data.parentId = rs.parentId;
+                this.type = this.type + 'Dose';
+                this.recommendation = rs;
             }
-        }, function (e) { return _this.error = e; });
-    };
-    FormComponent.prototype.goBack = function () {
+        }, (e) => this.error = e);
+    }
+    goBack() {
         this.router.navigate(['patient-list']);
-    };
-    FormComponent.prototype.changeProfile = function () {
+    }
+    changeProfile() {
         this.router.navigate(['patient', this.patientId]);
-    };
-    return FormComponent;
-}());
+    }
+};
 FormComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Patient } from './patient';
 import { Server } from './server.service';
+import { DialogService } from './dialog.service';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -12,12 +13,15 @@ import { AuthService } from './auth.service';
 	styleUrls:['patient-list.component.css']
 }) export class PatientListComponent implements OnInit{
 	patients: Patient[]
-	error: any
-	constructor(private server: Server,private router: Router,private authService: AuthService){}
-	ngOnInit(): void{
-		this.authService.login().then(()=>this.server.getPatients().subscribe(patients=>this.patients=patients,error=>this.error=error))
+	set error(error:any){
+		let diag=this.dialogService.show('Error','There has been an error in contacting the server. Please check your connection and try again.',[],'Close');
 	}
-	onSearch(search: string): void{
+	showSearch: boolean
+	constructor(private server: Server,private router: Router,private dialogService: DialogService,public authService: AuthService){}
+	ngOnInit(): void{
+		this.server.getPatients().subscribe(patients=>this.patients=patients,error=>this.error=error);
+	}
+	onSearch(search?: string): void{
 		this.server.getPatients(search).subscribe(patients=>this.patients=patients,error=>this.error=error);
 	}
 	editPatient(id: number): void{
@@ -26,11 +30,15 @@ import { AuthService } from './auth.service';
 	newPatient(uhid: string): void{
 		this.router.navigate(['patient',0,'profile'],{queryParams:{"uhid":uhid}});
 	}
-	showForm(id: number,type: string): void{
+	showForm(id: number): void{
 		if(!id)return;
-		this.router.navigate(['patient',id,'form',type]);
+		this.router.navigate(['patient',id,'form']);
 	}
 	formsList(id: number): void{
 		this.router.navigate(['patient',id,'forms-list']);
+	}
+	searchBack(): void{
+		this.showSearch=false; 
+		this.onSearch();
 	}
 }

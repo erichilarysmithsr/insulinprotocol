@@ -9,24 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var material_1 = require("@angular/material");
-var dialog_component_1 = require("./dialog.component");
-var DialogService = (function () {
-    function DialogService(dialog) {
+const core_1 = require("@angular/core");
+const material_1 = require("@angular/material");
+const dialog_component_1 = require("./dialog.component");
+let DialogService = class DialogService {
+    constructor(dialog) {
         this.dialog = dialog;
     }
-    DialogService.prototype.show = function (title, text, actions, close) {
-        var diag = this.dialog.open(dialog_component_1.DialogComponent);
-        var disp = diag.componentInstance;
+    show(title, text, actions, close) {
+        let diag = this.dialog.open(dialog_component_1.DialogComponent);
+        let disp = diag.componentInstance;
         disp.title = title;
         disp.text = text;
         disp.actions = actions;
         disp.close = close;
         return diag;
-    };
-    return DialogService;
-}());
+    }
+};
 DialogService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [material_1.MdDialog])

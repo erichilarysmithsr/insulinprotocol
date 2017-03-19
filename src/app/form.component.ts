@@ -17,19 +17,18 @@ import { DialogService } from './dialog.service';
 	patientId: number
 	type: string
 	recommendation: string
-	constructor(public pp: PatientProvider, private router: Router,private route: ActivatedRoute,private location: Location,private server: Server,private dialog: DialogService){}
+	constructor(public pp: PatientProvider, private router: Router,private route: ActivatedRoute,private location: Location,private server: Server,private dialogService: DialogService){}
 	ngOnInit(): void{
-		this.patientId=+this.route.snapshot.params['id'];if(!this.patientId)return;
-		this.pp.getPatient(this.patientId).subscribe(()=>this.type=this.pp.patient.profile.insulinDeliveryType);
+		this.route.params.do(params=>this.patientId=+params['id']).switchMap(params=>this.pp.getPatient(+params['id'])).subscribe(()=>this.type=this.pp.patient.profile.insulinDeliveryType);
 	}
 	saveForm(): void{
 		this.form.patientId=this.patientId;this.form.type=this.type;
 		this.server.saveForm(this.form).subscribe((rs: any)=>{
 			if(rs=='success'){
-				let diag=this.dialog.show('Saved','The form submitted has been successfully saved.',[],'Close');
+				let diag=this.dialogService.show('Saved','The form submitted has been successfully saved.',[],'Close');
 				diag.afterClosed().subscribe(()=>this.router.navigate(['patient-list']));
 			}else{
-				this.form = new Form(); this.form.data.dosageType = rs.dosageType; this.form.data.parentId = rs.id;
+				this.form = new Form(); this.form.data.dosageType = rs.dosageType; this.form.data.parentId = rs.parentId;
 				this.type = this.type+'Dose'; this.recommendation = rs;
 			}			
 		},(e)=>this.error=e);		

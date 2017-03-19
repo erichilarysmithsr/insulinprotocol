@@ -6,16 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var DialogComponent = (function () {
-    function DialogComponent() {
-    }
-    return DialogComponent;
-}());
+const core_1 = require("@angular/core");
+let DialogComponent = class DialogComponent {
+};
 DialogComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        template: "\n\t\t<h2 md-dialog-title >{{title}}</h2>\n\t\t<md-dialog-content>{{text}}</md-dialog-content>\n\t\t<md-dialog-actions style=\"text-align:center;\">\n\t\t\t<button md-button md-dialog-close *ngIf=\"close\">{{close}}</button>\n\t\t</md-dialog-actions>\t\n\t\t"
+        template: `
+		<h2 md-dialog-title >{{title}}</h2>
+		<md-dialog-content>{{text}}</md-dialog-content>
+		<md-dialog-actions style="text-align:center;">
+			<button md-button md-dialog-close *ngIf="close">{{close}}</button>
+		</md-dialog-actions>	
+		`
     })
 ], DialogComponent);
 exports.DialogComponent = DialogComponent;

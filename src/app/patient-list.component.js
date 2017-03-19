@@ -9,40 +9,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var server_service_1 = require("./server.service");
-var auth_service_1 = require("./auth.service");
-var PatientListComponent = (function () {
-    function PatientListComponent(server, router, authService) {
+const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
+const server_service_1 = require("./server.service");
+const dialog_service_1 = require("./dialog.service");
+const auth_service_1 = require("./auth.service");
+let PatientListComponent = class PatientListComponent {
+    constructor(server, router, dialogService, authService) {
         this.server = server;
         this.router = router;
+        this.dialogService = dialogService;
         this.authService = authService;
     }
-    PatientListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.authService.login().then(function () { return _this.server.getPatients().subscribe(function (patients) { return _this.patients = patients; }, function (error) { return _this.error = error; }); });
-    };
-    PatientListComponent.prototype.onSearch = function (search) {
-        var _this = this;
-        this.server.getPatients(search).subscribe(function (patients) { return _this.patients = patients; }, function (error) { return _this.error = error; });
-    };
-    PatientListComponent.prototype.editPatient = function (id) {
+    set error(error) {
+        let diag = this.dialogService.show('Error', 'There has been an error in contacting the server. Please check your connection and try again.', [], 'Close');
+    }
+    ngOnInit() {
+        this.server.getPatients().subscribe(patients => this.patients = patients, error => this.error = error);
+    }
+    onSearch(search) {
+        this.server.getPatients(search).subscribe(patients => this.patients = patients, error => this.error = error);
+    }
+    editPatient(id) {
         this.router.navigate(['patient', id, 'profile']);
-    };
-    PatientListComponent.prototype.newPatient = function (uhid) {
+    }
+    newPatient(uhid) {
         this.router.navigate(['patient', 0, 'profile'], { queryParams: { "uhid": uhid } });
-    };
-    PatientListComponent.prototype.showForm = function (id, type) {
+    }
+    showForm(id) {
         if (!id)
             return;
-        this.router.navigate(['patient', id, 'form', type]);
-    };
-    PatientListComponent.prototype.formsList = function (id) {
+        this.router.navigate(['patient', id, 'form']);
+    }
+    formsList(id) {
         this.router.navigate(['patient', id, 'forms-list']);
-    };
-    return PatientListComponent;
-}());
+    }
+    searchBack() {
+        this.showSearch = false;
+        this.onSearch();
+    }
+};
 PatientListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
@@ -50,7 +56,7 @@ PatientListComponent = __decorate([
         selector: 'patient-list',
         styleUrls: ['patient-list.component.css']
     }),
-    __metadata("design:paramtypes", [server_service_1.Server, router_1.Router, auth_service_1.AuthService])
+    __metadata("design:paramtypes", [server_service_1.Server, router_1.Router, dialog_service_1.DialogService, auth_service_1.AuthService])
 ], PatientListComponent);
 exports.PatientListComponent = PatientListComponent;
 //# sourceMappingURL=patient-list.component.js.map

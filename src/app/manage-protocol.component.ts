@@ -3,6 +3,7 @@ import { Component,OnInit } from '@angular/core';
 import { Protocol } from './protocol';
 import { Server } from './server.service';
 import { DialogService } from './dialog.service';
+import { AuthService } from './auth.service';
 
 import { AppSettings } from './app-settings';
 
@@ -12,7 +13,7 @@ import { AppSettings } from './app-settings';
 })export class ManageProtocolComponent implements OnInit{
 	type: string = 'subcutaneous'
 	protocol: Protocol
-	constructor(private server: Server,private dialog: DialogService){}
+	constructor(private server: Server,private dialog: DialogService,public authService: AuthService){}
 	private config = {
 		subcutaneous : AppSettings.subcutaneous,
 		infusion : AppSettings.infusion

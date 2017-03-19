@@ -9,40 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var common_1 = require("@angular/common");
-var patient_provider_service_1 = require("./patient-provider.service");
-var app_settings_1 = require("./app-settings");
-var PatientProfileComponent = (function () {
-    function PatientProfileComponent(pp, router, route, location) {
+const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
+const common_1 = require("@angular/common");
+const patient_provider_service_1 = require("./patient-provider.service");
+const app_settings_1 = require("./app-settings");
+let PatientProfileComponent = class PatientProfileComponent {
+    constructor(pp, router, route, location) {
         this.pp = pp;
         this.router = router;
         this.route = route;
         this.location = location;
     }
-    PatientProfileComponent.prototype.getOptions = function (type) {
-        var conf = app_settings_1.AppSettings[type];
-        return conf.filter(function (r) { return r.k.match(/col/); });
-    };
-    PatientProfileComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        var id = +this.route.snapshot.params['id'];
-        this.pp.getPatient(id).subscribe(function () {
-            var uhid = _this.route.snapshot.queryParams['uhid'];
+    getOptions(type) {
+        let conf = app_settings_1.AppSettings[type];
+        return conf.filter((r) => r.k.match(/col/));
+    }
+    ngOnInit() {
+        let id = +this.route.snapshot.params['id'];
+        this.pp.getPatient(id).subscribe(() => {
+            let uhid = this.route.snapshot.queryParams['uhid'];
             if (uhid)
-                _this.pp.patient.uhid = uhid;
-        }, function (error) { return _this.error = error; });
-    };
-    PatientProfileComponent.prototype.saveProfile = function () {
-        var _this = this;
-        this.pp.savePatient().subscribe(function (patient) { _this.router.navigate(['patient-list']); }, function (error) { return _this.error = error; });
-    };
-    PatientProfileComponent.prototype.goBack = function () {
+                this.pp.patient.uhid = uhid;
+        }, error => this.error = error);
+    }
+    saveProfile() {
+        this.pp.savePatient().subscribe(patient => { this.router.navigate(['patient-list']); }, error => this.error = error);
+    }
+    goBack() {
         this.router.navigate(['patient-list']);
-    };
-    return PatientProfileComponent;
-}());
+    }
+};
 PatientProfileComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

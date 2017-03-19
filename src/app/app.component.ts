@@ -1,11 +1,24 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild,AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MdSidenav } from '@angular/material';
+
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'my-app',
-  template: `
-  	<div class="mainwindow">  		
-		<router-outlet></router-outlet>
-  	<div>	
-  `
+  moduleId:module.id,
+  templateUrl:'app.component.html'
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent implements AfterViewInit { 
+	@ViewChild(MdSidenav) private sideNav: MdSidenav;
+	constructor(private authService: AuthService,private router: Router){
+		this.authService.init();
+	}
+	ngAfterViewInit(): void{
+		this.authService.sideNav = this.sideNav;
+	}
+	sideNavHandler(page: any):void{
+		this.sideNav.close();
+		this.router.navigate(page.route);
+	}
+}

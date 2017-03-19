@@ -5,19 +5,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'Angular';
+const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
+const material_1 = require("@angular/material");
+const auth_service_1 = require("./auth.service");
+let AppComponent = class AppComponent {
+    constructor(authService, router) {
+        this.authService = authService;
+        this.router = router;
+        this.authService.init();
     }
-    return AppComponent;
-}());
+    ngAfterViewInit() {
+        this.authService.sideNav = this.sideNav;
+    }
+    sideNavHandler(page) {
+        this.sideNav.close();
+        this.router.navigate(page.route);
+    }
+};
+__decorate([
+    core_1.ViewChild(material_1.MdSidenav),
+    __metadata("design:type", material_1.MdSidenav)
+], AppComponent.prototype, "sideNav", void 0);
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  \t<div class=\"mainwindow\">  \t\t\n\t\t<router-outlet></router-outlet>\n  \t<div>\t\n  "
-    })
+        moduleId: module.id,
+        templateUrl: 'app.component.html'
+    }),
+    __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

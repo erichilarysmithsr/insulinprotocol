@@ -1,0 +1,53 @@
+<div class="topfixed">
+	<md-toolbar color="primary" >
+		<i class="material-icons" (click)="authService.sideNav.toggle()">account_circle</i>
+		<span>Validate Protocol</span>
+		<span class="filler"></span>		
+	</md-toolbar>
+	<!-- <div style="padding:0 5px;">
+		<div style="width:100%;">
+			<span>Edit Protocol:</span>
+			<md-select name="type" required [(ngModel)]="type" class="big" (change)="getProtocol()">
+				<md-option value="subcutaneous" >Subcutaneous Insulin</md-option>
+				<md-option value="infusion" >Insulin Infusion</md-option>
+			</md-select>
+		</div>		
+	</div> -->
+</div>
+<div #page id="page" style="padding:100px 5px 0 5px;box-sizing:border-box;overflow:scroll;height:100%;">
+	<!-- <md-spinner *ngIf="!protocol" class="spinner"></md-spinner> -->
+	<md-input-container>
+		<input mdInput type="number" name="weight" placeholder="Patient's weight"  [(ngModel)]="patient.profile.weight">
+	</md-input-container>
+	<md-input-container>
+		<input mdInput type="number" name="preTransplantDose" placeholder="Pre-transplant Insulin Dose"  [(ngModel)]="patient.profile.preTransplantDose">
+	</md-input-container>
+	<form (ngSubmit)="submit(page)" #protocolForm="ngForm" >
+		<div>			
+			<table class="table">
+				<thead>
+					<th *ngFor="let col of config">{{col.t}}</th>
+				</thead>
+				<tr *ngFor="let row of data;let i = index; ">
+					<td *ngFor="let col of config; let j=index; ">
+						<md-input-container *ngIf="col.type">
+							<input mdInput [type]="col.type" [name]="i+'_'+j"  [(ngModel)]="row[col.k]" class="centered">
+						</md-input-container>
+						<span *ngIf="!col.type">{{row[col.k]}}</span>
+					</td>
+				</tr>
+			</table>		
+		</div>
+		<div style="text-align:center;margin-top:10px;">
+			<button md-raised-button type="submit" [disabled]="!protocolForm.form.valid">Get Recommendation</button>
+		</div>	
+	</form>
+	<div style="text-align:center;">
+		<md-spinner *ngIf="!recommendation" class="spinner"></md-spinner>
+		<div *ngIf="recommendation?.text">
+			<h2>Recommendation</h2>
+			<h4 *ngIf="recommendation.dosageType">For {{recommendation.dosageType}} dose</h4>
+			<div [innerHTML]="recommendation.text" style="margin:0 auto;min-width:300px;width:60%;text-align:left;"></div>		
+		</div>
+	</div>
+</div>

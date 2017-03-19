@@ -9,31 +9,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var patient_provider_service_1 = require("./patient-provider.service");
-var server_service_1 = require("./server.service");
-var FormsListComponent = (function () {
-    function FormsListComponent(pp, route, server) {
+const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
+const patient_provider_service_1 = require("./patient-provider.service");
+const server_service_1 = require("./server.service");
+let FormsListComponent = class FormsListComponent {
+    constructor(pp, route, router, server) {
         this.pp = pp;
         this.route = route;
+        this.router = router;
         this.server = server;
-        this.forms = { infusion: [], subcutaneous: [] };
+        this.forms = [];
     }
-    FormsListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        var id = +this.route.snapshot.params['id'];
-        this.pp.getPatient(id).subscribe(function () { }, function (error) { return _this.error = error; });
-        this.server.getForms(id).subscribe(function (forms) { forms.forEach(function (form) { return _this.forms[form.type].push(form); }); }, function (error) { return _this.error = error; });
-    };
-    return FormsListComponent;
-}());
+    ngOnInit() {
+        this.route.params.switchMap(params => this.pp.getPatient(+params['id'])).subscribe(() => { }, e => this.error = e);
+        this.route.params.switchMap(params => this.server.getForms(+params['id'])).subscribe(forms => this.processForms(forms), e => this.error = e);
+    }
+    goBack() {
+        this.router.navigate(['patient-list']);
+    }
+    processForms(forms) {
+        let h = {};
+        for (var i = 0; i < forms.length; i++) {
+            let f = forms[i], parentId = f.data.parentId;
+            if (parentId && h[parentId]) {
+                if (f.data.dose)
+                    h[parentId].data.dose = f.data.dose;
+                if (f.data.insulinDose)
+                    h[parentId].data.insulinDose = f.data.insulinDose;
+            }
+            else
+                h[f.id] = f;
+        }
+        for (var t in h)
+            this.forms.push(h[t]);
+        this.forms.reverse();
+    }
+};
 FormsListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         templateUrl: 'forms-list.component.html'
     }),
-    __metadata("design:paramtypes", [patient_provider_service_1.PatientProvider, router_1.ActivatedRoute, server_service_1.Server])
+    __metadata("design:paramtypes", [patient_provider_service_1.PatientProvider, router_1.ActivatedRoute, router_1.Router, server_service_1.Server])
 ], FormsListComponent);
 exports.FormsListComponent = FormsListComponent;
 //# sourceMappingURL=forms-list.component.js.map
