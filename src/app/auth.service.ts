@@ -30,6 +30,7 @@ let w: any = window;
 		return w.googleAuth2SignOut();
 	}
 	reload(): Promise<any>{
+		console.log('reload called');
 		return w.googleAuth2Reload();
 	}
 	checkLogin(): Observable<any>{

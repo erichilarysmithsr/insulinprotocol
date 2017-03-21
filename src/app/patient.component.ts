@@ -12,8 +12,7 @@ import { PatientProvider } from './patient-provider.service';
 			<span>{{pp.patient.id?pp.patient.name:'New Patient'}}</span>
 		</md-toolbar>
 		<router-outlet></router-outlet>
-	`,
-	providers:[PatientProvider]
+	`
 }) export class PatientComponent implements OnInit{
 	error: any
 	constructor(public pp: PatientProvider,private route: ActivatedRoute,private router: Router){

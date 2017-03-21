@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute,UrlSegment } from '@angular/router';
 
 import { Form } from './form';
 import { PatientProvider } from './patient-provider.service';
@@ -15,14 +15,19 @@ import { Server } from './server.service';
 	error: any
 	forms: Form[] = []
 	ngOnInit(): void{
-		this.route.params.switchMap(params=>this.pp.getPatient(+params['id'])).subscribe(()=>{},e=>this.error=e);
-		this.route.params.switchMap(params=>this.server.getForms(+params['id'])).subscribe(forms=>this.processForms(forms),e=>this.error=e);
+		if(this.route.snapshot.url[0].path=='transactions'){
+			this.route.params.switchMap(params=>this.server.getTransactions()).subscribe(forms=>this.processForms(forms),e=>this.error=e);	
+		}else{
+			this.route.params.switchMap(params=>this.pp.getPatient(+params['id'])).subscribe(()=>{},e=>this.error=e);
+			this.route.params.switchMap(params=>this.server.getForms(+params['id'])).subscribe(forms=>this.processForms(forms),e=>this.error=e);
+		}		
 	}
 	goBack(): void{
 		this.router.navigate(['patient-list']);
 	}
 	private processForms(forms: Form[]): void{
 		let h = {};
+		forms.sort((f1,f2)=>f1.id-f2.id);
 		for(var i=0;i<forms.length;i++){
 			let f=forms[i],parentId = f.data.parentId;
 			if(parentId&&h[parentId]){

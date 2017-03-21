@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,11 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from '@angular/core';
-import { Server } from './server.service';
-import { DialogService } from './dialog.service';
-import { AuthService } from './auth.service';
-import { AppSettings } from './app-settings';
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = require("@angular/core");
+const server_service_1 = require("./server.service");
+const dialog_service_1 = require("./dialog.service");
+const auth_service_1 = require("./auth.service");
+const app_settings_1 = require("./app-settings");
 let ManageProtocolComponent = class ManageProtocolComponent {
     constructor(server, dialog, authService) {
         this.server = server;
@@ -19,8 +21,8 @@ let ManageProtocolComponent = class ManageProtocolComponent {
         this.authService = authService;
         this.type = 'subcutaneous';
         this.config = {
-            subcutaneous: AppSettings.subcutaneous,
-            infusion: AppSettings.infusion
+            subcutaneous: app_settings_1.AppSettings.subcutaneous,
+            infusion: app_settings_1.AppSettings.infusion
         };
     }
     ngOnInit() {
@@ -38,11 +40,11 @@ let ManageProtocolComponent = class ManageProtocolComponent {
     }
 };
 ManageProtocolComponent = __decorate([
-    Component({
+    core_1.Component({
         moduleId: module.id,
         templateUrl: 'manage-protocol.component.html'
     }),
-    __metadata("design:paramtypes", [Server, DialogService, AuthService])
+    __metadata("design:paramtypes", [server_service_1.Server, dialog_service_1.DialogService, auth_service_1.AuthService])
 ], ManageProtocolComponent);
-export { ManageProtocolComponent };
+exports.ManageProtocolComponent = ManageProtocolComponent;
 //# sourceMappingURL=manage-protocol.component.js.map

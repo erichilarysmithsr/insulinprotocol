@@ -24,6 +24,7 @@ import { Server } from './server.service';
 import { DialogService } from './dialog.service';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
+import { PatientProvider } from './patient-provider.service';
 
 import { Http, RequestOptions } from '@angular/http';
 	
@@ -43,17 +44,18 @@ const appRoutes: Routes=[
 			{path:':id/form/:type',component:FormComponent},
 			{path:'**',component:PageNotFoundComponent}
 		]
-		,canActivate:[]
+		,canActivate:[AuthGuard]
 	},
-	{path:'manage-protocol',component:ManageProtocolComponent},
-	{path:'validate-protocol',component:ValidateProtocolComponent},
+	{path:'transactions',component:FormsListComponent,canActivate:[AuthGuard]},
+	{path:'manage-protocol',component:ManageProtocolComponent,canActivate:[AuthGuard]},
+	{path:'validate-protocol',component:ValidateProtocolComponent,canActivate:[AuthGuard]},
 	{ path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule,RouterModule.forRoot(appRoutes),MaterialModule.forRoot(),MdDialogModule.forRoot()],
   declarations: [ AppComponent,PatientListComponent,PatientProfileComponent,PageNotFoundComponent,FormComponent,PatientComponent,DialogComponent,FormsListComponent,ManageProtocolComponent,ValidateProtocolComponent,LoginComponent ],
-  providers: [ Server,DialogService,AuthService,AuthGuard ],
+  providers: [ Server,PatientProvider,DialogService,AuthService,AuthGuard ],
   bootstrap:    [ AppComponent ],
   entryComponents:[DialogComponent]
 })

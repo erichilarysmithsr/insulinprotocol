@@ -3,9 +3,8 @@ var checkLogin=new Promise((resolve,reject)=>{
 }),loginDone,loginFailed,googleAuth2Init=function(){
     gapi.load('auth2',()=>{
         gapi.auth2.init({client_id:'715165700315-9mhd65j4m68it586c6sph0vl30a7n0a1.apps.googleusercontent.com',ux_mode:'redirect'}).then((ga)=>{
-            console.log('listener attached');
             ga.currentUser.listen((guser)=>{
-                console.log('got listen');googleAuthSetCookie(guser);
+                googleAuthSetCookie(guser);
             });
             if(ga.isSignedIn.get()){
                 var guser = ga.currentUser.get();                
@@ -15,8 +14,7 @@ var checkLogin=new Promise((resolve,reject)=>{
         },e=>console.log(e));
     });
 };
-var googleAuthSetCookie = function(guser){
-    console.log('new token',new Date(),guser.getAuthResponse().id_token,'expires',new Date(guser.getAuthResponse().expires_at));
+var googleAuthSetCookie = function(guser){    
     setCookie('id_token',guser.getAuthResponse().id_token,guser.getAuthResponse().expires_at);
 };
 var googleAuthDelCookie = function(){

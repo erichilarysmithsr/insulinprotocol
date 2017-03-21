@@ -20,7 +20,7 @@
 		<input mdInput type="number" name="weight" placeholder="Patient's weight"  [(ngModel)]="patient.profile.weight">
 	</md-input-container>
 	<md-input-container>
-		<input mdInput type="number" name="preTransplantDose" placeholder="Pre-transplant Insulin Dose"  [(ngModel)]="patient.profile.preTransplantDose">
+		<input mdInput type="number"  step="0.1" name="preTransplantDose" placeholder="Pre-transplant Insulin Dose"  [(ngModel)]="patient.profile.preTransplantDose">
 	</md-input-container>
 	<form (ngSubmit)="submit(page)" #protocolForm="ngForm" >
 		<div>			
@@ -31,7 +31,7 @@
 				<tr *ngFor="let row of data;let i = index; ">
 					<td *ngFor="let col of config; let j=index; ">
 						<md-input-container *ngIf="col.type">
-							<input mdInput [type]="col.type" [name]="i+'_'+j"  [(ngModel)]="row[col.k]" class="centered">
+							<input mdInput [type]="col.type" step="0.1" [name]="i+'_'+j"  [(ngModel)]="row[col.k]" class="centered">
 						</md-input-container>
 						<span *ngIf="!col.type">{{row[col.k]}}</span>
 					</td>
@@ -47,7 +47,9 @@
 		<div *ngIf="recommendation?.text">
 			<h2>Recommendation</h2>
 			<h4 *ngIf="recommendation.dosageType">For {{recommendation.dosageType}} dose</h4>
-			<div [innerHTML]="recommendation.text" style="margin:0 auto;min-width:300px;width:60%;text-align:left;"></div>		
+			<div style="margin:0 auto;min-width:300px;width:60%;text-align:left;">Text:{{recommendation.text}}</div>
+			<div style="margin:0 auto;min-width:300px;width:60%;text-align:left;">Insulin:{{recommendation.ins}}</div>
+			<div style="margin:0 auto;min-width:300px;width:60%;text-align:left;">Dose:{{recommendation.dose}}</div>		
 		</div>
 	</div>
 </div>

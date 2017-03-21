@@ -15,18 +15,18 @@ h1 {
   font-size: 250%;
 }
 .splashScreen{
-    height:100%;
-    width: 100%;
-    max-width: 800px;
-    background-color: #000; 
-    background-image: url(/assets/splashscreen.jpg); 
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-attachment: fixed;       
-    webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height:100%;
+  width: 100%;
+  max-width: 800px;
+  background-color: #000; 
+  background-image: url(/assets/splashscreen.jpg); 
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-attachment: fixed;       
+  webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .appTitle{  
   position: absolute;
@@ -46,7 +46,7 @@ h1 {
   object-fit: contain;
 }
 .profileBox{
-  height: 30%;
+  height: 35%;
   width: 100%;
   background-color: #F4F4F4;
   text-align: center;

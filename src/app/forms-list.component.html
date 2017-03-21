@@ -13,7 +13,7 @@
 		<div style="display: flex;flex-wrap: nowrap;font-weight: bold;">
 			<span>{{form.dt | date:'d MMM, HH:mm'}}</span>
 			<span class="filler"></span>
-			<span>{{form.data.dosageType}}</span>
+			<span>{{form.type == 'infusion'?'Infusion':form.data.dosageType}}</span>
 		</div>
 		<div style="display: flex;flex-wrap: nowrap;margin-top: 5px;">
 			<span>Plasma Glucose: {{form.data.plasmaGlucose || ' - '}} mg/dl</span>			

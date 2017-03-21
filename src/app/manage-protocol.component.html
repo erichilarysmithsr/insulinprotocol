@@ -14,7 +14,7 @@
 		</div>		
 	</div>
 </div>
-<div style="padding:100px 5px 0 5px;box-sizing:border-box;overflow:scroll;height:100%;">
+<div style="padding:120px 5px 0 5px;box-sizing:border-box;overflow:scroll;height:100%;">
 	<md-spinner *ngIf="!protocol" class="spinner"></md-spinner>
 	<form (ngSubmit)="saveProtocol()" #protocolForm="ngForm" >
 		<div *ngIf="protocol">
@@ -26,7 +26,7 @@
 					<tr *ngFor="let row of protocol?.data?.chart;let i = index; ">
 						<td *ngFor="let col of config[type]; let j=index; ">
 							<md-input-container *ngIf="col.type">
-								<input mdInput [type]="col.type" [name]="i+'_'+j"  required [(ngModel)]="row[col.k]" class="centered">
+								<input mdInput [type]="col.type" step="0.1" [name]="i+'_'+j"  required [(ngModel)]="row[col.k]" class="centered">
 							</md-input-container>
 							<span *ngIf="!col.type">{{row[col.k]}}</span>
 						</td>
@@ -41,7 +41,7 @@
 					<tr *ngFor="let row of protocol?.data?.chart; let i = index; ">
 						<td *ngFor="let col of config[type]; let j = index;">
 							<md-input-container *ngIf="col.type">
-								<input mdInput [type]="col.type" [name]="i+j" required [(ngModel)]="row[col.k]" class="centered">
+								<input mdInput [type]="col.type" step="0.1" [name]="i+j" required [(ngModel)]="row[col.k]" class="centered">
 							</md-input-container>
 							<span *ngIf="!col.type">{{row[col.k]}}</span>			
 						</td>

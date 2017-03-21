@@ -1,25 +1,25 @@
 {
-  "short_name": "GlucoseAdvisor",
-  "name": "Glucose Control Advisor for nurses/doctors",
+  "short_name": "Insulin Plus",
+  "name": "Insulin Plus",
   "icons": [
     {
-      "src": "icon/drawable-mdpi/ic_launcher.png",
+      "src": "assets/icon/drawable-mdpi/ic_launcher.png",
       "type": "image/png",
       "sizes": "48x48"
     },
     {
-      "src": "icon/drawable-xhdpi/ic_launcher.png",
+      "src": "assets/icon/drawable-xhdpi/ic_launcher.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "icon/drawable-xxxhdpi/ic_launcher.png",
+      "src": "assets/icon/drawable-xxxhdpi/ic_launcher.png",
       "type": "image/png",
       "sizes": "192x192"
     }
   ],
   "start_url": "/?launcher=true",
-  "background_color":"#3f51b5",
-  "theme_color":"#3f51b5",
+  "background_color":"#ff5722",
+  "theme_color":"#ff5722",
   "display": "standalone"
 }

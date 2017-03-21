@@ -9,6 +9,9 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/retryWhen';
+import 'rxjs/add/operator/scan';
+import 'rxjs/add/operator/delay';
 
 import { AuthService } from './auth.service';
 import { DialogService } from './dialog.service';
@@ -26,35 +29,44 @@ import { AppSettings } from './app-settings';
 		
 	}
 	getPatients(uhid? :string): Observable<Patient[]>{
-		return this.http.post(this.dataUrl+'getPatients',uhid).map((res)=>this.parseBody(res)).catch(this.handleError);
+		return this.http.post(this.dataUrl+'getPatients',uhid).map((res)=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);
 	}
 	getProfile(id :number): Observable<Patient>{
-		return this.http.post(this.dataUrl+'getProfile',id).map((res)=>this.parseBody(res)).catch(this.handleError);
+		return this.http.post(this.dataUrl+'getProfile',id).map((res)=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);
 	}
 	savePatient(patient: Patient): Observable<Patient>{		
-		return this.http.post(this.dataUrl+'savePatient',patient).map(res=>this.parseBody(res)).catch(this.handleError);
+		return this.http.post(this.dataUrl+'savePatient',patient).map(res=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);
 	}
 	saveForm(form: Form): Observable<string>{
-		return this.http.post(this.dataUrl+'saveForm',form).map(res=>this.parseBody(res)).catch(this.handleError);
+		return this.http.post(this.dataUrl+'saveForm',form).map(res=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);
 	}
 	getForms(patientid: number): Observable<Form[]>{
-		return this.http.post(this.dataUrl+'getForms',patientid).map(res=>this.parseBody(res)).catch(this.handleError);
+		return this.http.post(this.dataUrl+'getForms',patientid).map(res=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);
 	}
 	getProtocol(type: string): Observable<Protocol>{
-		return this.http.post(this.dataUrl+'getProtocol',type).map(res=>this.parseBody(res)).catch(this.handleError);
+		return this.http.post(this.dataUrl+'getProtocol',type).map(res=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);
 	}
 	saveProtocol(protocol: Protocol): Observable<Protocol>{		
-		return this.http.post(this.dataUrl+'saveProtocol',protocol).map(res=>this.parseBody(res)).catch(this.handleError);
+		return this.http.post(this.dataUrl+'saveProtocol',protocol).map(res=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);
 	}
 	validateProtocol(patient: any,forms: any[]): Observable<any>{
-		return this.http.post(this.dataUrl+'validateProtocol',{patient:patient,forms:forms}).map(res=>this.parseBody(res)).catch(this.handleError);
+		return this.http.post(this.dataUrl+'validateProtocol',{patient:patient,forms:forms}).map(res=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);
 	}
 	getUserProfile(): Observable<User>{
-		return this.http.post(this.dataUrl+'getUserProfile','').map(res=>this.parseBody(res)).do(user=>this.authService.user=user).catch(this.handleError);
+		return this.http.get(this.dataUrl+'getUserProfile').map(res=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).do(user=>this.authService.user=user).catch(this.handleError);
+	}
+	getTransactions(): Observable<Form[]>{
+		return this.http.get(this.dataUrl+'getTransactions').map(res=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);
+	}
+	retryRequest(error: Observable<any>): Observable<any>{
+		return error.scan((count,e,index)=>{
+			if(e!='Auth Fail'||index==1)throw e;
+			return;
+		},0).delay(1000).switchMap(()=>Observable.from(this.authService.reload()));
 	}
 	private parseBody(res: Response){
 		if(res.text()=='fail')throw "Server Internal Error";
-		if(res.text()=='authFail'){this.authService.reload();throw "Auth Fail";}
+		if(res.text()=='authFail'){throw "Auth Fail";}
 		return res.text()=='success'?'success':(res.json()||{});
 	}
 	private handleError (error: Response | any) {

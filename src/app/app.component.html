@@ -5,7 +5,7 @@
 				<img [src]="authService.user?'assets/'+authService.user.role+'_orange.png':'' " style="height:100%;">
 			</div> 
 			<div style="font-size: 20px;margin-top: 4.6%;">Hi! {{authService.user?.name}}</div>
-			<div style="font-size: 10px;margin-top: 1%;">{{authService.user?.email}}</div>
+			<div style="font-size: 14px;margin-top: 1%;">{{authService.user?.email}}</div>
 		</div>
 		<div class="sideNavOption" *ngFor="let page of authService.pages" (click)="sideNavHandler(page)" ><div style="padding-top: 7%;">{{page.title}}</div></div>
 	</md-sidenav>

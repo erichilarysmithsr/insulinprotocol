@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { PatientProvider } from './patient-provider.service';
-import { Server } from './server.service';
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
+const patient_provider_service_1 = require("./patient-provider.service");
+const server_service_1 = require("./server.service");
 let FormsListComponent = class FormsListComponent {
     constructor(pp, route, router, server) {
         this.pp = pp;
@@ -20,14 +22,20 @@ let FormsListComponent = class FormsListComponent {
         this.forms = [];
     }
     ngOnInit() {
-        this.route.params.switchMap(params => this.pp.getPatient(+params['id'])).subscribe(() => { }, e => this.error = e);
-        this.route.params.switchMap(params => this.server.getForms(+params['id'])).subscribe(forms => this.processForms(forms), e => this.error = e);
+        if (this.route.snapshot.url[0].path == 'transactions') {
+            this.route.params.switchMap(params => this.server.getTransactions()).subscribe(forms => this.processForms(forms), e => this.error = e);
+        }
+        else {
+            this.route.params.switchMap(params => this.pp.getPatient(+params['id'])).subscribe(() => { }, e => this.error = e);
+            this.route.params.switchMap(params => this.server.getForms(+params['id'])).subscribe(forms => this.processForms(forms), e => this.error = e);
+        }
     }
     goBack() {
         this.router.navigate(['patient-list']);
     }
     processForms(forms) {
         let h = {};
+        forms.sort((f1, f2) => f1.id - f2.id);
         for (var i = 0; i < forms.length; i++) {
             let f = forms[i], parentId = f.data.parentId;
             if (parentId && h[parentId]) {
@@ -45,11 +53,11 @@ let FormsListComponent = class FormsListComponent {
     }
 };
 FormsListComponent = __decorate([
-    Component({
+    core_1.Component({
         moduleId: module.id,
         templateUrl: 'forms-list.component.html'
     }),
-    __metadata("design:paramtypes", [PatientProvider, ActivatedRoute, Router, Server])
+    __metadata("design:paramtypes", [patient_provider_service_1.PatientProvider, router_1.ActivatedRoute, router_1.Router, server_service_1.Server])
 ], FormsListComponent);
-export { FormsListComponent };
+exports.FormsListComponent = FormsListComponent;
 //# sourceMappingURL=forms-list.component.js.map

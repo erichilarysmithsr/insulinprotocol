@@ -27,8 +27,8 @@ import { AuthService } from './auth.service';
 	editPatient(id: number): void{
 		this.router.navigate(['patient',id,'profile']);
 	}
-	newPatient(uhid: string): void{
-		this.router.navigate(['patient',0,'profile'],{queryParams:{"uhid":uhid}});
+	newPatient(): void{
+		this.router.navigate(['patient',0,'profile']);
 	}
 	showForm(id: number): void{
 		if(!id)return;
