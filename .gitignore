@@ -3,7 +3,6 @@ node_modules
 jspm_packages
 npm-debug.*
 link-checker-results.txt
-src/**/*.js
 aot/
 *.js.map
 e2e/**/*.js
