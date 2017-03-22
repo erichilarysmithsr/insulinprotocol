@@ -7,7 +7,7 @@
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -p tsconfig.json -w",
     "build:e2e": "tsc -p e2e/",
-    "build:aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js",
+    "build:aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js && tsc -p tsconfig.json",
     "prestart_backup": "npm run build",
     "dev": "concurrently \"npm run build:watch\" \"DEBUG=default OAUTH_CLIENT_ID=715165700315-9mhd65j4m68it586c6sph0vl30a7n0a1.apps.googleusercontent.com DATABASE_URL=postgres://dbmanager:secret@localhost:5432/insulindb forever -w --watchDirectory=node node/www\"",
     "dev:node": "concurrently \"npm run build:watch\" \"DEBUG=default OAUTH_CLIENT_ID=715165700315-9mhd65j4m68it586c6sph0vl30a7n0a1.apps.googleusercontent.com DATABASE_URL=postgres://dbmanager:secret@localhost:5432/insulindb node --inspect node/www\"",

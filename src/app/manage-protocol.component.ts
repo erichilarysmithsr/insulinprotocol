@@ -11,7 +11,7 @@ import { AppSettings } from './app-settings';
 	moduleId:module.id,
 	templateUrl:'manage-protocol.component.html'
 })export class ManageProtocolComponent implements OnInit{
-	type: string = 'subcutaneous'
+	type: string = 'infusion'
 	protocol: Protocol
 	constructor(private server: Server,private dialog: DialogService,public authService: AuthService){}
 	private config = {

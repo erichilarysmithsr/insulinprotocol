@@ -41,7 +41,7 @@
 					<tr *ngFor="let row of protocol?.data?.chart; let i = index; ">
 						<td *ngFor="let col of config[type]; let j = index;">
 							<md-input-container *ngIf="col.type">
-								<input mdInput [type]="col.type" step="0.1" [name]="i+j" required [(ngModel)]="row[col.k]" class="centered">
+								<input mdInput [type]="col.type" step="0.1" [name]="i+'_'+j" required [(ngModel)]="row[col.k]" class="centered">
 							</md-input-container>
 							<span *ngIf="!col.type">{{row[col.k]}}</span>			
 						</td>

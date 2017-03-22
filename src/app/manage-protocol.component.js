@@ -19,7 +19,7 @@ let ManageProtocolComponent = class ManageProtocolComponent {
         this.server = server;
         this.dialog = dialog;
         this.authService = authService;
-        this.type = 'subcutaneous';
+        this.type = 'infusion';
         this.config = {
             subcutaneous: app_settings_1.AppSettings.subcutaneous,
             infusion: app_settings_1.AppSettings.infusion

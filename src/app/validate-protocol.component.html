@@ -15,7 +15,6 @@
 	</div> -->
 </div>
 <div #page id="page" style="padding:100px 5px 0 5px;box-sizing:border-box;overflow:scroll;height:100%;">
-	<!-- <md-spinner *ngIf="!protocol" class="spinner"></md-spinner> -->
 	<md-input-container>
 		<input mdInput type="number" name="weight" placeholder="Patient's weight"  [(ngModel)]="patient.profile.weight">
 	</md-input-container>
@@ -43,7 +42,6 @@
 		</div>	
 	</form>
 	<div style="text-align:center;">
-		<md-spinner *ngIf="!recommendation" class="spinner"></md-spinner>
 		<div *ngIf="recommendation?.text">
 			<h2>Recommendation</h2>
 			<h4 *ngIf="recommendation.dosageType">For {{recommendation.dosageType}} dose</h4>
