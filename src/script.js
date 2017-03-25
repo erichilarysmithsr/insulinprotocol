@@ -10,7 +10,7 @@ var checkLogin=new Promise((resolve,reject)=>{
                 var guser = ga.currentUser.get();                
                 googleAuthSetCookie(guser);
                 loginDone();
-            }
+            }else loginFailed(new Error('not logged in'));
         },e=>console.log(e));
     });
 };

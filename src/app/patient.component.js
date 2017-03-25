@@ -22,7 +22,7 @@ let PatientComponent = class PatientComponent {
         let id = +this.route.snapshot.params['id'];
         if (!id)
             return;
-        this.pp.getPatient(id).subscribe(patient => { });
+        this.pp.getPatient(id);
     }
     goBack() {
         this.router.navigate(['patient-list']);

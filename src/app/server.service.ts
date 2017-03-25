@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/from';
@@ -26,7 +27,15 @@ import { AppSettings } from './app-settings';
 @Injectable() export class Server{
 	private dataUrl=AppSettings.apiEndpoint
 	constructor(private http: Http,private authService: AuthService,private dialogService: DialogService){
-		
+
+	}
+	private isBusy: boolean
+	set busy(sub:Subscription){
+		if(!sub)this.isBusy=false;
+		else {
+			this.isBusy=true;console.log('wait started');
+			sub.add(()=>{this.isBusy=false;console.log('wait stopped');});
+		}
 	}
 	getPatients(uhid? :string): Observable<Patient[]>{
 		return this.http.post(this.dataUrl+'getPatients',uhid).map((res)=>this.parseBody(res)).retryWhen((e)=>this.retryRequest(e)).catch(this.handleError);

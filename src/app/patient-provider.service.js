@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 //This service is a caching method to allow multiple components to use the same patient without requesting each time
 const core_1 = require("@angular/core");
-const Observable_1 = require("rxjs/Observable");
 const server_service_1 = require("./server.service");
 const patient_1 = require("./patient");
 let PatientProvider = class PatientProvider {
@@ -21,10 +20,15 @@ let PatientProvider = class PatientProvider {
     }
     ;
     getPatient(id) {
-        if (this.patient && this.patient.id == id)
-            return Observable_1.Observable.from([this.patient]);
+        if (!this.patient || this.patient.id != id)
+            return new Promise((resolve, reject) => {
+                this.server.busy = this.server.getProfile(id).subscribe(patient => {
+                    this.patient = patient;
+                    resolve();
+                }, e => reject());
+            });
         else
-            return this.server.getProfile(id).do(patient => { this.patient = patient; });
+            return Promise.resolve();
     }
     savePatient() {
         return this.server.savePatient(this.patient);

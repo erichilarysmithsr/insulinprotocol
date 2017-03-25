@@ -13,10 +13,12 @@ const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
 const material_1 = require("@angular/material");
 const auth_service_1 = require("./auth.service");
+const server_service_1 = require("./server.service");
 let AppComponent = class AppComponent {
-    constructor(authService, router) {
+    constructor(authService, router, server) {
         this.authService = authService;
         this.router = router;
+        this.server = server;
         this.authService.init();
     }
     ngAfterViewInit() {
@@ -37,7 +39,7 @@ AppComponent = __decorate([
         moduleId: module.id,
         templateUrl: 'app.component.html'
     }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
+    __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router, server_service_1.Server])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

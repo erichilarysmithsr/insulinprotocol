@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MdSidenav } from '@angular/material';
 
 import { AuthService } from './auth.service';
+import { Server } from './server.service';
 
 @Component({
   selector: 'my-app',
@@ -11,7 +12,7 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent implements AfterViewInit { 
 	@ViewChild(MdSidenav) public sideNav: MdSidenav;
-	constructor(public authService: AuthService,private router: Router){
+	constructor(public authService: AuthService,private router: Router,public server:Server){
 		this.authService.init();
 	}
 	ngAfterViewInit(): void{

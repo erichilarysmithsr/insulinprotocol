@@ -13,13 +13,15 @@ const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
 const common_1 = require("@angular/common");
 const patient_provider_service_1 = require("./patient-provider.service");
+const server_service_1 = require("./server.service");
 const app_settings_1 = require("./app-settings");
 let PatientProfileComponent = class PatientProfileComponent {
-    constructor(pp, router, route, location) {
+    constructor(pp, router, route, location, server) {
         this.pp = pp;
         this.router = router;
         this.route = route;
         this.location = location;
+        this.server = server;
     }
     getOptions(type) {
         let conf = app_settings_1.AppSettings[type];
@@ -27,14 +29,10 @@ let PatientProfileComponent = class PatientProfileComponent {
     }
     ngOnInit() {
         let id = +this.route.snapshot.params['id'];
-        this.pp.getPatient(id).subscribe(() => {
-            let uhid = this.route.snapshot.queryParams['uhid'];
-            if (uhid)
-                this.pp.patient.uhid = uhid;
-        }, error => this.error = error);
+        this.pp.getPatient(id);
     }
     saveProfile() {
-        this.pp.savePatient().subscribe(patient => { this.router.navigate(['patient-list']); }, error => this.error = error);
+        this.server.busy = this.pp.savePatient().subscribe(patient => { this.router.navigate(['patient-list']); }, error => this.error = error);
     }
     goBack() {
         this.router.navigate(['patient-list']);
@@ -45,7 +43,7 @@ PatientProfileComponent = __decorate([
         moduleId: module.id,
         templateUrl: 'patient-profile.component.html'
     }),
-    __metadata("design:paramtypes", [patient_provider_service_1.PatientProvider, router_1.Router, router_1.ActivatedRoute, common_1.Location])
+    __metadata("design:paramtypes", [patient_provider_service_1.PatientProvider, router_1.Router, router_1.ActivatedRoute, common_1.Location, server_service_1.Server])
 ], PatientProfileComponent);
 exports.PatientProfileComponent = PatientProfileComponent;
 //# sourceMappingURL=patient-profile.component.js.map

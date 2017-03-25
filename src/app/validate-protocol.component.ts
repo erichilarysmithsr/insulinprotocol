@@ -30,6 +30,6 @@ declare var date: any;
 			if(r.plasmaGlucose)forms.push({type:'subcutaneous',dt:r.dt,data:{plasmaGlucose:r.plasmaGlucose,dosageType:r.dosageType}})
 			if(r.insulinDose)forms.push({type:'subcutaneousDose',dt:r.dt,data:{insulinDose:r.insulinDose,dosageType:r.dosageType}})
 		}
-		this.server.validateProtocol(this.patient,forms).subscribe((rs)=>{this.recommendation=rs;setImmediate(function(){page.scrollTop=page.scrollHeight;});});
+		this.server.busy=this.server.validateProtocol(this.patient,forms).subscribe((rs)=>{this.recommendation=rs;setImmediate(function(){page.scrollTop=page.scrollHeight;});});
 	}
 }

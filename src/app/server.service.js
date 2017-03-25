@@ -30,6 +30,15 @@ let Server = class Server {
         this.dialogService = dialogService;
         this.dataUrl = app_settings_1.AppSettings.apiEndpoint;
     }
+    set busy(sub) {
+        if (!sub)
+            this.isBusy = false;
+        else {
+            this.isBusy = true;
+            console.log('wait started');
+            sub.add(() => { this.isBusy = false; console.log('wait stopped'); });
+        }
+    }
     getPatients(uhid) {
         return this.http.post(this.dataUrl + 'getPatients', uhid).map((res) => this.parseBody(res)).retryWhen((e) => this.retryRequest(e)).catch(this.handleError);
     }

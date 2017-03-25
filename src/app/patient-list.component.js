@@ -25,10 +25,10 @@ let PatientListComponent = class PatientListComponent {
         let diag = this.dialogService.show('Error', 'There has been an error in contacting the server. Please check your connection and try again.', [], 'Close');
     }
     ngOnInit() {
-        this.server.getPatients().subscribe(patients => this.patients = patients, error => this.error = error);
+        this.onSearch();
     }
     onSearch(search) {
-        this.server.getPatients(search).subscribe(patients => this.patients = patients, error => this.error = error);
+        this.server.busy = this.server.getPatients(search).subscribe(patients => this.patients = patients, error => this.error = error);
     }
     editPatient(id) {
         this.router.navigate(['patient', id, 'profile']);

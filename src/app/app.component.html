@@ -10,6 +10,11 @@
 		<div class="sideNavOption" *ngFor="let page of authService.pages" (click)="sideNavHandler(page)" ><div style="padding-top: 7%;">{{page.title}}</div></div>
 	</md-sidenav>
 	<div class="mainwindow">
+		<div #busyBox *ngIf="server.isBusy" style="position: absolute;top:0;left:0;height: 100%;width: 100%;z-index: 1000;background-color: #FFFFFF;opacity: 0.7;text-align: center;">
+			<div style="height: 8%;width: 20%;margin:46% auto 0 auto;">
+				<md-spinner style="height: 70px;width: 70px;"></md-spinner>
+			</div>			
+		</div>
 		<router-outlet></router-outlet>
 	</div>
 </md-sidenav-container>

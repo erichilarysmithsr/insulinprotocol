@@ -23,10 +23,10 @@ import { AppSettings } from './app-settings';
 	}
 	getProtocol(): void{
 		delete this.protocol;
-		this.server.getProtocol(this.type).subscribe((rs)=>{this.protocol=rs;});
+		this.server.busy=this.server.getProtocol(this.type).subscribe((rs)=>{this.protocol=rs;});
 	}
 	saveProtocol(): void{
-		this.server.saveProtocol(this.protocol).subscribe(()=>{
+		this.server.busy=this.server.saveProtocol(this.protocol).subscribe(()=>{
 			let diag=this.dialog.show('Saved','The protocol has been successfully saved.',[],'Close');
 			diag.afterClosed().subscribe(()=>{});
 		});	

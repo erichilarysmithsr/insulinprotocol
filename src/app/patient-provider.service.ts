@@ -8,9 +8,13 @@ import { Patient } from './patient';
 @Injectable() export class PatientProvider{
 	patient: Patient = new Patient();
 	constructor(private server: Server){};
-	getPatient(id: number): Observable<Patient>{
-		if(this.patient&&this.patient.id==id)return Observable.from([this.patient]);
-		else return this.server.getProfile(id).do(patient =>{this.patient=patient});
+	getPatient(id: number): Promise<any>{
+		if(!this.patient||this.patient.id!=id)return new Promise((resolve,reject)=>{
+			this.server.busy=this.server.getProfile(id).subscribe(patient=>{
+				this.patient=patient;resolve();
+			},e=>reject());
+		}) 
+		else return Promise.resolve();
 	}
 	savePatient(): Observable<Patient>{
 		return this.server.savePatient(this.patient);

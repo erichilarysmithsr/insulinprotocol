@@ -27,12 +27,16 @@ let FormComponent = class FormComponent {
         this.form = new form_1.Form();
     }
     ngOnInit() {
-        this.route.params.do(params => this.patientId = +params['id']).switchMap(params => this.pp.getPatient(+params['id'])).subscribe(() => this.type = this.pp.patient.profile.insulinDeliveryType);
+        this.route.params.do(params => this.patientId = +params['id']).subscribe(params => {
+            this.pp.getPatient(+params['id']).then(() => {
+                this.type = this.pp.patient.profile.insulinDeliveryType;
+            });
+        });
     }
     saveForm() {
         this.form.patientId = this.patientId;
         this.form.type = this.type;
-        this.server.saveForm(this.form).subscribe((rs) => {
+        this.server.busy = this.server.saveForm(this.form).subscribe((rs) => {
             if (rs == 'success') {
                 let diag = this.dialogService.show('Saved', 'The form submitted has been successfully saved.', [], 'Close');
                 diag.afterClosed().subscribe(() => this.router.navigate(['patient-list']));

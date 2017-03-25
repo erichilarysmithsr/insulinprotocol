@@ -2,12 +2,12 @@
  * System configuration for Angular samples
  * Adjust as necessary for your application needs.
  */
-(function (global) {
+ (function (global) {
   System.config({
     paths: {
       // paths serve as alias
       'npm:': 'node_modules/'
-    },
+  },
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
@@ -27,16 +27,32 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'date-and-time':'npm:date-and-time/date-and-time.min.js',
-      'angular2-jwt':'npm:angular2-jwt/angular2-jwt.js'
-    },
+      'angular2-busy':'npm:angular2-busy',
+      'angular2-dynamic-component':'npm:angular2-dynamic-component',
+      'ts-metadata-helper':'npm:ts-metadata-helper',
+      'core-js':'npm:core-js'
+  },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {
         defaultExtension: 'js'
-      },
-      rxjs: {
+    },
+    rxjs: {
         defaultExtension: 'js'
-      }
-    }
-  });
+    },
+    'angular2-busy': {
+      main: './index.js',
+      defaultExtension: 'js'
+  },
+  'ts-metadata-helper': {
+    defaultExtension: 'js'
+},
+'angular2-dynamic-component': {
+    defaultExtension: 'js'
+},
+'core-js':{
+    defaultExtension:'js'
+}
+}
+});
 })(this);

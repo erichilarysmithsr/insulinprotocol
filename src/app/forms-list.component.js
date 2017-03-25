@@ -23,11 +23,15 @@ let FormsListComponent = class FormsListComponent {
     }
     ngOnInit() {
         if (this.route.snapshot.url[0].path == 'transactions') {
-            this.route.params.switchMap(params => this.server.getTransactions()).subscribe(forms => this.processForms(forms), e => this.error = e);
+            this.route.params.subscribe(params => {
+                this.server.busy = this.server.getTransactions().subscribe(forms => this.processForms(forms));
+            });
         }
         else {
-            this.route.params.switchMap(params => this.pp.getPatient(+params['id'])).subscribe(() => { }, e => this.error = e);
-            this.route.params.switchMap(params => this.server.getForms(+params['id'])).subscribe(forms => this.processForms(forms), e => this.error = e);
+            this.route.params.subscribe(params => {
+                this.pp.getPatient(+params['id']);
+                this.server.busy = this.server.getForms(+params['id']).subscribe(forms => this.processForms(forms));
+            });
         }
     }
     goBack() {

@@ -15,15 +15,19 @@ import { DialogService } from './dialog.service';
 	error: any
 	form = new Form()
 	patientId: number
-	type: string
 	recommendation: string
+	type :string
 	constructor(public pp: PatientProvider, private router: Router,private route: ActivatedRoute,private location: Location,private server: Server,private dialogService: DialogService){}
 	ngOnInit(): void{
-		this.route.params.do(params=>this.patientId=+params['id']).switchMap(params=>this.pp.getPatient(+params['id'])).subscribe(()=>this.type=this.pp.patient.profile.insulinDeliveryType);
+		this.route.params.do(params=>this.patientId=+params['id']).subscribe(params=>{
+			this.pp.getPatient(+params['id']).then(()=>{
+				this.type=this.pp.patient.profile.insulinDeliveryType;
+			})
+		});
 	}
 	saveForm(): void{
 		this.form.patientId=this.patientId;this.form.type=this.type;
-		this.server.saveForm(this.form).subscribe((rs: any)=>{
+		this.server.busy=this.server.saveForm(this.form).subscribe((rs: any)=>{
 			if(rs=='success'){
 				let diag=this.dialogService.show('Saved','The form submitted has been successfully saved.',[],'Close');
 				diag.afterClosed().subscribe(()=>this.router.navigate(['patient-list']));

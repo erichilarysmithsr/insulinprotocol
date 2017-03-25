@@ -53,7 +53,7 @@ const appRoutes: Routes=[
 ]
 
 @NgModule({
-  imports:      [ BrowserModule,FormsModule,RouterModule.forRoot(appRoutes),MaterialModule.forRoot(),MdDialogModule.forRoot()],
+  imports:      [ BrowserModule,FormsModule,RouterModule.forRoot(appRoutes),MaterialModule.forRoot(),MdDialogModule.forRoot() ],
   declarations: [ AppComponent,PatientListComponent,PatientProfileComponent,PageNotFoundComponent,FormComponent,PatientComponent,DialogComponent,FormsListComponent,ManageProtocolComponent,ValidateProtocolComponent,LoginComponent ],
   providers: [ Server,PatientProvider,DialogService,AuthService,AuthGuard ],
   bootstrap:    [ AppComponent ],

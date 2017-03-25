@@ -6,6 +6,8 @@ import { Server } from './server.service';
 import { DialogService } from './dialog.service';
 import { AuthService } from './auth.service';
 
+import {Subscription} from 'rxjs/Subscription';
+
 @Component({
 	moduleId:module.id,
 	templateUrl:'patient-list.component.html',
@@ -13,16 +15,17 @@ import { AuthService } from './auth.service';
 	styleUrls:['patient-list.component.css']
 }) export class PatientListComponent implements OnInit{
 	patients: Patient[]
+	busy: Subscription
 	set error(error:any){
 		let diag=this.dialogService.show('Error','There has been an error in contacting the server. Please check your connection and try again.',[],'Close');
 	}
 	showSearch: boolean
 	constructor(private server: Server,private router: Router,private dialogService: DialogService,public authService: AuthService){}
 	ngOnInit(): void{
-		this.server.getPatients().subscribe(patients=>this.patients=patients,error=>this.error=error);
+		this.onSearch();
 	}
 	onSearch(search?: string): void{
-		this.server.getPatients(search).subscribe(patients=>this.patients=patients,error=>this.error=error);
+		this.server.busy=this.server.getPatients(search).subscribe(patients=>this.patients=patients,error=>this.error=error);
 	}
 	editPatient(id: number): void{
 		this.router.navigate(['patient',id,'profile']);

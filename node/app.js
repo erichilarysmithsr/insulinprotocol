@@ -20,7 +20,7 @@ app.use('/data', require('./routes/data'));
 
 // catch 404 and forward to error handler
 app.get(/(\.)+/,function(req, res, next) {
-  var err = new Error('catch 404');
+  var err = new Error('catch 404 URL:',req.url);
   err.status = 404;
   next(err);
 });
