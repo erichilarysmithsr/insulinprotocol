@@ -29,7 +29,7 @@ import { AppSettings } from './app-settings';
 	constructor(private http: Http,private authService: AuthService,private dialogService: DialogService){
 
 	}
-	private isBusy: boolean
+	isBusy: boolean
 	set busy(sub:Subscription){
 		if(!sub)this.isBusy=false;
 		else {
