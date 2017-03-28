@@ -30,7 +30,10 @@ var authCheck=function(req,res,next){
         function(e,login){if(e){log(e);return fail();}
         var payload = login.getPayload();
         var email = payload.email;
-        db.one("SELECT id,name,email,role FROM users WHERE email=$1",[email]).then(success,fail);
+        db.one("SELECT id,name,email,role FROM users WHERE email=$1",[email]).then((user)=>{
+            if(!user.role)fail();
+            else success(user);
+        },fail);
     }); 
 };
 
@@ -49,7 +52,7 @@ router.get('/getUserProfile',parseText,function(req,res){
         var payload = login.getPayload();
         db.oneOrNone("SELECT id,name,email,role FROM users WHERE email=$1",[payload.email]).then(rs=>{
             if(rs)success(rs);
-            else db.one("INSERT INTO users (name,email,info,role) VALUES ($1,$2,$3,'doctor') RETURNING id,name,email",[payload.name,payload.email,{picture:payload.picture,sub:payload.sub}]).then(success,fail);
+            else db.one("INSERT INTO users (name,email,info) VALUES ($1,$2,$3) RETURNING id,name,email,role",[payload.name,payload.email,{picture:payload.picture,sub:payload.sub}]).then(success,fail);
         },fail);
     });    
 });
