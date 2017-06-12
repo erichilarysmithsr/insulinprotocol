@@ -33,8 +33,8 @@ import { AppSettings } from './app-settings';
 	set busy(sub:Subscription){
 		if(!sub)this.isBusy=false;
 		else {
-			this.isBusy=true;console.log('wait started');
-			sub.add(()=>{this.isBusy=false;console.log('wait stopped');});
+			this.isBusy=true;
+			sub.add(()=>this.isBusy=false);
 		}
 	}
 	getPatients(uhid? :string): Observable<Patient[]>{
@@ -88,7 +88,6 @@ import { AppSettings } from './app-settings';
 		} else {
 			errMsg = error.message ? error.message : error.toString();
 		}
-		console.log('server error',errMsg);
 		return Observable.throw(errMsg);
 	}
 }

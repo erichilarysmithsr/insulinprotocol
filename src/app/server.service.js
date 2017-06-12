@@ -35,8 +35,7 @@ let Server = class Server {
             this.isBusy = false;
         else {
             this.isBusy = true;
-            console.log('wait started');
-            sub.add(() => { this.isBusy = false; console.log('wait stopped'); });
+            sub.add(() => this.isBusy = false);
         }
     }
     getPatients(uhid) {
@@ -95,7 +94,6 @@ let Server = class Server {
         else {
             errMsg = error.message ? error.message : error.toString();
         }
-        console.log('server error', errMsg);
         return Observable_1.Observable.throw(errMsg);
     }
 };

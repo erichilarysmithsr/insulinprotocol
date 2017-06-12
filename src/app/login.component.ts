@@ -18,7 +18,7 @@ import 'rxjs/operator/filter';
 	}
 	ngOnInit(): void{
 		this.route.url.filter(url=>url.find(urlSeg=>urlSeg.path==='logout')?true:false).subscribe(params=>{
-			Observable.from(this.authService.signOut().then(()=>this.router.navigate(['login']),(e)=>{console.log(e);this.router.navigate(['login'])})).subscribe();
+			Observable.from(this.authService.signOut().then(()=>this.router.navigate(['login']),(e)=>{this.router.navigate(['login'])})).subscribe();
 		});
 		this.route.url.filter(url=>url.find(urlSeg=>urlSeg.path==='login')?true:false)
 		.subscribe(()=>{

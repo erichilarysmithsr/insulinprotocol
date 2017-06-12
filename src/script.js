@@ -11,7 +11,7 @@ var checkLogin=new Promise((resolve,reject)=>{
                 googleAuthSetCookie(guser);
                 loginDone();
             }else loginFailed(new Error('not logged in'));
-        },e=>console.log(e));
+        },e=>{});
     });
 };
 var googleAuthSetCookie = function(guser){    

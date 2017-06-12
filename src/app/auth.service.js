@@ -36,7 +36,6 @@ let AuthService = class AuthService {
         return w.googleAuth2SignOut();
     }
     reload() {
-        console.log('reload called');
         return w.googleAuth2Reload();
     }
     checkLogin() {
